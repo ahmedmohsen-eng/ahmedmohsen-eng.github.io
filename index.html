@@ -1,69 +1,177 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Mohsen | Engineering Portfolio</title>
+    <title>Ahmed Mohsen | Interactive Portfolio</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px; background-color: #f9f9f9; }
-        header { border-bottom: 3px solid #2c3e50; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { margin: 0; color: #2c3e50; }
-        .subtitle { font-size: 1.2em; color: #555; }
-        .contact { font-size: 0.9em; color: #777; margin-top: 10px; }
-        h2 { color: #2c3e50; border-left: 5px solid #2c3e50; padding-left: 15px; margin-top: 40px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .tag { background: #eee; padding: 3px 10px; border-radius: 15px; font-size: 0.85em; display: inline-block; margin-right: 5px; }
+        :root {
+            --primary: #1a1a1a;
+            --accent: #0070f3; /* Modern Blue */
+            --bg: #fcfcfc;
+            --card-bg: #ffffff;
+        }
+
+        /* Smooth, Relaxing Entrance */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            line-height: 1.7; 
+            color: #333; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Relaxing background */
+            background-attachment: fixed;
+            margin: 0; 
+            padding: 0; 
+        }
+
+        .container { 
+            max-width: 850px; 
+            margin: 40px auto; 
+            padding: 40px; 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Interactive Header */
+        header { 
+            text-align: center;
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 40px; 
+            margin-bottom: 50px; 
+        }
+        
+        h1 { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            background: linear-gradient(to right, #1a1a1a, #0070f3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline { 
+            font-size: 1.1rem; 
+            color: #666; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        /* Section Styling */
+        h2 { 
+            font-size: 1.3rem; 
+            color: var(--primary); 
+            border-left: 4px solid var(--accent); 
+            padding-left: 15px; 
+            margin-top: 50px;
+        }
+
+        /* Interactive Cards */
+        .card { 
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            transition: all 0.3s ease; /* Smooth transition */
+        }
+
+        .card:hover { 
+            transform: translateY(-5px); /* Gentle float up */
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent);
+        }
+
+        .entry-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .title { font-weight: 700; font-size: 1.1rem; }
+        .date { font-family: monospace; color: #888; font-size: 0.85rem; }
+
+        /* Tech Badges */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .badge { 
+            padding: 5px 15px; 
+            background: #f0f4f8; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            color: var(--accent);
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .badge:hover { background: var(--accent); color: white; }
+
+        footer { text-align: center; margin-top: 50px; color: #999; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Ahmed Mohsen</h1>
-    <div class="subtitle">Engineering Student | Competitive Programmer</div>
-    <div class="contact">
-        Cairo, Egypt | ahmed.mohsen.study@gmail.com | github.com/ahmedmohsen-eng
-    </div>
-</header>
+<div class="container">
+    <header>
+        <h1>Ahmed Mohsen</h1>
+        <div class="tagline">Engineering & AI Specialist</div>
+        <p>Cairo, Egypt | ahmed.mohsen.study@gmail.com</p>
+    </header>
 
-<section>
-    <h2>Professional Statement</h2>
-    <div class="card">
-        <p>High-achieving Engineering Student at Université Française d'Égypte (UFE) specializing in the mathematical foundations of AI and high-performance computing. Recipient of the Schneider Electric & UFE Excellence Scholarship.</p>
-    </div>
-</section>
+    <section>
+        <h2>The Profile</h2>
+        <div class="card">
+            High-achieving Engineering Student at <strong>Université Française d'Égypte (UFE)</strong>[cite: 13]. 
+            Recipient of the <strong>Schneider Electric & UFE Excellence Scholarship</strong> with a <strong>3.83 GPA</strong>[cite: 10, 15]. 
+            Specializing in the mathematical foundations of AI and high-performance computing[cite: 9].
+        </div>
+    </section>
 
-<section>
-    <h2>Technical Experience</h2>
-    <div class="card">
-        <strong>AI Developer | Customer Support AI System</strong> (In Progress)
-        <p>Engineering an end-to-end AI agent using Transformers and Retrieval-Augmented Generation (RAG) to eliminate LLM hallucinations.</p>
-    </div>
-    <div class="card">
-        <strong>Hardware Developer | Integrated Sensor System</strong>
-        <p>Designed state-machine logic for 7+ simultaneous sensor inputs; engineered C++ code for real-time signal processing.</p>
-    </div>
-</section>
+    <section>
+        <h2>Active Development</h2>
+        <div class="card">
+            <div class="entry-header">
+                <span class="title">AI Developer | RAG System</span>
+                <span class="date">2026</span>
+            </div>
+            <p>Engineering an end-to-end AI agent using Transformers and Retrieval-Augmented Generation (RAG)[cite: 22].</p>
+            <div class="skills-container">
+                <span class="badge">Transformers</span>
+                <span class="badge">RAG</span>
+                <span class="badge">Python</span>
+            </div>
+        </div>
 
-<section>
-    <h2>Education</h2>
-    <div class="card">
-        <strong>Université Française d'Égypte (UFE)</strong>
-        <p>Preparatory Year - Engineering Track | Focus: Advanced Calculus & Linear Algebra</p>
-    </div>
-    <div class="card">
-        <strong>Obour STEM School</strong>
-        <p>GPA: 3.83/4.00 | Focus: Applied Sciences & Capstone Research</p>
-    </div>
-</section>
+        <div class="card">
+            <div class="entry-header">
+                <span class="title">Competitive Programmer</span>
+                <span class="date">Active</span>
+            </div>
+            <p>Solved <strong>+200 problems on Codeforces</strong> focusing on Dynamic Programming and Graph Theory[cite: 20].</p>
+            <div class="skills-container">
+                <span class="badge">C++</span>
+                <span class="badge">STL</span>
+                <span class="badge">Algorithms</span>
+            </div>
+        </div>
+    </section>
 
-<section>
-    <h2>Skills & Tools</h2>
-    <div class="card">
-        <div><strong>Languages:</strong> <span class="tag">C++ (STL)</span> <span class="tag">Python</span> <span class="tag">C#</span></div>
-        <div style="margin-top:10px;"><strong>Tools:</strong> <span class="tag">Git</span> <span class="tag">VS Code</span> <span class="tag">PyCharm</span> <span class="tag">Tinkercad</span></div>
-    </div>
-</section>
+    <section>
+        <h2>Technical Stack</h2>
+        <div class="card">
+            <div class="skills-container">
+                <span class="badge">C++</span> <span class="badge">Python</span> <span class="badge">C#</span>
+                <span class="badge">Discrete Mathematics</span> <span class="badge">Calculus</span>
+                <span class="badge">Signal Logic</span> <span class="badge">Git</span> <span class="badge">Tinkercad</span> [cite: 29]
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Built with Code & Calm | No Watermarks
+    </footer>
+</div>
 
 </body>
 </html>
