@@ -3,224 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Mohsen | Engineering Portfolio</title>
+    <title>Ahmed Mohsen | AI & Engineering</title>
     <style>
         :root {
-            --bg: #0d1117;
-            --card: #161b22;
-            --accent: #58a6ff;
-            --text-main: #c9d1d9;
-            --text-dim: #8b949e;
-            --border: #30363d;
+            --bg: #050505;
+            --surface: rgba(20, 20, 20, 0.6);
+            --surface-hover: rgba(30, 30, 30, 0.8);
+            --accent: #0070f3;
+            --accent-glow: rgba(0, 112, 243, 0.4);
+            --text: #ededed;
+            --text-dim: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.1);
         }
+
+        * { box-sizing: border-box; }
 
         body {
             background-color: var(--bg);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        /* Animated Aurora Background */
+        .aurora-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(0, 112, 243, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 212, 255, 0.05), transparent 25%);
+            z-index: -1;
+            animation: pulseBg 15s ease-in-out infinite alternate;
+        }
 
-        /* HEADER SECTION */
-        header {
+        @keyframes pulseBg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* Sticky Glass Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            padding-bottom: 40px;
+            padding: 15px 20px;
+            margin: 0 -20px 60px -20px;
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
 
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            object-fit: cover;
-        }
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; }
+        .logo span { color: var(--accent); }
 
-        .header-content h1 { font-size: 2.8rem; margin: 0; color: #fff; }
-        .tagline { color: var(--accent); font-size: 1.2rem; font-weight: 600; margin: 5px 0; }
-        
-        .contact-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; }
-        .contact-links a { 
-            color: var(--text-dim); 
-            text-decoration: none; 
-            font-size: 0.9rem;
-            display: flex;
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
             align-items: center;
-            gap: 5px;
-            transition: color 0.2s;
+            padding: 40px 0 80px 0;
         }
-        .contact-links a:hover { color: var(--accent); }
 
-        /* LAYOUT GRID */
-        .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 40px; }
+        .profile-wrapper { position: relative; width: 220px; height: 220px; }
+        .profile-img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            box-shadow: 0 0 30px var(--accent-glow);
+            transition: transform 0.5s ease;
+        }
+        .profile-img:hover { transform: scale(1.05); }
 
-        section { margin-bottom: 40px; }
-        h2 { font-size: 1.4rem; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; }
+        .hero-text h1 { font-size: 3.5rem; margin: 0; line-height: 1.1; letter-spacing: -1px; }
+        .hero-text p { font-size: 1.15rem; color: var(--text-dim); margin: 20px 0; max-width: 550px; }
 
-        .experience-item { margin-bottom: 25px; padding-left: 15px; border-left: 2px solid var(--border); }
-        .experience-item:hover { border-left-color: var(--accent); }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; }
-        .item-title { font-weight: 700; color: var(--accent); font-size: 1.1rem; }
-        .item-date { font-size: 0.85rem; color: var(--text-dim); font-family: monospace; }
-        .item-org { font-weight: 600; color: #f0f6fc; display: block; margin: 2px 0; }
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--text);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .btn:hover { background: var(--accent); color: white; box-shadow: 0 0 15px var(--accent-glow); }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .btn-outline:hover { border-color: var(--accent); background: transparent; }
 
-        /* SKILLS BOX */
-        .skills-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-        .skill-category { font-weight: 700; color: var(--accent); font-size: 0.85rem; text-transform: uppercase; margin-top: 15px; display: block; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-        .tag { background: rgba(88, 166, 255, 0.1); color: var(--accent); padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; border: 1px solid rgba(88, 166, 255, 0.2); }
+        .socials { display: flex; gap: 15px; margin-top: 30px; }
 
-        .gpa-card { background: linear-gradient(45deg, #1f6feb, #111); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
+        /* Scroll Reveal Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Interactive Grid Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .card:hover { background: var(--surface-hover); border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
+
+        .item-meta { color: var(--accent); font-family: monospace; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .card h3 { margin: 10px 0; font-size: 1.3rem; }
+        .card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 0; }
+
+        /* Stats Section */
+        .stats-container {
+            display: flex; gap: 30px; margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(145deg, rgba(0,112,243,0.1) 0%, rgba(0,0,0,0) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .stat-box { flex: 1; }
+        .stat-num { font-size: 3rem; font-weight: 800; color: white; line-height: 1; display: flex; align-items: center; }
+        .stat-label { color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; display: block; }
+
+        /* Tags */
+        .skills-matrix { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .tag {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            transition: all 0.2s;
+        }
+        .tag:hover { color: white; border-color: var(--accent); background: rgba(0,112,243,0.1); }
+
+        footer { text-align: center; margin: 100px 0 40px 0; color: var(--text-dim); font-size: 0.85rem; }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; }
-            .main-grid { grid-template-columns: 1fr; }
-            .item-header { flex-direction: column; }
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .profile-wrapper { margin: 0 auto; }
+            .socials { justify-content: center; flex-wrap: wrap; }
+            .stats-container { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+<div class="aurora-bg"></div>
+
 <div class="container">
-    <header>
-        <img src="profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img">
-        <div class="header-content">
-            <h1>Ahmed Mohsen</h1>
-            <div class="tagline">Engineering Student | Competitive Programmer</div>
-            <div class="contact-links">
-                <a href="mailto:ahmed.mohsen.study@gmail.com">✉️ Email</a>
-                <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank">🔗 LinkedIn</a>
-                <a href="https://github.com/ahmedmohsen-eng" target="_blank">💻 GitHub</a>
-                <a href="https://codeforces.com/profile/your_username" target="_blank">🏆 Codeforces</a>
+    <nav>
+        <div class="logo">AHMED<span>.MOHSEN</span></div>
+        <a href="mailto:ahmed.mohsen.study@gmail.com" class="btn">Initiate Contact</a>
+    </nav>
+
+    <header class="hero reveal">
+        <div class="profile-wrapper">
+            <img src="profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img">
+        </div>
+        <div class="hero-text">
+            <h1>Engineering<br><span>Intelligence.</span></h1>
+            <p>AI Developer & Competitive Programmer at <strong>UFE</strong>. Specializing in high-performance C++ and RAG-based AI architectures.</p>
+            <div class="socials">
+                <a href="https://linkedin.com/in/ahmedmohseneng" class="btn btn-outline" target="_blank">LinkedIn</a>
+                <a href="https://github.com/ahmedmohsen-eng" class="btn btn-outline" target="_blank">GitHub</a>
+                <a href="https://codeforces.com/profile/hackgg106" class="btn btn-outline" target="_blank">Codeforces Profile</a>
             </div>
         </div>
     </header>
 
-    <div class="main-grid">
-        <div class="content-main">
-            <section>
-                <h2>Personal Statement</h2>
-                <p>High-achieving Engineering Student at <strong>Université Française d'Égypte (UFE)</strong> specializing in the mathematical foundations of AI and high-performance computing. Recipient of the <strong>Schneider Electric & UFE Excellence Scholarship</strong> with a proven <strong>3.83 GPA</strong>. Expert in algorithmic optimization using <strong>C++/STL</strong> and seeking to apply Signal Logic and RAG-based AI architectures to complex industrial problems.</p>
-            </section>
-
-            <section>
-                <h2>Technical Experience & Projects</h2>
-                
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">AI Developer, Customer Support AI System</span>
-                        <span class="item-date">Feb 2026 – Present</span>
-                    </div>
-                    <span class="item-org">In Progress</span>
-                    <ul>
-                        <li>Engineering an end-to-end AI agent using Transformers and Retrieval-Augmented Generation (RAG) to eliminate LLM hallucinations.</li>
-                        <li>Implementing sentiment analysis and data preprocessing on complex SaaS datasets via the ML & AI Discovery Camp (Session 6/10 completed).</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">Active Member, ICPC UFE Community</span>
-                        <span class="item-date">2025 – Present</span>
-                    </div>
-                    <ul>
-                        <li>Mastering Phase 1 (STL) with focus on std::set, std::map, and priority_queue for high-efficiency memory management.</li>
-                        <li><strong>Milestone:</strong> Solved +200 problems on Codeforces focusing on Dynamic Programming, Graph Theory, and Bit Manipulation.</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">Hardware Developer, Integrated Sensor System</span>
-                        <span class="item-date">Nov 2023</span>
-                    </div>
-                    <ul>
-                        <li>Designed state-machine logic to handle 7+ simultaneous sensor inputs using a custom IR-receiver command protocol.</li>
-                        <li>Engineered C++ code for real-time processing of analog signals into digital diagnostics.</li>
-                        <li>Verified the full hardware-software ecosystem via Tinkercad simulation.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <h2>Education</h2>
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">Université Française d'Égypte (UFE)</span>
-                        <span class="item-date">2025 – Present</span>
-                    </div>
-                    <span class="item-org">Engineering Track - Preparatory Year</span>
-                    <p>Core Studies: Advanced Calculus, Linear Algebra, and Engineering Mathematics.</p>
-                </div>
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="item-title">Obour STEM School</span>
-                        <span class="item-date">2022 – 2025</span>
-                    </div>
-                    <span class="item-org">STEM High School Diploma</span>
-                    <p>Focus: Capstone research projects in applied sciences. GPA: 3.83/4.00.</p>
-                </div>
-            </section>
-        </div>
-
-        <div class="content-side">
-            <div class="gpa-card">
-                <div style="font-size: 0.8rem; text-transform: uppercase; opacity: 0.8;">Cumulative GPA</div>
-                <div style="font-size: 2.2rem; font-weight: 800;">3.83 / 4.00</div>
+    <section class="reveal" style="margin-top: 40px;">
+        <h2 style="font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 10px;">Core Implementations</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="item-meta">Active Development</span>
+                <h3>AI Customer Support Architecture</h3>
+                <p>Engineering end-to-end AI agents using <strong>Transformers</strong> and <strong>RAG</strong> to eliminate LLM hallucinations in SaaS datasets.</p>
             </div>
-
-            <section>
-                <h2>Technical Skills</h2>
-                <div class="skills-box">
-                    <span class="skill-category">Languages</span>
-                    <div class="skill-tags">
-                        <span class="tag">C++ (STL)</span> <span class="tag">Python</span> <span class="tag">C#</span>
-                    </div>
-                    
-                    <span class="skill-category">Theory & Math</span>
-                    <div class="skill-tags">
-                        <span class="tag">Discrete Math</span> <span class="tag">Calculus</span> <span class="tag">Linear Algebra</span>
-                    </div>
-
-                    <span class="skill-category">Engineering</span>
-                    <div class="skill-tags">
-                        <span class="tag">AI Logic</span> <span class="tag">Logic Design</span> <span class="tag">Signal Logic</span> <span class="tag">OOP</span>
-                    </div>
-
-                    <span class="skill-category">Tools</span>
-                    <div class="skill-tags">
-                        <span class="tag">Git</span> <span class="tag">VS Code</span> <span class="tag">Google Colab</span> <span class="tag">Tinkercad</span>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2>Honours & Certs</h2>
-                <div style="font-size: 0.9rem;">
-                    [cite_start]<p><strong>• Schneider Excellence Scholarship</strong><br>UFE & Schneider Electric [cite: 14]</p>
-                    [cite_start]<p><strong>• AI Training Certification</strong><br>Egyptian Academy for Engineering [cite: 32]</p>
-                    [cite_start]<p><strong>• Arduino & Robotics Diploma</strong><br>EGY STEM Academy [cite: 33]</p>
-                    [cite_start]<p><strong>• American Math Olympiad</strong><br>Advanced Problem Solving [cite: 34, 35]</p>
-                    [cite_start]<p><strong>• Beaver Competition (MCIT)</strong><br>Informatics Excellence [cite: 36, 37]</p>
-                </div>
-            </section>
-
-            <section>
-                <h2>Languages</h2>
-                <div style="font-size: 0.9rem;">
-                    [cite_start]Arabic (Native) [cite: 39]<br>
-                    [cite_start]English (B1/B2) [cite: 40]<br>
-                    [cite_start]French (A1) [cite: 41]
-                </div>
-            </section>
+            <div class="card">
+                <span class="item-meta">Hardware | C++</span>
+                <h3>Integrated Sensor Logic</h3>
+                <p>Designed a state-machine ecosystem processing real-time analog signals for 7+ simultaneous sensors with a custom IR-receiver protocol.</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="reveal" style="margin-top: 60px;">
+        <h2 style="font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 10px;">Academic & Competitive Standing</h2>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-num"><span class="counter" data-target="3.83" data-decimals="2">0.00</span></div>
+                <span class="stat-label">Cumulative GPA | STEM Diploma</span>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num"><span class="counter" data-target="200" data-decimals="0">0</span><span style="color:var(--accent)">+</span></div>
+                <span class="stat-label">Codeforces Problems Solved</span>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num" style="font-size: 2rem;">Schneider</div>
+                <span class="stat-label">Excellence Scholarship Awardee</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal" style="margin-top: 60px;">
+        <h2 style="font-size: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 10px;">Technical Matrix</h2>
+        <div class="skills-matrix">
+            <span class="tag">C++ (STL)</span> <span class="tag">Python</span> <span class="tag">C#</span>
+            <span class="tag">Discrete Mathematics</span> <span class="tag">Linear Algebra</span> 
+            <span class="tag">Calculus</span> <span class="tag">Signal Logic</span>
+            <span class="tag">Data Structures</span> <span class="tag">Transformers & RAG</span>
+            <span class="tag">Git</span> <span class="tag">Tinkercad</span>
+        </div>
+    </section>
+
+    <footer class="reveal">
+        &copy; 2026 Ahmed Mohsen. Built for High-Performance.
+    </footer>
 </div>
+
+<script>
+    // 1. Scroll Reveal Logic
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                
+                // Trigger counters if they are inside the revealed element
+                const counters = entry.target.querySelectorAll('.counter');
+                counters.forEach(startCounter);
+                
+                // Stop observing once revealed
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 2. Number Counter Logic
+    function startCounter(counter) {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const decimals = parseInt(counter.getAttribute('data-decimals'));
+        const duration = 2000; // 2 seconds
+        const stepTime = 20; 
+        const steps = duration / stepTime;
+        const increment = target / steps;
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            counter.innerText = current.toFixed(decimals);
+        }, stepTime);
+    }
+</script>
 
 </body>
 </html>
