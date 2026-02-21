@@ -3,257 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Mohsen | High-Performance Engineering</title>
+    
+    <title>Ahmed Mohsen | Engineering & AI Portfolio</title>
+    <meta name="description" content="Portfolio of Ahmed Mohsen, Engineering Student at UFE. Specialized in AI (RAG), C++, and High-Performance Computing.">
+    <meta property="og:title" content="Ahmed Mohsen | High-Performance Engineering">
+    <meta property="og:description" content="UFE Engineering Student | Schneider Excellence Scholar | Competitive Programmer">
+    <meta property="og:type" content="website">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         :root {
-            --bg: #050505;
-            --surface: rgba(20, 20, 20, 0.6);
-            --surface-hover: rgba(30, 30, 30, 0.8);
+            --bg: #030303;
+            --surface: rgba(15, 15, 15, 0.7);
             --accent: #0070f3;
-            --accent-glow: rgba(0, 112, 243, 0.4);
-            --success: #00df89;
-            --text: #ededed;
-            --text-dim: #a0a0a0;
-            --border: rgba(255, 255, 255, 0.1);
+            --accent-glow: rgba(0, 112, 243, 0.3);
+            --text: #ffffff;
+            --text-dim: #888888;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
-        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg);
             color: var(--text);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
-            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Ambient Aurora Effect */
-        .aurora-bg {
+        .grid-bg {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: 
-                radial-gradient(circle at 10% 40%, rgba(0, 112, 243, 0.08), transparent 30%),
-                radial-gradient(circle at 90% 60%, rgba(0, 223, 137, 0.05), transparent 30%);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
             z-index: -1;
-            animation: pulseBg 12s ease-in-out infinite alternate;
+            mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
         }
 
-        @keyframes pulseBg { 0% { transform: scale(1); } 100% { transform: scale(1.05); } }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        .container { max-width: 1050px; margin: 0 auto; padding: 0 20px; }
-
-        /* Smart Glass Navigation */
         nav {
-            position: sticky;
-            top: 0; z-index: 100;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 20px; margin: 0 -20px 60px -20px;
-            background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
+            padding: 20px 0; position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-weight: 900; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .logo { font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
         .logo span { color: var(--accent); }
 
         .btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 24px; background: var(--text); color: var(--bg);
-            text-decoration: none; font-weight: 700; border-radius: 6px;
-            transition: all 0.2s; font-size: 0.85rem; border: 1px solid transparent;
+            padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
+            font-size: 0.9rem; cursor: pointer; border: none;
         }
-        .btn:hover { background: var(--accent); color: white; box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-2px); }
-        .btn-outline { background: transparent; border-color: var(--border); color: var(--text); }
-        .btn-outline:hover { border-color: var(--accent); background: rgba(0,112,243,0.1); }
-        
-        /* Specific Button for Tinkercad */
-        .btn-tinker { background: #f39c12; color: white; font-size: 0.75rem; padding: 6px 14px; margin-top: 10px; }
-        .btn-tinker:hover { background: #e67e22; box-shadow: 0 0 15px rgba(230, 126, 34, 0.4); }
+        .btn-primary { background: var(--text); color: var(--bg); }
+        .btn-primary:hover { background: var(--accent); color: white; box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-2px); }
+        .btn-outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+        .btn-outline:hover { border-color: var(--accent); background: rgba(0, 112, 243, 0.1); }
 
-        /* Hero Section */
-        .hero {
-            display: grid; grid-template-columns: 1fr 2.5fr; gap: 50px;
-            align-items: center; padding: 40px 0 80px 0;
-        }
+        .section-title { font-size: 1.8rem; font-weight: 800; margin: 80px 0 40px; display: flex; align-items: center; gap: 15px; }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-        .profile-wrapper { position: relative; width: 220px; height: 220px; }
-        .profile-img {
-            width: 100%; height: 100%; border-radius: 50%;
-            object-fit: cover; border: 2px solid var(--border);
-            box-shadow: 0 0 40px var(--accent-glow);
-            transition: transform 0.5s ease;
-        }
+        .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; padding: 100px 0; align-items: center; }
+        .hero h1 { font-size: 4.5rem; line-height: 1; margin: 0; letter-spacing: -3px; }
+        .hero p { color: var(--text-dim); font-size: 1.1rem; margin: 30px 0; max-width: 550px; }
 
-        .hero-text h1 { font-size: 3.8rem; margin: 0; line-height: 1.1; letter-spacing: -2px; }
-        .hero-text p { font-size: 1.15rem; color: var(--text-dim); margin: 25px 0; max-width: 600px; }
-        .socials { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
-
-        /* Scroll Reveal Utility */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Project Cards */
-        .section-header { font-size: 1.8rem; border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 30px; margin-top: 80px; letter-spacing: -1px; }
-        
-        .project-card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: 16px; padding: 35px; margin-bottom: 25px;
-            transition: all 0.3s ease; display: grid; grid-template-columns: 2fr 1fr; gap: 30px;
+        .visual-skills {
+            display: flex; justify-content: center; align-items: center;
+            background: var(--surface); padding: 40px; border-radius: 20px; border: 1px solid var(--border);
             backdrop-filter: blur(10px);
         }
-        .project-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        
-        .project-meta { font-family: monospace; color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .project-card h3 { margin: 0 0 15px 0; font-size: 1.6rem; }
-        .project-card ul { padding-left: 20px; color: var(--text-dim); margin: 0; }
-        .project-card li { margin-bottom: 10px; }
-        
-        .tech-stack { border-left: 1px solid var(--border); padding-left: 30px; }
-        .tech-stack h4 { margin-top: 0; font-size: 0.8rem; color: var(--text); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;}
 
-        /* Stats Grid */
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 60px; }
-        .stat-box {
-            background: linear-gradient(145deg, rgba(0,112,243,0.1) 0%, transparent 100%);
-            border: 1px solid var(--border); border-radius: 12px; padding: 30px; text-align: center;
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .card {
+            background: var(--surface); border: 1px solid var(--border); padding: 40px;
+            border-radius: 24px; transition: 0.4s;
         }
-        .stat-num { font-size: 3.5rem; font-weight: 900; color: white; line-height: 1; margin-bottom: 10px; }
-        .stat-label { color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .card:hover { border-color: var(--accent); box-shadow: 0 0 30px rgba(0, 112, 243, 0.1); }
 
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--text-dim); }
+        .code-header { background: #1a1a1a; padding: 10px 20px; border-radius: 8px 8px 0 0; font-family: monospace; font-size: 0.8rem; color: var(--text-dim); display: flex; justify-content: space-between; }
+        pre[class*="language-"] { margin-top: 0 !important; border-radius: 0 0 8px 8px !important; font-size: 0.85rem !important; }
 
-        footer { text-align: center; margin: 100px 0 40px 0; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 40px; }
+        .stats { display: flex; gap: 40px; margin-bottom: 50px; }
+        .stat-item h2 { font-size: 3rem; margin: 0; color: var(--accent); }
+        .stat-item p { margin: 0; color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+
+        .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--text-dim); }
 
         @media (max-width: 850px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .profile-wrapper { margin: 0 auto; }
-            .project-card { grid-template-columns: 1fr; }
-            .tech-stack { border-left: none; border-top: 1px solid var(--border); padding-top: 20px; }
-            .stats-grid { grid-template-columns: 1fr; }
+            .hero, .visual-skills { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            .stats { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="aurora-bg"></div>
+<div class="grid-bg"></div>
 
 <div class="container">
     <nav>
         <div class="logo">AHMED<span>.MOHSEN</span></div>
-        <a href="mailto:ahmed.mohsen.study@gmail.com" class="btn">✉️ Contact Me</a>
+        <div style="display: flex; gap: 15px;">
+            <a href="Ahmed-Mohsen-CV.pdf" download class="btn btn-outline">📥 Download CV</a>
+            <a href="mailto:ahmed.mohsen.study@gmail.com" class="btn btn-primary">Contact</a>
+        </div>
     </nav>
 
-    <header class="hero reveal">
-        <div class="profile-wrapper">
-            <img src="profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img">
-        </div>
-        <div class="hero-text">
+    <header class="hero">
+        <div>
+            <div class="stats">
+                <div class="stat-item"><h2>3.83</h2><p>GPA / 4.00</p></div>
+                <div class="stat-item"><h2>200+</h2><p>Solved Problems</p></div>
+                <div class="stat-item"><h2>UFE</h2><p>Scholarship</p></div>
+            </div>
             <h1>Algorithmic<br><span>Architecture.</span></h1>
-            <p>Engineering Student at <strong>Université Française d'Égypte (UFE)</strong>. Specializing in AI mathematical foundations and high-performance algorithmic optimization.</p>
-            <div class="socials">
-                <a href="https://linkedin.com/in/ahmedmohseneng" class="btn btn-outline" target="_blank">LinkedIn</a>
-                <a href="https://github.com/ahmedmohsen-eng" class="btn btn-outline" target="_blank">GitHub</a>
-                <a href="https://codeforces.com/profile/hackgg106" class="btn btn-outline" target="_blank">Codeforces Profile</a>
+            <p>Engineering student specializing in AI mathematical foundations, RAG-based systems, and high-performance C++ optimization.</p>
+            <div style="display: flex; gap: 15px; margin-top: 40px;">
+                <a href="https://github.com/ahmedmohsen-eng" target="_blank" class="btn btn-outline">GitHub</a>
+                <a href="https://codeforces.com/profile/hackgg106" target="_blank" class="btn btn-outline">Codeforces</a>
+                <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank" class="btn btn-outline">LinkedIn</a>
+            </div>
+        </div>
+        <div>
+            <div class="visual-skills">
+                <canvas id="skillsChart"></canvas>
             </div>
         </div>
     </header>
 
-    <div class="stats-grid reveal">
-        <div class="stat-box">
-            <div class="stat-num"><span class="counter" data-target="3.83" data-decimals="2">0.00</span></div>
-            <span class="stat-label">Cumulative GPA</span>
+    <h2 class="section-title">Technical Experience</h2>
+
+    <div class="project-grid">
+        <div class="card">
+            <span style="color:var(--accent); font-family: monospace; font-size: 0.8rem;">[ MACHINE_LEARNING ]</span>
+            <h3 style="font-size: 1.8rem; margin: 15px 0;">RAG-Based AI Customer Support</h3>
+            <p>Developing an autonomous support system utilizing Retrieval-Augmented Generation to eliminate LLM hallucinations in industrial SaaS data pipelines.</p>
+            <div style="display: flex; gap: 10px; margin: 25px 0;">
+                <span class="tag">Python</span> <span class="tag">RAG</span> <span class="tag">Transformers</span> <span class="tag">Pandas</span>
+            </div>
         </div>
-        <div class="stat-box">
-            <div class="stat-num"><span class="counter" data-target="200" data-decimals="0">0</span><span style="color:var(--success)">+</span></div>
-            <span class="stat-label">Problems Solved</span>
-        </div>
-        <div class="stat-box">
-            <div class="stat-num" style="font-size: 2rem; padding: 8px 0;">Scholarship</div>
-            <span class="stat-label">Schneider Excellence Award</span>
+
+        <div class="card">
+            <span style="color:var(--accent); font-family: monospace; font-size: 0.8rem;">[ EMBEDDED_SYSTEMS ]</span>
+            <h3 style="font-size: 1.8rem; margin: 15px 0;">Safety-Interrupt Signal Logic Hub</h3>
+            <p>Engineered real-time C++ signal logic for multispectral environmental analysis, featuring high-priority emergency actuation protocols.</p>
+            
+            <div class="code-header"><span>safety_interrupt.cpp</span> <span>C++</span></div>
+            <pre><code class="language-cpp">
+if (voltage > 2.5) { // Threshold for Gas/Fire detection
+    digitalWrite(ALARM_LED, HIGH);
+    lcd.print("EMERGENCY: FIRE!");
+    tone(PIEZO_PIN, 2000); 
+    delay(70);
+} else {
+    noTone(PIEZO_PIN);
+    lcd.print("Status: Clear");
+}
+            </code></pre>
+
+            <div style="margin-top:25px; display: flex; gap: 15px;">
+                <a href="https://www.tinkercad.com/things/eqKLcIvzZUT" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size:0.8rem">⚡ Part 1: Actuation</a>
+                <a href="https://www.tinkercad.com/things/hq8oaImdnrU" target="_blank" class="btn btn-outline" style="padding: 10px 20px; font-size:0.8rem">⚡ Part 2: Multisensing</a>
+            </div>
         </div>
     </div>
 
-    <section class="reveal">
-        <h2 class="section-header">Technical Implementations</h2>
-        
-        <div class="project-card">
-            <div>
-                <span class="project-meta">Feb 2026 – Present | Machine Learning</span>
-                <h3>Advanced AI Customer Support</h3>
-                <ul>
-                    <li>Engineering end-to-end AI agents utilizing <strong>Retrieval-Augmented Generation (RAG)</strong> to eliminate LLM hallucinations.</li>
-                    <li>Designing robust <strong>Data Pipelines</strong> for sentiment analysis and SaaS dataset preprocessing.</li>
-                </ul>
-            </div>
-            <div class="tech-stack">
-                <h4>Core Stack</h4>
-                <div class="tags">
-                    <span class="tag">Python</span> <span class="tag">Transformers</span> <span class="tag">RAG</span> <span class="tag">Pandas</span>
-                </div>
-            </div>
+    <h2 class="section-title">Education & Scholarship</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div class="card" style="padding: 30px;">
+            <h4 style="margin: 0; color: var(--accent);">Schneider Electric Excellence Award</h4>
+            <p style="font-size: 0.9rem; margin: 10px 0;">Awarded for academic distinction and technical potential in engineering track at UFE.</p>
         </div>
-
-        <div class="project-card">
-            <div>
-                <span class="project-meta">Nov 2023 | Hardware & Low-Level C++</span>
-                <h3>Integrated Sensor Ecosystem</h3>
-                <ul>
-                    <li>Designed state-machine logic to handle 7+ simultaneous sensor inputs using custom command protocols.</li>
-                    <li>Engineered C++ code for real-time signal processing and digital diagnostics.</li>
-                </ul>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation/editel?returnTo=%2Fthings%2FeqKLcIvzZUT-first-part-presentation&sharecode=WT5lVQDaIUg9KlV35LECOwWMmuhBSxq7XrI79Nw9H4c" class="btn btn-tinker" target="_blank">⚡ Part 1: Circuit Simulation</a>
-                    <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion/editel?returnTo=%2Fthings%2Fhq8oaImdnrU-second-part-presentaion&sharecode=mKdji2EG7vbo8PP057Ev1V9yyIfyyx6LraF-wC1lVlg" class="btn btn-tinker" target="_blank">⚡ Part 2: Advanced Logic</a>
-                </div>
-            </div>
-            <div class="tech-stack">
-                <h4>System Stack</h4>
-                <div class="tags">
-                    <span class="tag">C++</span> <span class="tag">Arduino</span> <span class="tag">Signal Logic</span> <span class="tag">Tinkercad</span>
-                </div>
-            </div>
+        <div class="card" style="padding: 30px;">
+            <h4 style="margin: 0; color: var(--accent);">Obour STEM School</h4>
+            <p style="font-size: 0.9rem; margin: 10px 0;">GPA: 3.83/4.00. Focus on the scientific method and rigorous capstone research projects.</p>
         </div>
-    </section>
+    </div>
 
-    <footer class="reveal">
-        <p>&copy; 2026 Ahmed Mohsen | High-Efficiency Engineering.</p>
+    <footer>
+        <p style="text-align: center; color: var(--text-dim); margin: 100px 0 50px; font-size: 0.8rem; letter-spacing: 1px;">
+            &copy; 2026 Ahmed Mohsen | <span style="color:var(--accent)">Engineered with Precision</span>
+        </p>
     </footer>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
 <script>
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                const counters = entry.target.querySelectorAll('.counter');
-                counters.forEach(startCounter);
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    function startCounter(counter) {
-        if(counter.classList.contains('counted')) return;
-        counter.classList.add('counted');
-        const target = parseFloat(counter.getAttribute('data-target'));
-        const decimals = parseInt(counter.getAttribute('data-decimals'));
-        const duration = 2000; 
-        const steps = 60;
-        const increment = target / steps;
-        let current = 0;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            counter.innerText = current.toFixed(decimals);
-        }, duration / steps);
-    }
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['C++ (STL)', 'AI Logic', 'Discrete Math', 'Signal Processing', 'Algorithmic Optimization', 'Hardware Design'],
+            datasets: [{
+                label: 'Proficiency',
+                data: [95, 88, 92, 85, 90, 82],
+                backgroundColor: 'rgba(0, 112, 243, 0.15)',
+                borderColor: '#0070f3',
+                borderWidth: 2,
+                pointBackgroundColor: '#0070f3',
+                pointRadius: 3
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(255,255,255,0.05)' },
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    pointLabels: { color: '#888', font: { size: 10, family: 'Inter' } },
+                    ticks: { display: false, max: 100 }
+                }
+            },
+            plugins: { legend: { display: false } }
+        }
+    });
 </script>
 
 </body>
