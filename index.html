@@ -6,10 +6,7 @@
     
     <title>Ahmed Mohsen | Engineering & AI Portfolio</title>
     <meta name="description" content="Portfolio of Ahmed Mohsen, Engineering Student at UFE. Specialized in AI (RAG), C++, and High-Performance Computing.">
-    <meta property="og:title" content="Ahmed Mohsen | High-Performance Engineering">
-    <meta property="og:description" content="UFE Engineering Student | Schneider Excellence Scholar | Competitive Programmer">
-    <meta property="og:type" content="website">
-
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
@@ -32,8 +29,10 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Animated Engineering Grid Background */
         .grid-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -73,8 +72,9 @@
 
         .visual-skills {
             display: flex; justify-content: center; align-items: center;
-            background: var(--surface); padding: 40px; border-radius: 20px; border: 1px solid var(--border);
+            background: var(--surface); padding: 20px; border-radius: 20px; border: 1px solid var(--border);
             backdrop-filter: blur(10px);
+            min-height: 400px;
         }
 
         .project-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
@@ -91,12 +91,17 @@
         .stat-item h2 { font-size: 3rem; margin: 0; color: var(--accent); }
         .stat-item p { margin: 0; color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
 
-        .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; color: var(--text-dim); }
+        .tech-stack-container {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 30px; border-radius: 20px; display: flex; flex-wrap: wrap; gap: 12px;
+        }
+        .tag { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; color: var(--accent); font-weight: 600; }
 
         @media (max-width: 850px) {
-            .hero, .visual-skills { grid-template-columns: 1fr; }
+            .hero { grid-template-columns: 1fr; text-align: center; }
             .hero h1 { font-size: 3rem; }
-            .stats { flex-direction: column; gap: 20px; }
+            .stats { justify-content: center; flex-wrap: wrap; }
+            .hero p { margin: 30px auto; }
         }
     </style>
 </head>
@@ -118,11 +123,11 @@
             <div class="stats">
                 <div class="stat-item"><h2>3.83</h2><p>GPA / 4.00</p></div>
                 <div class="stat-item"><h2>200+</h2><p>Solved Problems</p></div>
-                <div class="stat-item"><h2>UFE</h2><p>Scholarship</p></div>
+                <div class="stat-item" style="max-width: 150px;"><h2>UFE</h2><p>Excellence Scholar</p></div>
             </div>
             <h1>Algorithmic<br><span>Architecture.</span></h1>
-            <p>Engineering student specializing in AI mathematical foundations, RAG-based systems, and high-performance C++ optimization.</p>
-            <div style="display: flex; gap: 15px; margin-top: 40px;">
+            <p>Engineering student at UFE specializing in AI mathematical foundations, RAG-based systems, and high-performance C++ optimization.</p>
+            <div style="display: flex; gap: 15px; margin-top: 40px; flex-wrap: wrap;">
                 <a href="https://github.com/ahmedmohsen-eng" target="_blank" class="btn btn-outline">GitHub</a>
                 <a href="https://codeforces.com/profile/hackgg106" target="_blank" class="btn btn-outline">Codeforces</a>
                 <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank" class="btn btn-outline">LinkedIn</a>
@@ -135,58 +140,72 @@
         </div>
     </header>
 
+    <h2 class="section-title">Technical Stack</h2>
+    <div class="tech-stack-container">
+        <span class="tag">C++ (STL)</span>
+        <span class="tag">Python</span>
+        <span class="tag">C#</span>
+        <span class="tag">Discrete Mathematics</span>
+        <span class="tag">Calculus</span>
+        <span class="tag">Signal Logic</span>
+        <span class="tag">Git</span>
+        <span class="tag">Tinkercad</span>
+    </div>
+
     <h2 class="section-title">Technical Experience</h2>
 
     <div class="project-grid">
         <div class="card">
             <span style="color:var(--accent); font-family: monospace; font-size: 0.8rem;">[ MACHINE_LEARNING ]</span>
             <h3 style="font-size: 1.8rem; margin: 15px 0;">RAG-Based AI Customer Support</h3>
-            <p>Developing an autonomous support system utilizing Retrieval-Augmented Generation to eliminate LLM hallucinations in industrial SaaS data pipelines.</p>
-            <div style="display: flex; gap: 10px; margin: 25px 0;">
-                <span class="tag">Python</span> <span class="tag">RAG</span> <span class="tag">Transformers</span> <span class="tag">Pandas</span>
+            <p>Engineering an autonomous support system utilizing Transformers and Retrieval-Augmented Generation (RAG) to eliminate LLM hallucinations in complex industrial datasets.</p>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <span class="tag" style="font-size: 0.7rem;">Python</span>
+                <span class="tag" style="font-size: 0.7rem;">Vector DB</span>
+                <span class="tag" style="font-size: 0.7rem;">Sentiment Analysis</span>
             </div>
         </div>
 
         <div class="card">
             <span style="color:var(--accent); font-family: monospace; font-size: 0.8rem;">[ EMBEDDED_SYSTEMS ]</span>
             <h3 style="font-size: 1.8rem; margin: 15px 0;">Safety-Interrupt Signal Logic Hub</h3>
-            <p>Engineered real-time C++ signal logic for multispectral environmental analysis, featuring high-priority emergency actuation protocols.</p>
+            <p>Implemented state-machine logic to handle 7+ simultaneous sensor inputs with real-time C++ signal processing for emergency actuation protocols.</p>
             
-            <div class="code-header"><span>safety_interrupt.cpp</span> <span>C++</span></div>
+            <div class="code-header"><span>safety_logic.cpp</span> <span>C++</span></div>
             <pre><code class="language-cpp">
-if (voltage > 2.5) { // Threshold for Gas/Fire detection
+if (voltage > 2.5) { // Hazard detection threshold
     digitalWrite(ALARM_LED, HIGH);
     lcd.print("EMERGENCY: FIRE!");
     tone(PIEZO_PIN, 2000); 
     delay(70);
 } else {
+    digitalWrite(ALARM_LED, LOW);
     noTone(PIEZO_PIN);
-    lcd.print("Status: Clear");
 }
             </code></pre>
 
             <div style="margin-top:25px; display: flex; gap: 15px;">
-                <a href="https://www.tinkercad.com/things/eqKLcIvzZUT" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size:0.8rem">⚡ Part 1: Actuation</a>
-                <a href="https://www.tinkercad.com/things/hq8oaImdnrU" target="_blank" class="btn btn-outline" style="padding: 10px 20px; font-size:0.8rem">⚡ Part 2: Multisensing</a>
+                <a href="https://www.tinkercad.com/things/eqKLcIvzZUT" target="_blank" class="btn btn-primary" style="padding: 10px 20px; font-size:0.8rem">⚡ Part 1 Simulation</a>
+                <a href="https://www.tinkercad.com/things/hq8oaImdnrU" target="_blank" class="btn btn-outline" style="padding: 10px 20px; font-size:0.8rem">⚡ Part 2 Logic</a>
             </div>
         </div>
     </div>
 
-    <h2 class="section-title">Education & Scholarship</h2>
+    <h2 class="section-title">Academic Honours</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
         <div class="card" style="padding: 30px;">
-            <h4 style="margin: 0; color: var(--accent);">Schneider Electric Excellence Award</h4>
-            <p style="font-size: 0.9rem; margin: 10px 0;">Awarded for academic distinction and technical potential in engineering track at UFE.</p>
+            <h4 style="margin: 0; color: var(--accent);">Schneider Electric Excellence Scholarship</h4>
+            <p style="font-size: 0.9rem; margin: 10px 0;">Awarded by UFE and Schneider Electric for outstanding academic performance and potential.</p>
         </div>
         <div class="card" style="padding: 30px;">
-            <h4 style="margin: 0; color: var(--accent);">Obour STEM School</h4>
-            <p style="font-size: 0.9rem; margin: 10px 0;">GPA: 3.83/4.00. Focus on the scientific method and rigorous capstone research projects.</p>
+            <h4 style="margin: 0; color: var(--accent);">STEM High School Diploma</h4>
+            <p style="font-size: 0.9rem; margin: 10px 0;">GPA: 3.83/4.00. Focus on the scientific method and Capstone research projects.</p>
         </div>
     </div>
 
     <footer>
         <p style="text-align: center; color: var(--text-dim); margin: 100px 0 50px; font-size: 0.8rem; letter-spacing: 1px;">
-            &copy; 2026 Ahmed Mohsen | <span style="color:var(--accent)">Engineered with Precision</span>
+            &copy; 2026 Ahmed Mohsen | Built with O(1) Complexity
         </p>
     </footer>
 </div>
@@ -195,11 +214,12 @@ if (voltage > 2.5) { // Threshold for Gas/Fire detection
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
 
 <script>
+    // Radar Chart Logic with Label-Fix Padding
     const ctx = document.getElementById('skillsChart').getContext('2d');
     new Chart(ctx, {
         type: 'radar',
         data: {
-            labels: ['C++ (STL)', 'AI Logic', 'Discrete Math', 'Signal Processing', 'Algorithmic Optimization', 'Hardware Design'],
+            labels: ['C++ (STL)', 'AI Logic', 'Discrete Math', 'Signal Processing', 'Optimization', 'Hardware Design'],
             datasets: [{
                 label: 'Proficiency',
                 data: [95, 88, 92, 85, 90, 82],
@@ -207,19 +227,32 @@ if (voltage > 2.5) { // Threshold for Gas/Fire detection
                 borderColor: '#0070f3',
                 borderWidth: 2,
                 pointBackgroundColor: '#0070f3',
-                pointRadius: 3
+                pointRadius: 4
             }]
         },
         options: {
+            layout: {
+                padding: {
+                    top: 20,
+                    bottom: 20,
+                    left: 40,
+                    right: 40
+                }
+            },
             scales: {
                 r: {
                     angleLines: { color: 'rgba(255,255,255,0.05)' },
                     grid: { color: 'rgba(255,255,255,0.05)' },
-                    pointLabels: { color: '#888', font: { size: 10, family: 'Inter' } },
+                    pointLabels: { 
+                        color: '#888', 
+                        font: { size: 11, family: 'Inter', weight: '600' },
+                        padding: 20 
+                    },
                     ticks: { display: false, max: 100 }
                 }
             },
-            plugins: { legend: { display: false } }
+            plugins: { legend: { display: false } },
+            maintainAspectRatio: false
         }
     });
 </script>
