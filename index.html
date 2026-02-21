@@ -6,128 +6,134 @@
     <title>Ahmed Mohsen | Engineering Portfolio</title>
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --bg: #f8f9fa;
-            --text: #34495e;
+            --bg-color: #0a0c10;
+            --accent: #00d4ff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --text-main: #e6edf3;
         }
 
-        /* Smooth Entrance */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.6;
         }
 
-        body { 
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text); 
-            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-            background-attachment: fixed;
-            margin: 0; 
-            padding: 20px; 
+        /* Animated Background Glow */
+        .glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1a2a4a 0%, transparent 50%);
+            z-index: -1;
         }
 
-        .container { 
-            max-width: 800px; 
-            margin: 40px auto; 
-            padding: 50px; 
-            background: rgba(255, 255, 255, 0.95); 
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            animation: fadeIn 1s ease-out;
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+
+        /* Modern Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 50px;
         }
 
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { margin: 0; font-size: 2.5em; color: var(--primary); letter-spacing: -1px; }
-        .subtitle { font-size: 1.1em; color: var(--accent); font-weight: 600; text-transform: uppercase; margin-top: 5px; }
-        
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 40px; color: var(--primary); }
-
-        .card { 
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #f0f0f0;
-            margin-bottom: 15px;
-            transition: all 0.3s ease;
-            background: white;
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            animation: float 4s ease-in-out infinite;
         }
 
-        .card:hover { 
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-text h1 { font-size: 2.5rem; margin: 0; color: #fff; }
+        .hero-text p { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin: 5px 0; }
+
+        /* Section Styling */
+        h2 { font-size: 1.5rem; margin-top: 60px; display: flex; align-items: center; gap: 15px; }
+        h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+
+        /* Interactive Grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card {
+            background: var(--glass);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover {
             border-color: var(--accent);
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-5px);
         }
 
-        .skill-tag {
-            display: inline-block;
-            padding: 6px 14px;
-            background: #f0f4f8;
-            color: var(--primary);
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin: 4px;
-            font-weight: 500;
-            border: 1px solid #d1d9e6;
+        /* Tech Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tag {
+            padding: 6px 16px;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
-        .gpa-badge {
-            background: var(--primary);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+<div class="glow"></div>
+
 <div class="container">
-    <header>
-        <h1>Ahmed Mohsen</h1>
-        <div class="subtitle">Engineering Student & AI Developer</div>
-        <p>Cairo, Egypt | ahmed.mohsen.study@gmail.com</p>
-    </header>
-
-    <section>
-        <h2>About</h2>
-        <p>High-achieving Engineering Student at <strong>Université Française d'Égypte (UFE)</strong> specializing in mathematical foundations of AI. Recipient of the <strong>Schneider Electric Excellence Scholarship</strong> with a GPA of <span class="gpa-badge">3.83/4.00</span>.</p>
-    </section>
-
-    <section>
-        <h2>Core Technical Stack</h2>
-        <div class="card">
-            <div class="skill-tag">C++ (STL)</div>
-            <div class="skill-tag">Python (NumPy, Pandas)</div>
-            <div class="skill-tag">C#</div>
-            <div class="skill-tag">Discrete Mathematics</div>
-            <div class="skill-tag">Linear Algebra</div>
-            <div class="skill-tag">Signal Logic</div>
-            <div class="skill-tag">Git</div>
-            <div class="skill-tag">Tinkercad</div>
+    <section class="hero">
+        <img src="profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img">
+        <div class="hero-text">
+            <h1>Ahmed Mohsen</h1>
+            <p>Engineering Student & AI Developer</p>
+            <div style="font-size: 0.9rem; color: #8b949e; margin-top: 10px;">
+                📍 Cairo, Egypt | 🎓 GPA: 3.83/4.00
+            </div>
         </div>
     </section>
 
-    <section>
-        <h2>Key Projects</h2>
-        <div class="card">
-            <strong>AI Customer Support System</strong>
-            <p>Developing RAG-based architectures and Transformers to optimize LLM performance.</p>
-        </div>
-        <div class="card">
-            <strong>Integrated Sensor & Response System</strong>
-            <p>Engineered C++ code for real-time signal processing and state-machine logic.</p>
-        </div>
-    </section>
+    <h2>The Technical Stack</h2>
+    <div class="tags">
+        <span class="tag">C++ (STL)</span> <span class="tag">Python</span> <span class="tag">RAG AI</span> 
+        <span class="tag">Discrete Math</span> <span class="tag">Signal Logic</span> <span class="tag">Git</span>
+    </div>
 
-    <section>
-        <h2>Competitive Programming</h2>
+    <h2>Core Engineering Projects</h2>
+    <div class="grid">
         <div class="card">
-            <strong>ICPC UFE Community Member</strong>
-            <p>Solved 200+ problems on Codeforces. Specialist in Graph Theory and Dynamic Programming.</p>
+            <h3 style="color: var(--accent); margin-top: 0;">AI Customer Agent</h3>
+            <p style="font-size: 0.95rem; color: #8b949e;">Engineering Transformers and RAG architectures to eliminate LLM hallucinations in SaaS datasets.</p>
         </div>
-    </section>
+        <div class="card">
+            <h3 style="color: var(--accent); margin-top: 0;">Integrated Sensor Logic</h3>
+            <p style="font-size: 0.95rem; color: #8b949e;">Designed real-time C++ signal processing ecosystems with 7+ simultaneous sensor inputs.</p>
+        </div>
+    </div>
 
+    <footer style="margin-top: 100px; text-align: center; color: #484f58; font-size: 0.8rem;">
+        &copy; 2026 Ahmed Mohsen | Built for High-Performance
+    </footer>
 </div>
 
 </body>
