@@ -6,134 +6,220 @@
     <title>Ahmed Mohsen | Engineering Portfolio</title>
     <style>
         :root {
-            --bg-color: #0a0c10;
-            --accent: #00d4ff;
-            --glass: rgba(255, 255, 255, 0.03);
-            --text-main: #e6edf3;
+            --bg: #0d1117;
+            --card: #161b22;
+            --accent: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+            --border: #30363d;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg);
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             margin: 0;
             line-height: 1.6;
         }
 
-        /* Animated Background Glow */
-        .glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, #1a2a4a 0%, transparent 50%);
-            z-index: -1;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
-
-        /* Modern Hero Section */
-        .hero {
+        /* HEADER SECTION */
+        header {
             display: flex;
             align-items: center;
-            gap: 40px;
-            padding: 40px;
-            background: var(--glass);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            margin-bottom: 50px;
+            gap: 30px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
         }
 
         .profile-img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            border: 3px solid var(--accent);
+            border: 4px solid var(--accent);
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-            animation: float 4s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        .header-content h1 { font-size: 2.8rem; margin: 0; color: #fff; }
+        .tagline { color: var(--accent); font-size: 1.2rem; font-weight: 600; margin: 5px 0; }
+        
+        .contact-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; }
+        .contact-links a { 
+            color: var(--text-dim); 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
         }
+        .contact-links a:hover { color: var(--accent); }
 
-        .hero-text h1 { font-size: 2.5rem; margin: 0; color: #fff; }
-        .hero-text p { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin: 5px 0; }
+        /* LAYOUT GRID */
+        .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 40px; }
 
-        /* Section Styling */
-        h2 { font-size: 1.5rem; margin-top: 60px; display: flex; align-items: center; gap: 15px; }
-        h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        section { margin-bottom: 40px; }
+        h2 { font-size: 1.4rem; color: #fff; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; }
 
-        /* Interactive Grid */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card {
-            background: var(--glass);
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .card:hover {
-            border-color: var(--accent);
-            background: rgba(255,255,255,0.06);
-            transform: translateY(-5px);
-        }
+        .experience-item { margin-bottom: 25px; padding-left: 15px; border-left: 2px solid var(--border); }
+        .experience-item:hover { border-left-color: var(--accent); }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; }
+        .item-title { font-weight: 700; color: var(--accent); font-size: 1.1rem; }
+        .item-date { font-size: 0.85rem; color: var(--text-dim); font-family: monospace; }
+        .item-org { font-weight: 600; color: #f0f6fc; display: block; margin: 2px 0; }
 
-        /* Tech Tags */
-        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
-        .tag {
-            padding: 6px 16px;
-            background: rgba(0, 212, 255, 0.1);
-            color: var(--accent);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
+        /* SKILLS BOX */
+        .skills-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .skill-category { font-weight: 700; color: var(--accent); font-size: 0.85rem; text-transform: uppercase; margin-top: 15px; display: block; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .tag { background: rgba(88, 166, 255, 0.1); color: var(--accent); padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; border: 1px solid rgba(88, 166, 255, 0.2); }
+
+        .gpa-card { background: linear-gradient(45deg, #1f6feb, #111); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px; }
 
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; }
-            .grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; text-align: center; }
+            .main-grid { grid-template-columns: 1fr; }
+            .item-header { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<div class="glow"></div>
-
 <div class="container">
-    <section class="hero">
+    <header>
         <img src="profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img">
-        <div class="hero-text">
+        <div class="header-content">
             <h1>Ahmed Mohsen</h1>
-            <p>Engineering Student & AI Developer</p>
-            <div style="font-size: 0.9rem; color: #8b949e; margin-top: 10px;">
-                📍 Cairo, Egypt | 🎓 GPA: 3.83/4.00
+            <div class="tagline">Engineering Student | Competitive Programmer</div>
+            <div class="contact-links">
+                <a href="mailto:ahmed.mohsen.study@gmail.com">✉️ Email</a>
+                <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank">🔗 LinkedIn</a>
+                <a href="https://github.com/ahmedmohsen-eng" target="_blank">💻 GitHub</a>
+                <a href="https://codeforces.com/profile/your_username" target="_blank">🏆 Codeforces</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <h2>The Technical Stack</h2>
-    <div class="tags">
-        <span class="tag">C++ (STL)</span> <span class="tag">Python</span> <span class="tag">RAG AI</span> 
-        <span class="tag">Discrete Math</span> <span class="tag">Signal Logic</span> <span class="tag">Git</span>
-    </div>
+    <div class="main-grid">
+        <div class="content-main">
+            <section>
+                <h2>Personal Statement</h2>
+                <p>High-achieving Engineering Student at <strong>Université Française d'Égypte (UFE)</strong> specializing in the mathematical foundations of AI and high-performance computing. Recipient of the <strong>Schneider Electric & UFE Excellence Scholarship</strong> with a proven <strong>3.83 GPA</strong>. Expert in algorithmic optimization using <strong>C++/STL</strong> and seeking to apply Signal Logic and RAG-based AI architectures to complex industrial problems.</p>
+            </section>
 
-    <h2>Core Engineering Projects</h2>
-    <div class="grid">
-        <div class="card">
-            <h3 style="color: var(--accent); margin-top: 0;">AI Customer Agent</h3>
-            <p style="font-size: 0.95rem; color: #8b949e;">Engineering Transformers and RAG architectures to eliminate LLM hallucinations in SaaS datasets.</p>
+            <section>
+                <h2>Technical Experience & Projects</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">AI Developer, Customer Support AI System</span>
+                        <span class="item-date">Feb 2026 – Present</span>
+                    </div>
+                    <span class="item-org">In Progress</span>
+                    <ul>
+                        <li>Engineering an end-to-end AI agent using Transformers and Retrieval-Augmented Generation (RAG) to eliminate LLM hallucinations.</li>
+                        <li>Implementing sentiment analysis and data preprocessing on complex SaaS datasets via the ML & AI Discovery Camp (Session 6/10 completed).</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Active Member, ICPC UFE Community</span>
+                        <span class="item-date">2025 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Mastering Phase 1 (STL) with focus on std::set, std::map, and priority_queue for high-efficiency memory management.</li>
+                        <li><strong>Milestone:</strong> Solved +200 problems on Codeforces focusing on Dynamic Programming, Graph Theory, and Bit Manipulation.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Hardware Developer, Integrated Sensor System</span>
+                        <span class="item-date">Nov 2023</span>
+                    </div>
+                    <ul>
+                        <li>Designed state-machine logic to handle 7+ simultaneous sensor inputs using a custom IR-receiver command protocol.</li>
+                        <li>Engineered C++ code for real-time processing of analog signals into digital diagnostics.</li>
+                        <li>Verified the full hardware-software ecosystem via Tinkercad simulation.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Université Française d'Égypte (UFE)</span>
+                        <span class="item-date">2025 – Present</span>
+                    </div>
+                    <span class="item-org">Engineering Track - Preparatory Year</span>
+                    <p>Core Studies: Advanced Calculus, Linear Algebra, and Engineering Mathematics.</p>
+                </div>
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="item-title">Obour STEM School</span>
+                        <span class="item-date">2022 – 2025</span>
+                    </div>
+                    <span class="item-org">STEM High School Diploma</span>
+                    <p>Focus: Capstone research projects in applied sciences. GPA: 3.83/4.00.</p>
+                </div>
+            </section>
         </div>
-        <div class="card">
-            <h3 style="color: var(--accent); margin-top: 0;">Integrated Sensor Logic</h3>
-            <p style="font-size: 0.95rem; color: #8b949e;">Designed real-time C++ signal processing ecosystems with 7+ simultaneous sensor inputs.</p>
+
+        <div class="content-side">
+            <div class="gpa-card">
+                <div style="font-size: 0.8rem; text-transform: uppercase; opacity: 0.8;">Cumulative GPA</div>
+                <div style="font-size: 2.2rem; font-weight: 800;">3.83 / 4.00</div>
+            </div>
+
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills-box">
+                    <span class="skill-category">Languages</span>
+                    <div class="skill-tags">
+                        <span class="tag">C++ (STL)</span> <span class="tag">Python</span> <span class="tag">C#</span>
+                    </div>
+                    
+                    <span class="skill-category">Theory & Math</span>
+                    <div class="skill-tags">
+                        <span class="tag">Discrete Math</span> <span class="tag">Calculus</span> <span class="tag">Linear Algebra</span>
+                    </div>
+
+                    <span class="skill-category">Engineering</span>
+                    <div class="skill-tags">
+                        <span class="tag">AI Logic</span> <span class="tag">Logic Design</span> <span class="tag">Signal Logic</span> <span class="tag">OOP</span>
+                    </div>
+
+                    <span class="skill-category">Tools</span>
+                    <div class="skill-tags">
+                        <span class="tag">Git</span> <span class="tag">VS Code</span> <span class="tag">Google Colab</span> <span class="tag">Tinkercad</span>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Honours & Certs</h2>
+                <div style="font-size: 0.9rem;">
+                    [cite_start]<p><strong>• Schneider Excellence Scholarship</strong><br>UFE & Schneider Electric [cite: 14]</p>
+                    [cite_start]<p><strong>• AI Training Certification</strong><br>Egyptian Academy for Engineering [cite: 32]</p>
+                    [cite_start]<p><strong>• Arduino & Robotics Diploma</strong><br>EGY STEM Academy [cite: 33]</p>
+                    [cite_start]<p><strong>• American Math Olympiad</strong><br>Advanced Problem Solving [cite: 34, 35]</p>
+                    [cite_start]<p><strong>• Beaver Competition (MCIT)</strong><br>Informatics Excellence [cite: 36, 37]</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Languages</h2>
+                <div style="font-size: 0.9rem;">
+                    [cite_start]Arabic (Native) [cite: 39]<br>
+                    [cite_start]English (B1/B2) [cite: 40]<br>
+                    [cite_start]French (A1) [cite: 41]
+                </div>
+            </section>
         </div>
     </div>
-
-    <footer style="margin-top: 100px; text-align: center; color: #484f58; font-size: 0.8rem;">
-        &copy; 2026 Ahmed Mohsen | Built for High-Performance
-    </footer>
 </div>
 
 </body>
