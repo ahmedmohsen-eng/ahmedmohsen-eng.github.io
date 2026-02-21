@@ -1,303 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Mohsen | Computer Engineering Student</title>
-    
-    <!-- SEO / Open Graph -->
-    <meta name="description" content="Portfolio of Ahmed Mohsen - Computer Engineering Student at UFE, Scholarship Recipient, and ICPC Trainee.">
-    <meta property="og:title" content="Ahmed Mohsen | Engineering Portfolio">
-    <meta property="og:description" content="Focusing on first-principles engineering and algorithmic problem solving.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;600;700;900&display=swap');
-        
-        :root {
-            --bg-deep: #020617;
-            --accent: #38bdf8;
-        }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Ahmed Mohsen | Muslim & Computer Engineering Student</title>
+<meta name="description" content="Portfolio of Ahmed Mohsen - Muslim, Computer Engineering Student at UFE, Scholarship Recipient, and ICPC Trainee.">
+<meta property="og:title" content="Ahmed Mohsen | Engineering Portfolio">
+<meta property="og:description" content="Focusing on first-principles engineering and algorithmic problem solving.">
+<meta name="theme-color" content="#020617">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            background-color: var(--bg-deep);
-            color: #f1f5f9;
-        }
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 
-        .mono { font-family: 'Fira Code', monospace; }
-
-        .glass {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .profile-container {
-            position: relative;
-            width: 280px;
-            height: 280px;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 24px;
-            border: 2px solid rgba(56, 189, 248, 0.3);
-            z-index: 10;
-            position: relative;
-            background: #1e293b;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-link {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-        .project-link:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: var(--accent);
-            transform: translateX(5px);
-        }
-
-        .flow-tag {
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 10px;
-            color: #38bdf8;
-            font-family: 'Fira Code', monospace;
-        }
-    </style>
+<style>
+:root{--bg:#020617;--accent:#38bdf8;--muted:#94a3b8;--card:#0f172a66}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:#e6eef8;line-height:1.4;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+nav{position:fixed;inset:0 0 auto 0;height:76px;backdrop-filter:blur(8px);background:rgba(7,11,20,0.7);border-bottom:1px solid rgba(255,255,255,0.04);z-index:60}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:.6rem;align-items:center;cursor:pointer}
+.logo{width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,#38bdf8,#818cf8);display:flex;align-items:center;justify-content:center;font-weight:800;color:#021226}
+.nav-links{display:none;gap:1.5rem;font-size:.75rem;letter-spacing:.15em;font-weight:700;text-transform:uppercase;color:#94a3b8}
+.cv-btn{display:none;padding:.5rem 1rem;border-radius:8px;border:1px solid rgba(56,189,248,0.3);font-weight:800;font-size:.7rem;text-transform:uppercase;color:var(--accent)}
+@media(min-width:768px){.nav-links{display:flex}.cv-btn{display:inline-block}}
+header{min-height:100vh;display:flex;align-items:center;padding-top:80px}
+.grid{display:grid;gap:2.5rem}
+.grid-5{grid-template-columns:repeat(1,1fr)}
+@media(min-width:1024px){.grid-5{grid-template-columns:repeat(5,1fr)}}
+.col-3{grid-column:span 1}
+@media(min-width:1024px){.col-3{grid-column:span 3}}
+.badge{display:inline-block;padding:.4rem .8rem;border-radius:999px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.15);color:var(--accent);font-weight:800;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.identity-tag{font-size:1.5rem;font-weight:900;color:var(--accent);margin-bottom:0.5rem;display:block;letter-spacing:-0.02em}
+.huge{font-size:2.5rem;line-height:1.1;margin:0 0 1.5rem;font-weight:900}
+@media(min-width:768px){.huge{font-size:4rem}}
+.lead{color:#94a3b8;font-size:1.1rem;max-width:55ch;margin-bottom:2rem}
+.btn-primary{background:#38bdf8;padding:.75rem 1.5rem;border-radius:12px;font-weight:800;color:#020617;display:inline-block}
+.btn-ghost{border:1px solid rgba(255,255,255,0.1);padding:.75rem 1.5rem;border-radius:12px;font-weight:800;color:#f472b6;display:inline-block;margin-left:0.5rem}
+.profile-card{position:relative;width:280px;height:280px;border-radius:24px;background:#111827;border:2px solid rgba(56,189,248,0.2);overflow:visible}
+.profile-card img{width:100%;height:100%;object-fit:cover;border-radius:22px}
+.live-badge{position:absolute;right:-15px;bottom:-15px;background:#0f172a;padding:15px;border-radius:16px;border:1px solid rgba(56,189,248,0.3);min-width:160px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.live-badge .rating{font-size:1.5rem;color:var(--accent);font-weight:900}
+.section{padding:5rem 0}
+.card{background:var(--card);padding:1.5rem;border-radius:16px;border-top:4px solid rgba(56,189,248,0.1)}
+.small-head{font-size:.7rem;color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-bottom:0.5rem}
+.project-box{margin-bottom:3rem}
+.flow-container{background:rgba(255,255,255,0.03);padding:1.2rem;border-radius:12px;margin:1rem 0;border:1px solid rgba(255,255,255,0.05)}
+.flow-tag{background:rgba(56,189,248,0.1);padding:.3rem .7rem;border-radius:6px;font-size:.75rem;color:var(--accent);font-family:'Fira Code',monospace}
+.p-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:640px){.p-grid{grid-template-columns:1fr 1fr}}
+.p-link{display:flex;justify-content:space-between;align-items:center;padding:1.2rem;background:rgba(255,255,255,0.03);border-radius:14px;border:1px solid rgba(255,255,255,0.05);transition:0.2s}
+.p-link:hover{border-color:var(--accent);background:rgba(56,189,248,0.05)}
+.reveal{opacity:0;transform:translateY(20px);transition:0.6s ease-out}
+.reveal.active{opacity:1;transform:none}
+.mono{font-family:'Fira Code',monospace}
+footer{padding:4rem 0;text-align:center;border-top:1px solid rgba(255,255,255,0.05)}
+</style>
 </head>
-<body class="overflow-x-hidden">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2 group cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="w-8 h-8 bg-sky-500 rounded flex items-center justify-center font-bold text-slate-900">AM</div>
-                <span class="text-xl font-bold tracking-tight uppercase mono">Ahmed.Dev</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-widest">
-                <a href="#about" class="text-slate-400 hover:text-white transition-colors">About</a>
-                <a href="#skills" class="text-slate-400 hover:text-white transition-colors">Skills</a>
-                <a href="#projects" class="text-slate-400 hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="text-slate-400 hover:text-white transition-colors">Contact</a>
-            </div>
-            <a href="Ahmed-Mohsen-Engineering-CV.pdf" download class="hidden sm:block px-4 py-2 border border-sky-500/50 text-sky-400 rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-sky-500 hover:text-white transition-all">
-                Download CV
-            </a>
+<nav>
+  <div class="container nav-inner">
+    <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <div class="logo">AM</div>
+      <div class="mono" style="font-weight:900">Ahmed.Dev</div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="cv-btn" href="Ahmed-Mohsen-Engineering-CV.pdf" download>CV</a>
+  </div>
+</nav>
+
+<header id="about" class="container grid grid-5">
+  <div class="col-3" style="order:2">
+    <span class="identity-tag reveal active">Muslim</span>
+    <div class="badge reveal active">Computer Engineering @ UFE</div>
+    <h1 class="huge reveal active">Solving Problems from <span style="background:linear-gradient(135deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent">First Principles.</span></h1>
+    <p class="lead reveal active">Schneider Electric Scholarship recipient at <strong style="color:#fff">Université Française d'Égypte</strong>. I focus on building a strong foundation in <strong style="color:#fff">C++ logic</strong> and exploring <strong style="color:#fff">Hardware-Software Interfacing</strong>.</p>
+    <div class="reveal active">
+      <a href="#projects" class="btn-primary">Projects</a>
+      <a href="https://codeforces.com/profile/hackgg106" target="_blank" class="btn-ghost">Codeforces</a>
+    </div>
+  </div>
+  <div style="order:1;display:flex;justify-content:center;align-items:center">
+    <div class="profile-card reveal active">
+      <img src="profile_photo.jpg" alt="Ahmed Mohsen" onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'">
+      <div class="live-badge">
+        <div style="font-size:.65rem;font-weight:900;color:#94a3b8;letter-spacing:.1em">LIVE RATING</div>
+        <div id="cf-rank" style="font-size:.75rem;margin:.2rem 0;color:#64748b">...</div>
+        <div id="cf-rating" class="rating">...</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="skills" class="section">
+  <div class="container">
+    <h2 style="font-weight:900;margin-bottom:2rem"><span style="color:var(--accent)">01.</span> Skills & Tools</h2>
+    <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))">
+      <div class="card reveal">
+        <div class="small-head">Languages</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.8rem">
+          <span class="flow-tag">C++ (STL)</span> <span class="flow-tag">Python</span>
         </div>
-    </nav>
-
-    <!-- Hero -->
-    <header id="about" class="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div class="max-w-6xl w-full grid lg:grid-cols-5 gap-12 items-center">
-            <div class="lg:col-span-3 order-2 lg:order-1">
-                <div class="inline-block px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-[10px] font-black mb-6 tracking-[0.2em] uppercase reveal active">
-                    Computer Engineering Student @ UFE
-                </div>
-                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 reveal active">
-                    Solving Problems from <br><span class="gradient-text">First Principles.</span>
-                </h1>
-                <p class="text-slate-400 text-base md:text-lg mb-8 leading-relaxed max-w-xl reveal active">
-                    Schneider Electric Scholarship recipient at <span class="text-white font-semibold">Université Française d'Égypte</span>. I focus on building a strong foundation in <span class="text-white font-semibold">C++ logic</span> and exploring <span class="text-white font-semibold">Hardware-Software Interfacing</span>.
-                </p>
-                <div class="flex flex-wrap gap-4 reveal active">
-                    <a href="#projects" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 transition-all font-bold text-sm active:scale-95">View Projects</a>
-                    <a href="https://codeforces.com/profile/hackgg106" target="_blank" class="px-6 py-3 rounded-xl glass border border-white/10 font-bold text-sm text-rose-400 active:scale-95">Codeforces</a>
-                </div>
-            </div>
-            <div class="lg:col-span-2 order-1 lg:order-2 flex justify-center reveal active">
-                <div class="profile-container">
-                    <img src="profile_photo.jpg" alt="Ahmed Mohsen" class="profile-image shadow-2xl" onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'">
-                    <div class="absolute -bottom-4 -right-4 glass px-5 py-4 rounded-xl border border-sky-500/30 z-20 min-w-[140px] shadow-2xl">
-                        <p class="text-[11px] text-sky-400 uppercase tracking-widest font-black mb-1">Live Rating</p>
-                        <p id="cf-rank" class="text-sm font-black text-slate-500 uppercase tracking-wider mb-0.5">---</p>
-                        <p id="cf-rating" class="text-4xl font-black text-sky-400 leading-none">---</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="card reveal">
+        <div class="small-head">Problem Solving</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.8rem">
+          <span class="flow-tag">Data Structures</span> <span class="flow-tag">Algorithms</span>
         </div>
-    </header>
-
-    <!-- Skills -->
-    <section id="skills" class="py-24 px-6 bg-slate-900/20">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-black mb-12 reveal"><span class="text-sky-500 mr-4">01.</span> Skills & Tools</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass p-6 rounded-2xl border-t-2 border-sky-500 reveal">
-                    <h3 class="font-bold text-white mb-2">Languages</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">C++ (STL)</span>
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">Python</span>
-                    </div>
-                </div>
-                <div class="glass p-6 rounded-2xl border-t-2 border-rose-500 reveal">
-                    <h3 class="font-bold text-white mb-2">Problem Solving</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">Data Structures</span>
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">Algorithms</span>
-                    </div>
-                </div>
-                <div class="glass p-6 rounded-2xl border-t-2 border-emerald-500 reveal">
-                    <h3 class="font-bold text-white mb-2">Software Tools</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">CLion</span>
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">PyCharm</span>
-                        <span class="px-2 py-1 rounded bg-slate-800 text-[10px] mono">Tinkercad</span>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="card reveal">
+        <div class="small-head">Software Tools</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.8rem">
+          <span class="flow-tag">CLion</span> <span class="flow-tag">PyCharm</span> <span class="flow-tag">Tinkercad</span> <span class="flow-tag">Git</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Projects & Experience -->
-    <section id="projects" class="py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-black mb-12 reveal"><span class="text-sky-500 mr-4">02.</span> Technical Projects</h2>
-            
-            <div class="space-y-12">
-                <!-- Project 1: AI Discovery Project -->
-                <div class="reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="mono text-sky-400 text-[10px] font-bold uppercase tracking-widest">Feb 2026 - Present</span>
-                            <h3 class="text-xl font-bold text-white uppercase tracking-tight">Customer Support AI Orchestrator</h3>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Designed a modular backend architecture to automate customer support workflows. The project implements a clean separation of concerns using a centralized <span class="mono text-white">app.py</span> logic to orchestrate specialized analytical services.
-                    </p>
-                    
-                    <div class="glass p-5 rounded-xl border border-white/5 mb-6">
-                        <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-4">System Architecture & Flow</h4>
-                        <div class="flex flex-wrap gap-3 items-center text-xs mono">
-                            <span class="flow-tag">Ingestion</span>
-                            <i class="fas fa-arrow-right text-[8px] text-slate-700"></i>
-                            <span class="flow-tag">ML Analytics</span>
-                            <i class="fas fa-arrow-right text-[8px] text-slate-700"></i>
-                            <span class="flow-tag">NLP Sentiment</span>
-                            <i class="fas fa-arrow-right text-[8px] text-slate-700"></i>
-                            <span class="flow-tag">RAG Retrieval</span>
-                            <i class="fas fa-arrow-right text-[8px] text-slate-700"></i>
-                            <span class="flow-tag">Unified Response</span>
-                        </div>
-                    </div>
+<section id="projects" class="section">
+  <div class="container" style="max-width:850px">
+    <h2 style="font-weight:900;margin-bottom:2.5rem"><span style="color:var(--accent)">02.</span> Technical Projects</h2>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div class="p-3 rounded-lg bg-slate-900/50 border border-white/5">
-                            <p class="text-[10px] font-bold text-sky-400 mb-1">ML Service</p>
-                            <p class="text-[9px] text-slate-500">Classification & Priority Logic</p>
-                        </div>
-                        <div class="p-3 rounded-lg bg-slate-900/50 border border-white/5">
-                            <p class="text-[10px] font-bold text-sky-400 mb-1">NLP Service</p>
-                            <p class="text-[9px] text-slate-500">Linguistic Sentiment Analysis</p>
-                        </div>
-                        <div class="p-3 rounded-lg bg-slate-900/50 border border-white/5">
-                            <p class="text-[10px] font-bold text-sky-400 mb-1">RAG Service</p>
-                            <p class="text-[9px] text-slate-500">Context-Aware Generation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Arduino -->
-                <div class="reveal">
-                    <div class="flex justify-between items-start mb-4">
-                        <div>
-                            <span class="mono text-slate-500 text-[10px] font-bold uppercase tracking-widest">Nov 2023 - Present</span>
-                            <h3 class="text-xl font-bold text-white uppercase tracking-tight">Integrated Hardware Control Systems</h3>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Developed complex C++ firmware for multi-sensor data processing and automated actuation. Leveraged state-machine logic to handle asynchronous IR remote inputs for real-time environment monitoring and safety protocols.
-                    </p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Part 1 -->
-                        <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation" target="_blank" class="project-link p-4 rounded-xl flex items-center justify-between">
-                            <div>
-                                <p class="text-[10px] text-sky-400 font-bold uppercase mb-1">Project Part 1</p>
-                                <p class="text-xs text-white font-medium">Remote Multi-Sensor Diagnostics</p>
-                                <p class="text-[9px] text-slate-500 mt-1">Ultrasonic, Temp, PIR, Photo, Force</p>
-                            </div>
-                            <i class="fas fa-external-link-alt text-xs text-slate-500"></i>
-                        </a>
-                        <!-- Part 2 -->
-                        <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion" target="_blank" class="project-link p-4 rounded-xl flex items-center justify-between">
-                            <div>
-                                <p class="text-[10px] text-sky-400 font-bold uppercase mb-1">Project Part 2</p>
-                                <p class="text-xs text-white font-medium">Automated Safety & Actuation Hub</p>
-                                <p class="text-[9px] text-slate-500 mt-1">Gas Detection, Servo, Motors, Piezo</p>
-                            </div>
-                            <i class="fas fa-external-link-alt text-xs text-slate-500"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <div class="project-box reveal">
+      <div class="mono" style="font-size:.8rem;color:var(--muted)">Feb 2026 - Present</div>
+      <h3 style="font-size:1.25rem;margin:0.5rem 0">Customer Support AI Orchestrator</h3>
+      <p style="color:var(--muted);font-size:.95rem">Designed a modular backend architecture to automate customer support workflows. The project implements a clean separation of concerns using a centralized <span class="mono" style="color:#fff">app.py</span> logic to orchestrate specialized analytical services.</p>
+      
+      <div class="flow-container">
+        <div class="small-head" style="color:#64748b">System Architecture & Flow</div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center">
+          <span class="flow-tag">Ingestion</span> <span>→</span>
+          <span class="flow-tag">ML Analytics</span> <span>→</span>
+          <span class="flow-tag">NLP Sentiment</span> <span>→</span>
+          <span class="flow-tag">RAG Retrieval</span> <span>→</span>
+          <span class="flow-tag">Unified Response</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="py-20 px-6 bg-slate-950 border-t border-slate-900">
-        <div class="max-w-6xl mx-auto text-center">
-            <h2 class="text-3xl font-black mb-6 reveal">Connect</h2>
-            <div class="mb-12 reveal">
-                <a href="mailto:ahmed.mohsen.study@gmail.com" class="text-slate-300 hover:text-sky-400 transition-colors mono text-sm">ahmed.mohsen.study@gmail.com</a>
-            </div>
-            <div class="flex justify-center space-x-6 mb-12 reveal">
-                <a href="https://github.com/ahmedmohsen-eng" target="_blank" class="text-slate-500 hover:text-white transition-colors text-xl"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank" class="text-slate-500 hover:text-sky-400 transition-colors text-xl"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <p class="text-slate-600 text-[9px] tracking-[0.3em] uppercase">Schneider Electric & UFE Excellence Scholar</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem">
+        <div style="background:rgba(255,255,255,0.02);padding:0.8rem;border-radius:10px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--accent)">ML Service</div>
+          <div style="font-size:0.75rem;color:var(--muted)">Classification & Priority</div>
         </div>
-    </footer>
+        <div style="background:rgba(255,255,255,0.02);padding:0.8rem;border-radius:10px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--accent)">NLP Service</div>
+          <div style="font-size:0.75rem;color:var(--muted)">Sentiment Analysis</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.02);padding:0.8rem;border-radius:10px">
+          <div style="font-size:0.75rem;font-weight:800;color:var(--accent)">RAG Service</div>
+          <div style="font-size:0.75rem;color:var(--muted)">Context-Aware Gen</div>
+        </div>
+      </div>
+    </div>
 
-    <script>
-        async function fetchCFRating() {
-            const handle = 'hackgg106';
-            const ratingEl = document.getElementById('cf-rating');
-            const rankEl = document.getElementById('cf-rank');
-            try {
-                const res = await fetch(`https://codeforces.com/api/user.info?handles=${handle}`);
-                const data = await res.json();
-                if (data.status === 'OK') {
-                    const u = data.result[0];
-                    rankEl.textContent = (u.rank || 'Unrated').toUpperCase();
-                    ratingEl.textContent = u.rating || '----';
-                    if (u.rating < 1200) { ratingEl.style.color = '#38bdf8'; rankEl.style.color = '#64748b'; }
-                }
-            } catch (e) { rankEl.textContent = 'ACTIVE'; ratingEl.textContent = '---'; }
-        }
+    <div class="project-box reveal">
+      <div class="mono" style="font-size:.8rem;color:var(--muted)">Nov 2023 - Present</div>
+      <h3 style="font-size:1.25rem;margin:0.5rem 0">Integrated Hardware Control Systems</h3>
+      <p style="color:var(--muted);font-size:.95rem">Developed complex C++ firmware for multi-sensor data processing and automated actuation. Leveraged state-machine logic to handle asynchronous IR remote inputs for real-time environment monitoring and safety protocols.</p>
+      
+      <div class="p-grid">
+        <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation" target="_blank" class="p-link">
+          <div>
+            <div class="small-head">Project Part 1</div>
+            <div style="font-weight:700;font-size:0.9rem">Remote Multi-Sensor Diagnostics</div>
+            <div style="font-size:0.75rem;color:var(--muted)">Ultrasonic, Temp, PIR, Photo, Force</div>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+        <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion" target="_blank" class="p-link">
+          <div>
+            <div class="small-head">Project Part 2</div>
+            <div style="font-weight:700;font-size:0.9rem">Automated Safety & Actuation Hub</div>
+            <div style="font-size:0.75rem;color:var(--muted)">Gas Detection, Servo, Motors, Piezo</div>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1 });
+<footer>
+  <div class="container">
+    <h3 style="font-weight:900;margin-bottom:1rem">Connect</h3>
+    <div style="margin-bottom:2rem">
+      <a href="mailto:ahmed.mohsen.study@gmail.com" class="mono" style="color:var(--muted)">ahmed.mohsen.study@gmail.com</a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:1.5rem;margin-bottom:2rem">
+      <a href="https://github.com/ahmedmohsen-eng" target="_blank" style="color:var(--muted)"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank" style="color:var(--muted)"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
+    <div style="font-size:0.65rem;letter-spacing:0.3em;color:#475569;text-transform:uppercase">Schneider Electric & UFE Excellence Scholar</div>
+  </div>
+</footer>
 
-        window.addEventListener('DOMContentLoaded', () => {
-            fetchCFRating();
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+<script>
+(() => {
+  const handle = 'hackgg106';
+  const ratingEl = document.getElementById('cf-rating');
+  const rankEl = document.getElementById('cf-rank');
+
+  async function fetchCF() {
+    try {
+      const res = await fetch(`https://codeforces.com/api/user.info?handles=${handle}`);
+      const data = await res.json();
+      if (data.status === 'OK') {
+        const u = data.result[0];
+        rankEl.textContent = (u.rank || 'Active').toUpperCase();
+        ratingEl.textContent = u.rating || '---';
+      }
+    } catch (e) { rankEl.textContent = 'ACTIVE'; ratingEl.textContent = '---'; }
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.1 });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    fetchCF();
+  });
+})();
+</script>
 </body>
 </html>
