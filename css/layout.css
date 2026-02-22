@@ -29,14 +29,12 @@ nav{
   justify-content:center;
   font-weight:900;
   color:#021226;
+  transition:transform .4s var(--ease);
 }
 
-.brand{
-  display:flex;
-  gap:.6rem;
-  align-items:center;
-}
+.logo:hover{transform:rotate(-6deg) scale(1.05)}
 
+.brand{display:flex;gap:.6rem;align-items:center}
 .brand-name{font-weight:800}
 
 .nav-links{
@@ -48,11 +46,7 @@ nav{
   color:var(--muted);
 }
 
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-}
+.nav-actions{display:flex;align-items:center;gap:.6rem}
 
 .cv-btn{
   display:none;
@@ -70,13 +64,12 @@ nav{
   .cv-btn{display:inline-block}
 }
 
-/* HERO — HEIGHT FIX */
+/* HERO */
 header{
   padding-top:calc(var(--nav-h) + 16px);
-  min-height:70vh; /* was 84vh */
+  min-height:68vh;
   display:flex;
   align-items:center;
-  padding-bottom:2rem;
 }
 
 .hero-grid{
@@ -100,6 +93,12 @@ header{
   font-size:.7rem;
   letter-spacing:.08em;
   margin-bottom:1rem;
+  animation:fadeInUp .8s var(--ease);
+}
+
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
 }
 
 h1{
@@ -131,11 +130,7 @@ h1{
   align-items:center;
 }
 
-.hero-aside{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
+.hero-aside{display:flex;justify-content:center;align-items:center}
 
 .profile{
   position:relative;
@@ -144,7 +139,10 @@ h1{
   border-radius:20px;
   border:2px solid rgba(56,189,248,0.18);
   overflow:hidden;
+  transition:transform .5s var(--ease);
 }
+
+.profile:hover{transform:scale(1.03)}
 
 .profile img{
   width:100%;
@@ -171,12 +169,12 @@ h1{
   font-size:1.1rem;
 }
 
-/* SECTION SPACING — ADDED */
+/* SECTIONS */
 .section{
   margin-top:4rem;
+  animation:fadeInUp .7s var(--ease);
 }
 
-/* cards grid on skills */
 .cards-grid{
   display:grid;
   gap:1rem;
