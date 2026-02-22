@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   /* NAV ACTIVE LINK */
-  // FIXED: Changed '.section-track' to '.section' to match your index.html
+  // FIXED: Changed '.section-track' to '.section' to match index.html
   const sections = document.querySelectorAll('.section');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, { threshold: 0.4 }); // Lowered threshold slightly for better mobile response
+  }, { threshold: 0.4 });
 
   sections.forEach(s => secObs.observe(s));
 
