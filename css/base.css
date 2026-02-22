@@ -1,0 +1,39 @@
+/* base.css - variables, resets, base typography */
+
+:root{
+  --bg:#020617;
+  --text:#e6eef8;
+  --card:#0f172a66;
+  --accent:#38bdf8;
+  --muted:#94a3b8;
+  --container:1100px;
+  --nav-h:72px;
+  --radius:12px;
+}
+
+/* light theme override when .light present on <html> */
+.light{
+  --bg:#f8fafc;
+  --text:#020617;
+  --card:#ffffff;
+  --accent:#2563eb;
+  --muted:#475569;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+  scroll-behavior:smooth;
+}
+
+a{color:inherit}
+.container{max-width:var(--container);margin:0 auto;padding:0 1.5rem}
+.mono{font-family:'Fira Code',monospace}
+.muted{color:var(--muted)}
+.small-head{font-size:.75rem;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
