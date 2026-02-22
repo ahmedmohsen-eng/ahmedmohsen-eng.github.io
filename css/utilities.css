@@ -1,32 +1,37 @@
-.hidden{display:none !important}
-.center{text-align:center}
-.p-sm{padding:.75rem}
-.mb-1{margin-bottom:1rem}
-.text-muted{color:var(--muted)}
-.date{font-size:.78rem;color:var(--muted);font-family:'Fira Code',monospace}
-.mono{font-family:'Fira Code',monospace}
+.hidden { display: none !important; }
+.center { text-align: center; }
+.p-sm { padding: .75rem; }
+.mb-1 { margin-bottom: 1rem; }
+.text-muted { color: var(--muted); }
+.date { font-size: .78rem; color: var(--muted); font-family: 'Fira Code', monospace; }
+.mono { font-family: 'Fira Code', monospace; }
 
-/* reveal animation */
-.card,.project-card,.profile,.badge,.lead{
-  opacity:0;
-  transform:translateY(14px);
-  transition:all .6s ease;
+/* FIXED: Reveal animation logic consolidated */
+/* This works with the JS intersection observer */
+.card, .project-card, .profile, .badge, .lead, .section h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s var(--ease);
 }
-.active{
-  opacity:1;
-  transform:none;
+
+/* When JS adds .active, the element appears */
+.active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* reduced motion accessibility */
-@media (prefers-reduced-motion: reduce){
-  *{
-    animation:none !important;
-    transition:none !important;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
 /* small responsive */
-@media(max-width:600px){
-  h1{font-size:2rem}
-  .profile{width:220px;height:220px}
+@media(max-width: 600px) {
+  h1 { font-size: 2rem; }
+  .profile { width: 220px; height: 220px; }
 }
