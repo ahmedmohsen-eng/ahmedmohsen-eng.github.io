@@ -1,90 +1,89 @@
-import { loadCF } from './codeforces.js';
+// js/main.js
 
-try {
+import { loadCF } from './codeforces.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const root = document.documentElement;
-  const themeBtn = document.getElementById('themeToggle');
+  /* THEME */
+  const root=document.documentElement;
+  const themeBtn=document.getElementById('themeToggle');
 
-  function updateThemeIcon(){
-    themeBtn.textContent = root.classList.contains('light') ? '🌞' : '🌙';
+  function updateIcon(){
+    themeBtn.textContent=root.classList.contains('light')?'🌞':'🌙';
   }
-  updateThemeIcon();
+  updateIcon();
 
   themeBtn?.addEventListener('click',()=>{
     root.classList.toggle('light');
-    localStorage.setItem('theme', root.classList.contains('light')?'light':'dark');
-    updateThemeIcon();
+    localStorage.setItem('theme',root.classList.contains('light')?'light':'dark');
+    updateIcon();
   });
 
-  /* REVEAL ANIMATION */
-  const observer = new IntersectionObserver(entries=>{
+  /* REVEAL ON SCROLL */
+  const observer=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting) e.target.classList.add('active');
     });
   },{threshold:.12});
 
   document.querySelectorAll('.card,.project-card,.profile,.badge,.lead')
-    .forEach(el=>observer.observe(el));
+  .forEach(el=>{
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
 
-  /* FILTERS */
-  document.querySelectorAll('.filters .filter-btn').forEach(btn=>{
+  /* FILTER PROJECTS — FIXED */
+  const cards=[...document.querySelectorAll('.project-card')];
+
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
     btn.addEventListener('click',()=>{
+
       const filter=btn.dataset.filter;
 
       document.querySelectorAll('.filter-btn')
-        .forEach(b=>b.setAttribute('aria-pressed','false'));
+      .forEach(b=>b.setAttribute('aria-pressed','false'));
 
       btn.setAttribute('aria-pressed','true');
 
-      document.querySelectorAll('.project-card').forEach(card=>{
-        card.style.display=(filter==='all'||card.dataset.category===filter)
-          ?'block':'none';
+      cards.forEach(card=>{
+        const match=(filter==='all'||card.dataset.category===filter);
+
+        if(match){
+          card.style.display='block';
+          requestAnimationFrame(()=>{
+            card.style.opacity='1';
+            card.style.transform='scale(1)';
+          });
+        }else{
+          card.style.opacity='0';
+          card.style.transform='scale(.96)';
+          setTimeout(()=>card.style.display='none',180);
+        }
       });
+
     });
   });
 
-  /* ANIMATED DIAGRAMS (visibility aware) */
-  function startAnim(el){
-    const nodes=[...el.querySelectorAll('.node')];
+  /* ARCH DIAGRAM ANIMATION */
+  document.querySelectorAll('[data-animate]').forEach(diagram=>{
+    const nodes=[...diagram.querySelectorAll('.node')];
+    if(!nodes.length)return;
     let i=0;
-    return setInterval(()=>{
+
+    setInterval(()=>{
       nodes.forEach(n=>n.classList.remove('active'));
       nodes[i].classList.add('active');
       i=(i+1)%nodes.length;
     },1100);
-  }
-
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      const el=entry.target;
-
-      if(entry.isIntersecting){
-        if(!el._interval)
-          el._interval=startAnim(el);
-      } else{
-        clearInterval(el._interval);
-        el._interval=null;
-      }
-    });
   });
-
-  document.querySelectorAll('[data-animate]')
-    .forEach(el=>io.observe(el));
 
   /* COMMAND PALETTE */
   const palette=document.getElementById('palette');
   const input=document.getElementById('paletteInput');
-  const list=document.getElementById('paletteList');
 
-  function show(show=true){
-    palette.classList.toggle('hidden',!show);
-    palette.setAttribute('aria-hidden',(!show).toString());
-    if(show){
-      setTimeout(()=>input?.focus(),40);
-      input.value='';
-    }
+  function show(v){
+    palette.classList.toggle('hidden',!v);
+    if(v)setTimeout(()=>input.focus(),40);
   }
 
   document.addEventListener('keydown',e=>{
@@ -92,41 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       show(true);
     }
-    if(e.key==='Escape') show(false);
-  });
-
-  list?.querySelectorAll('li').forEach(item=>{
-    item.addEventListener('click',()=>{
-      const t=item.dataset.go;
-      show(false);
-      if(!t)return;
-      if(t.startsWith('#'))
-        document.querySelector(t)?.scrollIntoView({behavior:'smooth'});
-      else window.open(t,'_blank');
-    });
-  });
-
-  /* ENTER TO SELECT */
-  input?.addEventListener('keydown',e=>{
-    if(e.key==="Enter"){
-      const first=list.querySelector('li:not([style*="display: none"])');
-      first?.click();
-    }
-  });
-
-  /* FILTER TEXT */
-  input?.addEventListener('input',()=>{
-    const q=input.value.toLowerCase();
-    list.querySelectorAll('li').forEach(li=>{
-      li.style.display=li.textContent.toLowerCase().includes(q)?'':'none';
-    });
+    if(e.key==='Escape')show(false);
   });
 
   /* LOAD CF */
   loadCF('hackgg106');
 
 });
-
-} catch(err){
-  console.error("App crashed:",err);
-}
