@@ -29,12 +29,12 @@ const bar=document.getElementById('progress');
 
 window.addEventListener('scroll',()=>{
 const h=document.documentElement;
-const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+const sc=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
 bar.style.width=sc+"%";
 });
 
 
-/* REVEAL */
+/* REVEAL ANIMATION */
 
 const obs=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
@@ -52,7 +52,7 @@ obs.observe(el);
 });
 
 
-/* NAV SECTION HIGHLIGHT */
+/* NAV ACTIVE LINK */
 
 const sections=document.querySelectorAll('.section-track');
 const navLinks=document.querySelectorAll('.nav-links a');
@@ -69,23 +69,6 @@ a.classList.toggle('active',a.getAttribute('href')==="#"+id);
 },{threshold:.55});
 
 sections.forEach(s=>secObs.observe(s));
-
-
-/* INERTIA SCROLL */
-
-let target=window.scrollY;
-let current=window.scrollY;
-
-window.addEventListener('wheel',e=>{
-target+=e.deltaY;
-});
-
-function smooth(){
-current+=(target-current)*.08;
-window.scrollTo(0,current);
-requestAnimationFrame(smooth);
-}
-smooth();
 
 
 /* CODEFORCES */
