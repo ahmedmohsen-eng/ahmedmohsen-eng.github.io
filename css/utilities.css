@@ -1,5 +1,3 @@
-/* utilities.css - small helpers and responsive tweaks */
-
 .hidden{display:none !important}
 .center{text-align:center}
 .p-sm{padding:.75rem}
@@ -7,6 +5,25 @@
 .text-muted{color:var(--muted)}
 .date{font-size:.78rem;color:var(--muted);font-family:'Fira Code',monospace}
 .mono{font-family:'Fira Code',monospace}
+
+/* reveal animation */
+.card,.project-card,.profile,.badge,.lead{
+  opacity:0;
+  transform:translateY(14px);
+  transition:all .6s ease;
+}
+.active{
+  opacity:1;
+  transform:none;
+}
+
+/* reduced motion accessibility */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation:none !important;
+    transition:none !important;
+  }
+}
 
 /* small responsive */
 @media(max-width:600px){
