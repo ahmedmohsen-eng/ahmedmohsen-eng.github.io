@@ -1,0 +1,15 @@
+/* utilities.css - small helpers and responsive tweaks */
+
+.hidden{display:none !important}
+.center{text-align:center}
+.p-sm{padding:.75rem}
+.mb-1{margin-bottom:1rem}
+.text-muted{color:var(--muted)}
+.date{font-size:.78rem;color:var(--muted);font-family:'Fira Code',monospace}
+.mono{font-family:'Fira Code',monospace}
+
+/* small responsive */
+@media(max-width:600px){
+  h1{font-size:2rem}
+  .profile{width:220px;height:220px}
+}
