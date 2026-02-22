@@ -3,11 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Ahmed Mohsen — Backend & Embedded Systems Engineer</title>
   <meta name="description" content="Ahmed Mohsen — Computer Engineering student specializing in algorithms, backend firmware, and backend architecture. Seeking internships in backend, systems, or embedded engineering." />
 
   <!-- SECURITY -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src https://codeforces.com;">
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          img-src 'self' https:;
+          script-src 'self';
+          style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+          font-src https://fonts.gstatic.com;
+          connect-src https://codeforces.com;
+        ">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Ahmed Mohsen — Engineering Portfolio" />
@@ -15,14 +24,16 @@
   <meta property="og:image" content="public/assets/og-image.png" />
 
   <link rel="icon" href="public/assets/favicon.ico" />
+
+  <!-- Preload LCP image -->
   <link rel="preload" as="image" href="public/assets/profile_photo.jpg">
 
-  <!-- Fonts -->
+  <!-- FONT preload (optional self-host later) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Theme init -->
+  <!-- Prevent theme flash: inline early theme init -->
   <script>
     (function() {
       try {
@@ -35,46 +46,29 @@
     })();
   </script>
 
+  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- Minimal inline styles to prevent overlay elements blocking scroll -->
-  <style>
-    /* Keep progress and cursor visually available but non-interactive so they don't block scrolling/clicks. */
-    #progress, #cursor {
-      pointer-events: none;
-      position: fixed;
-      z-index: 9999;
-      -webkit-user-select: none;
-      user-select: none;
-    }
-
-    /* small progress bar at top (adjustable in your css) */
-    #progress { top: 0; left: 0; width: 100%; height: 4px; }
-
-    /* custom cursor circle — centered; JS can move it via transform/left/top */
-    #cursor {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      /* keep visible but let your main CSS set background/opacity etc. */
-    }
-
-    /* Safety: ensure the command palette (hidden by default) doesn't block events */
-    .palette.hidden { pointer-events: none; }
-  </style>
-
-  <!-- JSON-LD -->
+  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Ahmed Mohsen","url":"https://yourdomain.com","sameAs":["https://github.com/ahmedmohsen-eng","https://linkedin.com/in/ahmedmohseneng"],"jobTitle":"Computer Engineering Student","alumniOf":"Université Française d'Égypte","award":"Schneider Electric Excellence Scholar","email":"mailto:ahmed.mohsen.study@gmail.com","knowsAbout":["Algorithms","Embedded Systems","Backend Development"]}
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Ahmed Mohsen",
+    "url":"https://yourdomain.com",
+    "sameAs":[
+      "https://github.com/ahmedmohsen-eng",
+      "https://linkedin.com/in/ahmedmohseneng"
+    ],
+    "jobTitle":"Computer Engineering Student",
+    "alumniOf":"Université Française d'Égypte",
+    "award":"Schneider Electric Excellence Scholar",
+    "email":"mailto:ahmed.mohsen.study@gmail.com",
+    "knowsAbout":["Algorithms","Embedded Systems","Backend Development"]
+  }
   </script>
 </head>
 <body>
-
-  <!-- Progress & Cursor (from version 2) -->
-  <div id="progress" aria-hidden="true"></div>
-  <div id="cursor" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav>
@@ -98,7 +92,7 @@
   </nav>
 
   <!-- HERO -->
-  <header id="top" class="container section-track">
+  <header id="top" class="container">
     <div class="hero-grid">
       <main class="hero-content" role="main" aria-labelledby="hero-title">
         <span class="badge">Computer Engineering — UFE</span>
@@ -136,7 +130,7 @@
   </header>
 
   <!-- SKILLS -->
-  <section id="skills" class="section container section-track" aria-labelledby="skills-title">
+  <section id="skills" class="section container" aria-labelledby="skills-title">
     <h2 id="skills-title"><span class="accent">01.</span> Skills & Tools</h2>
     <div class="cards-grid">
       <div class="card">
@@ -168,7 +162,7 @@
   </section>
 
   <!-- PROJECT FILTERS -->
-  <section class="section container section-track" aria-label="Project filters">
+  <section class="section container" aria-label="Project filters">
     <div class="filters" role="toolbar" aria-label="Filter projects">
       <button data-filter="all" class="filter-btn" aria-pressed="true">All</button>
       <button data-filter="backend" class="filter-btn">Backend</button>
@@ -178,7 +172,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section container section-track" aria-labelledby="projects-title">
+  <section id="projects" class="section container" aria-labelledby="projects-title">
     <h2 id="projects-title"><span class="accent">02.</span> Technical Projects</h2>
 
     <!-- Project: AI Orchestrator -->
@@ -218,11 +212,7 @@
         </figure>
 
         <div class="project-links">
-          <!-- fallback: link to GitHub profile if repo is unavailable -->
-          <a href="https://github.com/ahmedmohsen-eng"
-             title="Repository unavailable or private — view GitHub profile"
-             data-original-href="https://github.com/ahmedmohsen-eng/support-orchestrator"
-             target="_blank" rel="noopener noreferrer">Source (profile)</a>
+          <a href="https://github.com/ahmedmohsen-eng/support-orchestrator" target="_blank" rel="noopener noreferrer">Source</a>
           <a href="public/assets/support-orchestrator-arch.png" target="_blank" rel="noopener noreferrer">Full architecture image</a>
         </div>
 
@@ -279,7 +269,7 @@
   </section>
 
   <!-- CONTACT / FOOTER -->
-  <footer id="contact" class="container section-track">
+  <footer id="contact" class="container">
     <h3>Connect</h3>
     <p><a href="mailto:ahmed.mohsen.study@gmail.com">ahmed.mohsen.study@gmail.com</a></p>
     <p>
@@ -302,7 +292,8 @@
       </ul>
     </div>
   </div>
-
+<div id="progress"></div>
+<div id="cursor"></div>
   <!-- SCRIPTS -->
   <script type="module" src="js/main.js"></script>
 </body>
