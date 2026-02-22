@@ -3,3 +3,65 @@
 @import "layout.css";
 @import "components.css";
 @import "utilities.css";
+
+
+/* FOOTER */
+
+.footer{
+margin-top:120px;
+padding:70px 0 40px;
+border-top:1px solid rgba(255,255,255,.06);
+}
+
+.footer-inner{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:40px;
+}
+
+.footer h3{
+margin:0 0 15px;
+font-size:24px;
+}
+
+.mail{
+display:inline-block;
+font-size:18px;
+margin-bottom:20px;
+color:var(--text);
+text-decoration:none;
+transition:.25s;
+}
+
+.mail:hover{
+color:var(--accent);
+}
+
+.socials{
+display:flex;
+gap:18px;
+}
+
+.socials a{
+color:var(--muted);
+text-decoration:none;
+font-weight:500;
+transition:.25s;
+}
+
+.socials a:hover{
+color:var(--accent);
+}
+
+.footer-meta{
+text-align:right;
+font-size:14px;
+color:var(--muted);
+}
+
+.footer-meta span{
+display:block;
+margin-top:6px;
+opacity:.7;
+}
