@@ -1,4 +1,4 @@
-/* base.css - variables, resets, base typography */
+/* base.css */
 
 :root{
   --bg:#020617;
@@ -10,12 +10,14 @@
   --nav-h:72px;
   --radius:12px;
 
-  --ease:cubic-bezier(.2,.8,.2,1);
+  /* motion system */
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
   --fast:.18s;
-  --med:.35s;
+  --med:.42s;
+  --slow:.75s;
 }
 
-/* light theme */
 .light{
   --bg:#f8fafc;
   --text:#020617;
@@ -25,29 +27,25 @@
 }
 
 *{box-sizing:border-box}
-
 html,body{height:100%}
 
 body{
   margin:0;
-  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+  font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto;
   background:var(--bg);
   color:var(--text);
-  -webkit-font-smoothing:antialiased;
   line-height:1.45;
   scroll-behavior:smooth;
-  transition:background var(--med) var(--ease), color var(--med) var(--ease);
+  transition:background var(--med) var(--ease-out),color var(--med) var(--ease-out);
 }
 
+/* link animation */
 a{
   color:inherit;
   text-decoration:none;
   transition:color var(--fast);
 }
-
-a:hover{
-  color:var(--accent);
-}
+a:hover{color:var(--accent)}
 
 .container{
   max-width:var(--container);
@@ -55,26 +53,25 @@ a:hover{
   padding:0 1.5rem;
 }
 
-.mono{font-family:'Fira Code',monospace}
 .muted{color:var(--muted)}
 
-.small-head{
-  font-size:.75rem;
-  color:var(--accent);
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:.5rem;
-}
-
-/* GLOBAL REVEAL ANIMATION SYSTEM */
+/* reveal engine */
 .reveal{
   opacity:0;
-  transform:translateY(22px);
-  transition:all .7s var(--ease);
+  transform:translateY(30px) scale(.98);
+  transition:
+    opacity var(--slow) var(--ease-out),
+    transform var(--slow) var(--ease-spring);
+  will-change:transform,opacity;
 }
 
 .reveal.active{
   opacity:1;
   transform:none;
 }
+
+/* stagger helper */
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+.reveal-delay-4{transition-delay:.32s}
