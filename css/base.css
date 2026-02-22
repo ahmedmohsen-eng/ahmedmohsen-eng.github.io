@@ -86,3 +86,7 @@ transition:all .8s var(--ease);
 opacity:1;
 transform:none;
 }
+
+html{
+scroll-behavior:smooth;
+}
