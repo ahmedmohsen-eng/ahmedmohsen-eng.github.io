@@ -3,106 +3,93 @@ import { loadCF } from './codeforces.js';
 document.addEventListener('DOMContentLoaded',()=>{
 
 /* THEME */
+
 const root=document.documentElement;
 const btn=document.getElementById('themeToggle');
 
-function icon(){
-  btn.textContent=root.classList.contains('light')?'🌞':'🌙';
-}
-icon();
-
 btn.onclick=()=>{
-  root.classList.toggle('light');
-  localStorage.setItem('theme',root.classList.contains('light')?'light':'dark');
-  icon();
+root.classList.toggle('light');
+localStorage.setItem('theme',root.classList.contains('light')?'light':'dark');
 };
 
-/* SCROLL REVEAL (stagger system) */
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-      observer.unobserve(entry.target);
-    }
-  });
+/* CURSOR GLOW */
+
+const cursor=document.getElementById('cursor');
+
+window.addEventListener('mousemove',e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+
+/* SCROLL PROGRESS */
+
+const bar=document.getElementById('progress');
+
+window.addEventListener('scroll',()=>{
+const h=document.documentElement;
+const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+bar.style.width=sc+"%";
+});
+
+
+/* REVEAL */
+
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add('active');
+obs.unobserve(e.target);
+}
+});
 },{threshold:.15});
 
-document.querySelectorAll('.card,.project-card,.profile,.badge,.lead')
-.forEach((el,i)=>{
-  el.classList.add('reveal');
-  el.classList.add(`reveal-delay-${(i%4)+1}`);
-  observer.observe(el);
+document.querySelectorAll('.card,.section h2,.profile')
+.forEach(el=>{
+el.classList.add('reveal');
+obs.observe(el);
 });
 
 
-/* FILTER ENGINE — pro version */
+/* NAV SECTION HIGHLIGHT */
 
-const cards=[...document.querySelectorAll('.project-card')];
+const sections=document.querySelectorAll('.section-track');
+const navLinks=document.querySelectorAll('.nav-links a');
 
-document.querySelectorAll('.filter-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-
-    const filter=btn.dataset.filter;
-
-    document.querySelectorAll('.filter-btn')
-    .forEach(b=>b.setAttribute('aria-pressed','false'));
-
-    btn.setAttribute('aria-pressed','true');
-
-    cards.forEach(card=>{
-      const show=(filter==='all'||card.dataset.category===filter);
-
-      if(show){
-        card.style.display='block';
-        requestAnimationFrame(()=>{
-          card.style.opacity='1';
-          card.style.transform='scale(1)';
-        });
-      }else{
-        card.style.opacity='0';
-        card.style.transform='scale(.92)';
-        setTimeout(()=>card.style.display='none',250);
-      }
-    });
-
-  });
+const secObs=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+const id=entry.target.id;
+navLinks.forEach(a=>{
+a.classList.toggle('active',a.getAttribute('href')==="#"+id);
 });
-
-
-/* DIAGRAM LOOP */
-
-document.querySelectorAll('[data-animate]').forEach(diagram=>{
-  const nodes=[...diagram.querySelectorAll('.node')];
-  let i=0;
-  setInterval(()=>{
-    nodes.forEach(n=>n.classList.remove('active'));
-    nodes[i].classList.add('active');
-    i=(i+1)%nodes.length;
-  },1100);
-});
-
-
-/* COMMAND PALETTE */
-
-const palette=document.getElementById('palette');
-const input=document.getElementById('paletteInput');
-
-function show(v){
-  palette.classList.toggle('hidden',!v);
-  if(v)setTimeout(()=>input.focus(),40);
 }
+});
+},{threshold:.55});
 
-document.addEventListener('keydown',e=>{
-  if((e.ctrlKey||e.metaKey)&&e.key==='k'){
-    e.preventDefault();
-    show(true);
-  }
-  if(e.key==='Escape')show(false);
+sections.forEach(s=>secObs.observe(s));
+
+
+/* INERTIA SCROLL */
+
+let target=window.scrollY;
+let current=window.scrollY;
+
+window.addEventListener('wheel',e=>{
+target+=e.deltaY;
 });
 
+function smooth(){
+current+=(target-current)*.08;
+window.scrollTo(0,current);
+requestAnimationFrame(smooth);
+}
+smooth();
 
-/* LOAD CF */
+
+/* CODEFORCES */
+
 loadCF('hackgg106');
 
 });
