@@ -10,6 +10,7 @@
   --radius: 16px;
   --med: 0.4s;
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --nav-h: 70px;
 }
 
 .light {
