@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.15 });
 
-  // FIXED: Added '.project-card' to the selector list
+  // FIXED: Added '.project-card' to this selector list
   document.querySelectorAll('.card, .project-card, .section h2, .profile')
     .forEach(el => {
       el.classList.add('reveal');
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   /* NAV ACTIVE LINK */
-  // FIXED: Changed '.section-track' to '.section' to match index.html
+  // FIXED: Changed tracker to '.section' to match your HTML structure
   const sections = document.querySelectorAll('.section');
   const navLinks = document.querySelectorAll('.nav-links a');
 
