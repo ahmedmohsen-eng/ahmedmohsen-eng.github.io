@@ -16,13 +16,17 @@
 .ghost{border:1px solid rgba(255,255,255,0.08)}
 
 .stack{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+
+/* Improved tag contrast for accessibility */
 .tag{
-  background:rgba(255,255,255,0.03);
-  padding:.3rem .6rem;
+  background: rgba(255,255,255,0.12);
+  padding:.35rem .7rem;
   border-radius:8px;
   font-family:'Fira Code',monospace;
-  font-size:.82rem;
-  color:var(--muted)
+  font-size:.85rem;
+  color: var(--text);
+  font-weight:600;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .project-card{margin-bottom:1.5rem}
@@ -54,7 +58,7 @@
 .arrow{
   width:36px;height:2px;
   background:linear-gradient(90deg,transparent,var(--accent),transparent);
-  border-radius:1px
+  border-radius:1px;
 }
 
 /* filters */
@@ -80,7 +84,7 @@
   align-items:center;
   justify-content:center;
   background:rgba(0,0,0,0.6);
-  z-index:999
+  z-index:999;
 }
 .palette.hidden{display:none}
 .palette-card{
@@ -88,7 +92,7 @@
   padding:1rem;
   border-radius:12px;
   background:var(--card);
-  border:1px solid rgba(255,255,255,0.04)
+  border:1px solid rgba(255,255,255,0.04);
 }
 .palette-card input{
   width:100%;
@@ -97,13 +101,13 @@
   border:1px solid rgba(255,255,255,0.04);
   font-size:1rem;
   background:transparent;
-  color:var(--text)
+  color:var(--text);
 }
 .palette-card ul{
   list-style:none;
   padding:0;margin:.6rem 0 0 0;
   border-radius:8px;
-  overflow:hidden
+  overflow:hidden;
 }
 .palette-card li{padding:.7rem 1rem;cursor:pointer}
 .palette-card li:hover{background:rgba(56,189,248,0.06)}
