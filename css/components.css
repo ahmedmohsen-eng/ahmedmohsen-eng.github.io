@@ -1,14 +1,29 @@
-/* components.css - cards, buttons, projects, arch, palette */
+.card{
+  background:var(--card);
+  padding:1.1rem;
+  border-radius:var(--radius);
+  border-top:3px solid rgba(56,189,248,0.06);
+}
 
-.card{background:var(--card);padding:1.1rem;border-radius:var(--radius);border-top:3px solid rgba(56,189,248,0.06)}
-.small-head{font-size:.7rem;color:var(--accent);font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
-
-.btn{display:inline-block;padding:.72rem 1.15rem;border-radius:10px;font-weight:800;text-decoration:none}
+.btn{
+  display:inline-block;
+  padding:.72rem 1.15rem;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
+}
 .primary{background:var(--accent);color:#020617}
 .ghost{border:1px solid rgba(255,255,255,0.08)}
 
 .stack{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
-.tag{background:rgba(255,255,255,0.03);padding:.3rem .6rem;border-radius:8px;font-family:'Fira Code',monospace;font-size:.82rem;color:var(--muted)}
+.tag{
+  background:rgba(255,255,255,0.03);
+  padding:.3rem .6rem;
+  border-radius:8px;
+  font-family:'Fira Code',monospace;
+  font-size:.82rem;
+  color:var(--muted)
+}
 
 .project-card{margin-bottom:1.5rem}
 .project-body{margin-top:.9rem}
@@ -21,22 +36,74 @@
 .arch img{max-width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.05)}
 .arch figcaption{font-size:.85rem;color:var(--muted);margin-top:.5rem}
 
-/* animated diagram (nodes + arrows) */
 .arch-diagram{display:flex;align-items:center;gap:10px;margin-top:.9rem}
-.node{padding:.45rem .75rem;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);opacity:.45;transition:transform .35s,opacity .35s,box-shadow .35s}
-.node.active{opacity:1;transform:scale(1.04);box-shadow:0 8px 28px rgba(56,189,248,0.15);border-color:rgba(56,189,248,0.45)}
-.arrow{width:36px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);border-radius:1px}
+.node{
+  padding:.45rem .75rem;
+  border-radius:10px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.03);
+  opacity:.45;
+  transition:transform .35s,opacity .35s,box-shadow .35s;
+}
+.node.active{
+  opacity:1;
+  transform:scale(1.04);
+  box-shadow:0 8px 28px rgba(56,189,248,0.15);
+  border-color:rgba(56,189,248,0.45);
+}
+.arrow{
+  width:36px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  border-radius:1px
+}
 
 /* filters */
-.filters{display:flex;gap:.6rem;flex-wrap:wrap;margin:0.6rem 0}
-.filter-btn{padding:.5rem .9rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;cursor:pointer;font-weight:700}
-.filter-btn[aria-pressed="true"]{box-shadow:0 6px 18px rgba(56,189,248,0.06);border-color:rgba(56,189,248,0.18)}
+.filters{display:flex;gap:.6rem;flex-wrap:wrap;margin:.6rem 0}
+.filter-btn{
+  padding:.5rem .9rem;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  background:transparent;
+  cursor:pointer;
+  font-weight:700;
+}
+.filter-btn[aria-pressed="true"]{
+  box-shadow:0 6px 18px rgba(56,189,248,0.06);
+  border-color:rgba(56,189,248,0.18)
+}
 
-/* command palette */
-.palette{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:999}
+/* palette */
+.palette{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.6);
+  z-index:999
+}
 .palette.hidden{display:none}
-.palette-card{width:min(720px,95%);padding:1rem;border-radius:12px;background:var(--card);border:1px solid rgba(255,255,255,0.04)}
-.palette-card input{width:100%;padding:1rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);font-size:1rem;background:transparent;color:var(--text)}
-.palette-card ul{list-style:none;padding:0;margin:.6rem 0 0 0;border-radius:8px;overflow:hidden}
+.palette-card{
+  width:min(720px,95%);
+  padding:1rem;
+  border-radius:12px;
+  background:var(--card);
+  border:1px solid rgba(255,255,255,0.04)
+}
+.palette-card input{
+  width:100%;
+  padding:1rem;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.04);
+  font-size:1rem;
+  background:transparent;
+  color:var(--text)
+}
+.palette-card ul{
+  list-style:none;
+  padding:0;margin:.6rem 0 0 0;
+  border-radius:8px;
+  overflow:hidden
+}
 .palette-card li{padding:.7rem 1rem;cursor:pointer}
 .palette-card li:hover{background:rgba(56,189,248,0.06)}
