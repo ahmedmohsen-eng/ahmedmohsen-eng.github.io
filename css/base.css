@@ -1,92 +1,95 @@
-:root{
---bg:#020617;
---text:#e6eef8;
---accent:#38bdf8;
---muted:#94a3b8;
---ease:cubic-bezier(.16,1,.3,1);
+:root {
+  --bg: #020617;
+  --text: #e6eef8;
+  --accent: #38bdf8;
+  --muted: #94a3b8;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+  
+  /* FIXED: Added missing variables used in components.css */
+  --card: rgba(15, 23, 42, 0.6);
+  --radius: 16px;
+  --med: 0.4s;
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.light{
---bg:#f8fafc;
---text:#020617;
---accent:#2563eb;
---muted:#475569;
+.light {
+  --bg: #f8fafc;
+  --text: #020617;
+  --accent: #2563eb;
+  --muted: #475569;
+  --card: rgba(255, 255, 255, 0.8);
 }
 
-*{box-sizing:border-box}
+* { box-sizing: border-box; }
 
-body{
-margin:0;
-font-family:Inter,system-ui;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
+body {
+  margin: 0;
+  font-family: Inter, system-ui;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
 }
 
 /* animated background */
-
-body::before{
-content:"";
-position:fixed;
-inset:-50%;
-background:
-radial-gradient(circle at 20% 30%,#38bdf822,transparent 40%),
-radial-gradient(circle at 80% 70%,#818cf822,transparent 40%);
-animation:bgMove 18s linear infinite;
-z-index:-1;
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  background:
+    radial-gradient(circle at 20% 30%, #38bdf822, transparent 40%),
+    radial-gradient(circle at 80% 70%, #818cf822, transparent 40%);
+  animation: bgMove 18s linear infinite;
+  z-index: -1;
 }
 
-@keyframes bgMove{
-0%{transform:translate(0,0)}
-50%{transform:translate(-10%,10%)}
-100%{transform:translate(0,0)}
+@keyframes bgMove {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-10%, 10%); }
+  100% { transform: translate(0, 0); }
 }
 
 /* progress bar */
-
-#progress{
-position:fixed;
-top:0;
-left:0;
-height:3px;
-width:0%;
-background:linear-gradient(90deg,#38bdf8,#818cf8);
-z-index:9999;
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  z-index: 9999;
 }
 
 /* cursor glow */
-
-#cursor{
-position:fixed;
-width:260px;
-height:260px;
-border-radius:50%;
-background:radial-gradient(circle,#38bdf833,transparent 70%);
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:999;
-transition:transform .08s linear;
+#cursor {
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #38bdf833, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  transition: transform .08s linear;
 }
 
 /* nav active */
-
-.nav-links a.active{
-color:var(--accent);
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 800;
 }
 
 /* reveal */
-
-.reveal{
-opacity:0;
-transform:translateY(25px);
-transition:all .8s var(--ease);
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all .8s var(--ease);
 }
 
-.reveal.active{
-opacity:1;
-transform:none;
+.reveal.active {
+  opacity: 1;
+  transform: none;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
