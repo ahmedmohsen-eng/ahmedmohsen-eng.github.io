@@ -1,31 +1,67 @@
-.card{ 
-  background:var(--card); 
-  padding:1.1rem; 
-  border-radius:var(--radius); 
-  border:1px solid rgba(255,255,255,.04); 
-  backdrop-filter:blur(8px); 
-  transition:transform var(--med) var(--ease-spring); 
-} 
-
-.card:hover{ 
-  transform:translateY(-6px) scale(1.02); 
-} 
-
-.btn{ 
-  display:inline-block; 
-  padding:.75rem 1.2rem; 
-  border-radius:10px; 
-  font-weight:800; 
-} 
-
-.primary{ 
-  background:var(--accent); 
-  color:#020617; 
-} 
-
-.tag{ 
-  background:rgba(255,255,255,.06); 
-  padding:.3rem .65rem; 
-  border-radius:8px; 
-  font-size:.82rem; 
+/* components.css - cards, buttons, tags */
+.card {
+  background: var(--card);
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.04);
+  backdrop-filter: blur(8px);
+  transition: transform var(--med) var(--ease-spring);
 }
+
+.card:hover { transform: translateY(-6px) scale(1.02); }
+
+.btn {
+  display: inline-block;
+  padding: .75rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all var(--med) var(--ease-spring);
+}
+
+.primary { background: var(--accent); color: #020617; }
+.primary:hover { transform: translateY(-2px) scale(1.04); }
+
+.ghost {
+  border: 1px solid rgba(255,255,255,.12);
+  color: var(--text);
+}
+.ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.tag {
+  background: rgba(255,255,255,.06);
+  padding: .3rem .65rem;
+  border-radius: 8px;
+  font-size: .82rem;
+  color: var(--text);
+  transition: all .3s;
+  display: inline-block;
+}
+.tag:hover { background: var(--accent); color: #021226; }
+
+.filters {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  margin: .6rem 0;
+}
+.filter-btn {
+  padding: .5rem .9rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all var(--med) var(--ease-spring);
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.filter-btn[aria-pressed="true"] { background: rgba(56,189,248,.15); border-color: var(--accent); color: var(--accent); }
+
+.project-card {
+  transition: opacity .35s, transform .35s;
+}
+
+/* hidden / reveal */
+.hidden { display: none !important; }
+.card, .project-card, .profile, .section h2 { opacity: 0; transform: translateY(20px); transition: .8s; }
+.active { opacity: 1 !important; transform: none !important; }
