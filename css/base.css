@@ -1,49 +1,44 @@
 :root {
-  /* Dark Mode - Deep Slate & Cyan */
-  --bg: #0a0f1a;           /* Deep midnight blue */
-  --card: #161e2d;         /* Slightly lighter card bg */
-  --text: #f1f5f9;         /* Off-white for readability */
-  --text-muted: #94a3b8;
-  --accent: #00d2ff;       /* Electric Cyan */
-  --accent-glow: rgba(0, 210, 255, 0.15); /* Translucent glow */
+  --bg: #030712;           /* Near black */
+  --card: #0f172a;         /* Deep slate */
+  --text: #f8fafc;         /* High contrast white */
+  --text-muted: #94a3b8;   /* Soft grey */
+  --accent: #0ea5e9;       /* Professional Blue */
+  --accent-glow: rgba(14, 165, 233, 0.15); 
   --nav-h: 70px;
-  --section-gap: 5rem;
+  --section-gap: 6rem;     /* Increased for "breathability" */
 }
 
 .light {
-  /* Light Mode - Clean Grey & Deep Blue */
   --bg: #f8fafc;
   --card: #ffffff;
   --text: #0f172a;
-  --text-muted: #475569;
-  --accent: #2563eb;
-  --accent-glow: rgba(37, 99, 235, 0.1);
+  --text-muted: #64748b;
+  --accent: #0284c7;
+  --accent-glow: rgba(2, 132, 199, 0.08);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  transition: background-color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Fixed Cursor Glow - Uses accent-glow to prevent washing out text */
 #cursor {
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 400px; height: 400px;
   background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
-  z-index: 1; /* Behind text but above background */
-  transition: transform 0.1s ease-out;
+  z-index: 0; /* Behind everything */
+  transition: transform 0.15s ease-out;
 }
 
 #progress {
   position: fixed; top: 0; left: 0; height: 3px;
-  background: linear-gradient(90deg, var(--accent), #7dd3fc);
-  z-index: 1000;
+  background: var(--accent); z-index: 1001;
 }
