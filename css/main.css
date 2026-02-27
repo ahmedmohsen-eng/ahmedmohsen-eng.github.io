@@ -1,67 +1,101 @@
-/* If you prefer flat file for quick deploy, replace @import lines with concatenated content */
-@import "base.css";
-@import "layout.css";
-@import "components.css";
-@import "utilities.css";
-
-
-/* FOOTER */
-
-.footer{
-margin-top:120px;
-padding:70px 0 40px;
-border-top:1px solid rgba(255,255,255,.06);
+/* main.css - base variables, reset, body, cursor, progress, theme */
+:root {
+  --bg: #020617;
+  --text: #e6eef8;
+  --accent: #38bdf8;
+  --muted: #94a3b8;
+  --ease: cubic-bezier(.16,1,.3,1);
+  --card: rgba(15,23,42,.6);
+  --radius: 16px;
+  --med: .4s;
+  --ease-spring: cubic-bezier(.175,.885,.32,1.275);
+  --nav-h: 70px;
 }
 
-.footer-inner{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:40px;
+.light {
+  --bg: #f8fafc;
+  --text: #020617;
+  --accent: #2563eb;
+  --muted: #475569;
+  --card: rgba(255,255,255,.8);
 }
 
-.footer h3{
-margin:0 0 15px;
-font-size:24px;
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  scroll-padding-top: var(--nav-h); /* fix for navbar overlap */
 }
 
-.mail{
-display:inline-block;
-font-size:18px;
-margin-bottom:20px;
-color:var(--text);
-text-decoration:none;
-transition:.25s;
+/* container fix */
+.container {
+  width: min(1100px, 100% - 2rem);
+  margin-inline: auto;
 }
 
-.mail:hover{
-color:var(--accent);
+/* images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-.socials{
-display:flex;
-gap:18px;
+/* animated background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  background:
+    radial-gradient(circle at 20% 30%, #38bdf822, transparent 40%),
+    radial-gradient(circle at 80% 70%, #818cf822, transparent 40%);
+  animation: bgMove 18s linear infinite;
+  z-index: -1;
 }
 
-.socials a{
-color:var(--muted);
-text-decoration:none;
-font-weight:500;
-transition:.25s;
+@keyframes bgMove {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-10%, 10%); }
+  100% { transform: translate(0, 0); }
 }
 
-.socials a:hover{
-color:var(--accent);
+/* progress bar */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  z-index: 9999;
 }
 
-.footer-meta{
-text-align:right;
-font-size:14px;
-color:var(--muted);
+/* cursor glow */
+#cursor {
+  position: fixed;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #38bdf833, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  transition: transform .08s linear;
 }
 
-.footer-meta span{
-display:block;
-margin-top:6px;
-opacity:.7;
+html { scroll-behavior: smooth; }
+
+/* reveal base state */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all .8s var(--ease);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: none;
 }
