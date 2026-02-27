@@ -1,45 +1,69 @@
-.card {
-  background: var(--card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
+import { loadCF } from './codeforces.js';
 
-.card:hover {
-  transform: translateY(-10px);
-  background: rgba(30, 41, 59, 0.7);
-  border-color: var(--accent);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.getElementById('cursor');
+    const themeBtn = document.getElementById('themeToggle');
+    const progress = document.getElementById('progress');
 
-.tag {
-  background: rgba(14, 165, 233, 0.1);
-  color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border: 1px solid rgba(14, 165, 233, 0.2);
-}
+    // 1. Smooth Cursor
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+    });
 
-.filter-btn {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 8px 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
+    // 2. Theme Toggle
+    themeBtn.addEventListener('click', () => {
+        const isLight = document.documentElement.classList.toggle('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        themeBtn.textContent = isLight ? '☀️' : '🌙';
+    });
 
-.filter-btn.active {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-}
+    // 3. Scroll Progress
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progress.style.width = (winScroll / height) * 100 + "%";
+    });
+
+    // 4. Reactive Project Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filter = btn.dataset.filter;
+            projects.forEach(card => {
+                const match = filter === 'all' || card.dataset.category === filter;
+                card.style.display = match ? 'block' : 'none';
+            });
+        });
+    });
+
+    // 5. Command Palette (Ctrl+K)
+    const palette = document.getElementById('palette');
+    const palInput = document.getElementById('paletteInput');
+
+    document.addEventListener('keydown', e => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            palette.classList.toggle('hidden');
+            if(!palette.classList.contains('hidden')) palInput.focus();
+        }
+        if (e.key === 'Escape') palette.classList.add('hidden');
+    });
+
+    document.querySelectorAll('#paletteList li').forEach(item => {
+        item.addEventListener('click', () => {
+            const go = item.dataset.go;
+            if (go.startsWith('#')) document.querySelector(go).scrollIntoView();
+            else window.open(go, '_blank');
+            palette.classList.add('hidden');
+        });
+    });
+
+    // 6. Init Codeforces
+    loadCF('hackgg106');
+});
