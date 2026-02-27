@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Mohsen | Backend & Embedded Systems Engineer</title>
     
-    <meta name="description" content="Aspiring ICPC competitor and backend enthusiast, currently studying Computer Engineering at UFE. Exploring algorithms, embedded systems, and scalable backend architecture.">
-    <meta property="og:title" content="Ahmed Mohsen — Engineering Portfolio" />
-    <meta property="og:description" content="Aspiring ICPC competitor • Backend & Embedded Systems • UFE Computer Engineering" />
-    <link rel="icon" href="public/assets/favicon.ico" />
+    <meta name="description" content="Aspiring ICPC competitor and Computer Engineering student at UFE specializing in Backend and Embedded systems.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src https://codeforces.com;">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/main.css">
 
@@ -33,7 +31,7 @@
 
     <nav>
         <div class="container nav-inner">
-            <a href="#" class="brand">
+            <a href="#top" class="brand">
                 <div class="logo">AM</div>
                 <div class="brand-name">Ahmed<span>.Dev</span></div>
             </a>
@@ -41,7 +39,6 @@
                 <div class="nav-links">
                     <a href="#skills">Skills</a>
                     <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
                 </div>
                 <div class="nav-actions">
                     <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
@@ -56,13 +53,11 @@
             <div class="hero-text">
                 <span class="badge">Computer Engineering @ UFE</span>
                 <h1>Aspiring <span class="gradient">ICPC Competitor</span> & Backend Developer</h1>
-                <p class="lead">Computer Engineering student at UFE, driven by algorithmic challenges and scalable backend systems. Passionate about ICPC competitions, mastering competitive programming, and building robust, efficient software solutions.</p>
-                
+                <p class="lead">Building high-performance backend systems and mastering algorithmic challenges. Currently a Computer Engineering student at UFE.</p>
                 <div class="hero-btns">
-                    <a href="#projects" class="btn primary">Explore Projects</a>
+                    <a href="#projects" class="btn primary">View Projects</a>
                     <a href="https://codeforces.com/profile/hackgg106" target="_blank" class="btn ghost">Codeforces</a>
                 </div>
-
                 <div class="looking-for">
                     <strong>Seeking:</strong> Internships in Backend, Embedded, or Systems Engineering.
                 </div>
@@ -85,26 +80,15 @@
         <div class="cards-grid">
             <div class="card">
                 <div class="small-head">Languages</div>
-                <div class="stack">
-                    <span class="tag">C++ (STL)</span>
-                    <span class="tag">Python</span>
-                </div>
+                <div class="stack"><span class="tag">C++ (STL)</span><span class="tag">Python</span></div>
             </div>
             <div class="card">
-                <div class="small-head">Problem Solving</div>
-                <div class="stack">
-                    <span class="tag">Algorithms</span>
-                    <span class="tag">Data Structures</span>
-                </div>
+                <div class="small-head">Logic</div>
+                <div class="stack"><span class="tag">Algorithms</span><span class="tag">Data Structures</span></div>
             </div>
             <div class="card">
                 <div class="small-head">Tools</div>
-                <div class="stack">
-                    <span class="tag">Git</span>
-                    <span class="tag">CLion</span>
-                    <span class="tag">PyCharm</span>
-                    <span class="tag">Tinkercad</span>
-                </div>
+                <div class="stack"><span class="tag">Git</span><span class="tag">CLion</span><span class="tag">Tinkercad</span></div>
             </div>
         </div>
     </section>
@@ -124,49 +108,28 @@
             <article class="project-card" data-category="ai">
                 <div class="mono date">Feb 2026 — Present</div>
                 <h3>Support AI Orchestrator</h3>
-                <p class="muted">Modular backend pipeline coordinating analytics, NLP sentiment, and RAG flows.</p>
-                <div class="stack">
-                    <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Redis</span><span class="tag">RAG</span>
-                </div>
-                
+                <p class="muted">Modular backend pipeline coordinating analytics and RAG flows.</p>
                 <div class="arch-diagram">
-                    <div class="node">Ingestion</div>
-                    <div class="arrow">→</div>
-                    <div class="node">NLP</div>
-                    <div class="arrow">→</div>
-                    <div class="node">RAG</div>
+                    <div class="node">Input</div><div class="arrow">→</div><div class="node">FastAPI</div><div class="arrow">→</div><div class="node">RAG</div>
                 </div>
-
-                <img src="public/assets/support-orchestrator-arch.png" alt="Architecture" class="project-preview">
+                <img src="public/assets/support-orchestrator-arch.png" class="project-preview" alt="Arch">
             </article>
 
             <article class="project-card" data-category="embedded">
                 <div class="mono date">Nov 2023 — Present</div>
-                <h3>Hardware Control System</h3>
-                <p class="muted">Firmware for sensor fusion and asynchronous IR control with safety actuation.</p>
-                <div class="stack">
-                    <span class="tag">C++</span><span class="tag">State Machine</span><span class="tag">Sensors</span>
-                </div>
-
+                <h3>Integrated Hardware Control</h3>
+                <p class="muted">Firmware for multi-sensor fusion and asynchronous IR control.</p>
                 <div class="arch-diagram">
-                    <div class="node">Sensors</div>
-                    <div class="arrow">→</div>
-                    <div class="node">MCU</div>
-                    <div class="arrow">→</div>
-                    <div class="node">Actuator</div>
+                    <div class="node">Sensor</div><div class="arrow">→</div><div class="node">MCU</div><div class="arrow">→</div><div class="node">Safety</div>
                 </div>
-
-                <img src="public/assets/embedded-arch.png" alt="Hardware Architecture" class="project-preview">
+                <img src="public/assets/embedded-arch.png" class="project-preview" alt="Arch">
             </article>
         </div>
     </section>
 
     <footer id="contact" class="container">
         <div class="footer-content">
-            <div class="footer-left">
-                <p>© 2026 Ahmed Mohsen. Schneider Electric Excellence Scholar.</p>
-                <p class="muted">ahmed.mohsen.study@gmail.com</p>
-            </div>
+            <p>© 2026 Ahmed Mohsen. Schneider Electric Scholar.</p>
             <div class="social-links">
                 <a href="https://github.com/ahmedmohsen-eng">GitHub</a>
                 <a href="https://linkedin.com/in/ahmedmohseneng">LinkedIn</a>
@@ -176,7 +139,7 @@
 
     <div id="palette" class="palette hidden">
         <div class="palette-card">
-            <input id="paletteInput" placeholder="Type a command (Skills, Projects, CV)..." />
+            <input id="paletteInput" placeholder="Go to (Skills, Projects, CV)..." autocomplete="off" />
             <ul id="paletteList">
                 <li data-go="#skills">Skills</li>
                 <li data-go="#projects">Projects</li>
