@@ -235,6 +235,10 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* prevent descenders (g, y, p) from being clipped by the gradient bounding box */
+  display: inline-block;
+  padding-bottom: 0.12em;
+  line-height: 1.15;
 }
 
 .lead {
