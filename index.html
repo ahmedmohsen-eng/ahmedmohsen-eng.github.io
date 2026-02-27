@@ -1,153 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Mohsen | Backend & Embedded Systems Engineer</title>
-    
-    <meta name="description" content="Aspiring ICPC competitor and Computer Engineering student at UFE specializing in Backend and Embedded systems.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src https://codeforces.com;">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/main.css">
+<title>Ahmed Mohsen | Backend & Embedded Systems Engineer</title>
+<meta name="description" content="Aspiring ICPC competitor and UFE Computer Engineering student, focusing on algorithms, backend, and embedded systems." />
 
-    <script>
-        (function() {
-            try {
-                const t = localStorage.getItem('theme');
-                if (t === 'light' || (!t && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                    document.documentElement.classList.add('light');
-                }
-            } catch (e) {}
-        })();
-    </script>
+<!-- SEO & social -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src https://codeforces.com;">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/main.css" />
+
+<!-- Theme init -->
+<script>
+(function() {
+  try {
+    const t=localStorage.getItem('theme');
+    if(t==='light' || (!t && window.matchMedia('(prefers-color-scheme: light)').matches)){
+      document.documentElement.classList.add('light');
+    }
+  } catch(e){}
+})();
+</script>
 </head>
 <body>
-    <div id="progress"></div>
-    <div id="cursor"></div>
 
-    <nav>
-        <div class="container nav-inner">
-            <a href="#top" class="brand">
-                <div class="logo">AM</div>
-                <div class="brand-name">Ahmed<span>.Dev</span></div>
-            </a>
-            <div class="nav-right">
-                <div class="nav-links">
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                </div>
-                <div class="nav-actions">
-                    <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
-                    <a href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" class="cv-btn" download>CV</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<div id="progress"></div>
+<div id="cursor"></div>
 
-    <header class="container" id="top">
-        <div class="hero-grid">
-            <div class="hero-text">
-                <span class="badge">Computer Engineering @ UFE</span>
-                <h1>Aspiring <span class="gradient">ICPC Competitor</span> & Backend Developer</h1>
-                <p class="lead">Building high-performance backend systems and mastering algorithmic challenges. Currently a Computer Engineering student at UFE.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn primary">View Projects</a>
-                    <a href="https://codeforces.com/profile/hackgg106" target="_blank" class="btn ghost">Codeforces</a>
-                </div>
-                <div class="looking-for">
-                    <strong>Seeking:</strong> Internships in Backend, Embedded, or Systems Engineering.
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="profile-wrapper">
-                    <img src="public/assets/profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'">
-                    <div class="cf-badge live">
-                        <div class="cf-label">CODEFORCES</div>
-                        <div id="cf-rank">FETCHING...</div>
-                        <div id="cf-rating" class="rating">----</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section id="skills" class="container section">
-        <h2><span class="num">01.</span> Skills & Tools</h2>
-        <div class="cards-grid">
-            <div class="card">
-                <div class="small-head">Languages</div>
-                <div class="stack"><span class="tag">C++ (STL)</span><span class="tag">Python</span></div>
-            </div>
-            <div class="card">
-                <div class="small-head">Logic</div>
-                <div class="stack"><span class="tag">Algorithms</span><span class="tag">Data Structures</span></div>
-            </div>
-            <div class="card">
-                <div class="small-head">Tools</div>
-                <div class="stack"><span class="tag">Git</span><span class="tag">CLion</span><span class="tag">Tinkercad</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="container section">
-        <div class="section-header">
-            <h2><span class="num">02.</span> Technical Projects</h2>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-                <button class="filter-btn" data-filter="embedded">Embedded</button>
-                <button class="filter-btn" data-filter="ai">AI</button>
-            </div>
-        </div>
-
-        <div class="projects-grid">
-            <article class="project-card" data-category="ai">
-                <div class="mono date">Feb 2026 — Present</div>
-                <h3>Support AI Orchestrator</h3>
-                <p class="muted">Modular backend pipeline coordinating analytics and RAG flows.</p>
-                <div class="arch-diagram">
-                    <div class="node">Input</div><div class="arrow">→</div><div class="node">FastAPI</div><div class="arrow">→</div><div class="node">RAG</div>
-                </div>
-                <img src="public/assets/support-orchestrator-arch.png" class="project-preview" alt="Arch">
-            </article>
-
-            <article class="project-card" data-category="embedded">
-                <div class="mono date">Nov 2023 — Present</div>
-                <h3>Integrated Hardware Control</h3>
-                <p class="muted">Firmware for multi-sensor fusion and asynchronous IR control.</p>
-                <div class="arch-diagram">
-                    <div class="node">Sensor</div><div class="arrow">→</div><div class="node">MCU</div><div class="arrow">→</div><div class="node">Safety</div>
-                </div>
-                <img src="public/assets/embedded-arch.png" class="project-preview" alt="Arch">
-            </article>
-        </div>
-    </section>
-
-    <footer id="contact" class="container">
-        <div class="footer-content">
-            <p>© 2026 Ahmed Mohsen. Schneider Electric Scholar.</p>
-            <div class="social-links">
-                <a href="https://github.com/ahmedmohsen-eng">GitHub</a>
-                <a href="https://linkedin.com/in/ahmedmohseneng">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
-
-    <div id="palette" class="palette hidden">
-        <div class="palette-card">
-            <input id="paletteInput" placeholder="Go to (Skills, Projects, CV)..." autocomplete="off" />
-            <ul id="paletteList">
-                <li data-go="#skills">Skills</li>
-                <li data-go="#projects">Projects</li>
-                <li data-go="https://github.com/ahmedmohsen-eng">GitHub</li>
-            </ul>
-        </div>
+<!-- Navbar -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <div class="logo">AM</div>
+      <div class="brand-name">Ahmed<span>.Dev</span></div>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button id="themeToggle" aria-label="Toggle Theme">🌙</button>
+        <a href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" class="cv-btn" download>CV</a>
+      </div>
     </div>
+  </div>
+</nav>
 
-    <script type="module" src="js/main.js"></script>
+<!-- Hero -->
+<header id="top" class="container">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="badge">Computer Engineering @ UFE</span>
+      <h1>Aspiring <span class="gradient">ICPC Competitor</span> & Backend Developer</h1>
+      <p class="lead">Building high-performance backend systems and mastering algorithmic challenges. Currently a Computer Engineering student at UFE.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn primary">View Projects</a>
+        <a href="https://codeforces.com/profile/hackgg106" target="_blank" rel="noopener" class="btn ghost">Codeforces</a>
+      </div>
+      <div class="looking-for"><strong>Seeking:</strong> Internships in Backend, Embedded, or Systems Engineering.</div>
+    </div>
+    <div class="hero-visual">
+      <div class="profile-wrapper">
+        <img src="public/assets/profile_photo.jpg" alt="Ahmed Mohsen" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'" />
+        <div class="cf-badge">
+          <div class="cf-label">CODEFORCES</div>
+          <div id="cf-rank">FETCHING...</div>
+          <div id="cf-rating" class="rating">----</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Skills -->
+<section id="skills" class="container section">
+  <h2><span class="num">01.</span> Skills & Tools</h2>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="small-head">Languages</div>
+      <div class="stack"><span class="tag">C++ (STL)</span><span class="tag">Python</span></div>
+    </div>
+    <div class="card">
+      <div class="small-head">Logic</div>
+      <div class="stack"><span class="tag">Algorithms</span><span class="tag">Data Structures</span></div>
+    </div>
+    <div class="card">
+      <div class="small-head">Tools</div>
+      <div class="stack"><span class="tag">Git</span><span class="tag">CLion</span><span class="tag">Tinkercad</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="container section">
+  <div class="section-header">
+    <h2><span class="num">02.</span> Projects</h2>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="embedded">Embedded</button>
+      <button class="filter-btn" data-filter="ai">AI</button>
+    </div>
+  </div>
+  <div class="projects-grid">
+    <!-- Example project card -->
+    <article class="project-card" data-category="ai">
+      <div class="mono date">Feb 2026 — Present</div>
+      <h3>Support AI Orchestrator</h3>
+      <p class="muted">Modular backend pipeline coordinating analytics and RAG flows.</p>
+      <div class="arch-visual">Input → FastAPI → RAG</div>
+      <img src="public/assets/support-orchestrator-arch.png" class="project-preview" alt="Architecture diagram" />
+    </article>
+  </div>
+</section>
+
+<!-- Contact -->
+<footer id="contact" class="container">
+  <h3>Connect</h3>
+  <p><a href="mailto:ahmed.mohsen.study@gmail.com">ahmed.mohsen.study@gmail.com</a></p>
+</footer>
+
+<!-- Command Palette -->
+<div id="palette" class="palette hidden">
+  <div class="palette-card">
+    <input id="paletteInput" placeholder="Type a command..." />
+    <ul id="paletteList">
+      <li data-go="#skills">Skills</li>
+      <li data-go="#projects">Projects</li>
+      <li data-go="#contact">Contact</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script type="module" src="js/main.js"></script>
+
 </body>
 </html>
