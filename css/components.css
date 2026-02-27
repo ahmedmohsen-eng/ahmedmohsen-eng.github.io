@@ -1,24 +1,390 @@
-.brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text); font-weight: 800; }
-.logo { background: var(--accent); color: #000; padding: 5px 10px; border-radius: 8px; }
+/* =========================================================
+   components.css — Cards, buttons, tags, project elements
+   ========================================================= */
 
-.badge { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
-h1 { font-size: 3rem; margin: 1rem 0; font-weight: 900; }
-.gradient { background: linear-gradient(90deg, var(--accent), #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.looking-for { margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 0.85rem; }
+/* ── Cards ─────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform var(--dur-med) var(--ease-spring),
+    border-color var(--dur-med),
+    box-shadow var(--dur-med);
+}
 
-.card, .project-card { background: var(--card); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 1.5rem; transition: 0.3s; }
-.project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-.tag { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; margin-right: 5px; }
+.card:hover {
+  transform: translateY(-5px) scale(1.012);
+  border-color: var(--border-hi);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(56,189,248,0.08);
+}
 
-/* Architecture Visuals */
-.arch-diagram { display: flex; align-items: center; gap: 8px; margin: 1rem 0; }
-.node { background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-family: 'Fira Code'; }
-.arrow { color: var(--accent); font-weight: bold; }
+/* Skill card extras */
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 
-/* Command Palette */
-.palette { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 3000; display: flex; justify-content: center; padding-top: 15vh; backdrop-filter: blur(4px); }
+.card-icon {
+  font-size: 1.3rem;
+  margin-bottom: 0.1rem;
+}
+
+.small-head {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-2);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Buttons ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.72rem 1.35rem;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition:
+    transform var(--dur-fast) var(--ease-spring),
+    box-shadow var(--dur-fast),
+    background var(--dur-fast),
+    border-color var(--dur-fast);
+  white-space: nowrap;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #021226;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(56,189,248,0.35);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--border-hi);
+  color: var(--text);
+}
+
+.btn.ghost:hover {
+  background: rgba(56,189,248,0.07);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* ── Tags ──────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  background: rgba(56,189,248,0.07);
+  border: 1px solid rgba(56,189,248,0.15);
+  color: var(--accent);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast);
+}
+
+.tag:hover {
+  background: rgba(56,189,248,0.14);
+  border-color: rgba(56,189,248,0.3);
+  transform: translateY(-1px);
+}
+
+/* ── Filter buttons ────────────────────────────────────── */
+.filter-btn {
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast),
+    border-color var(--dur-fast),
+    color var(--dur-fast),
+    transform var(--dur-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--border-hi);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active,
+.filter-btn[aria-pressed="true"] {
+  background: rgba(56,189,248,0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Project cards ─────────────────────────────────────── */
+.project-card {
+  margin-top: 2.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-size: 0.76rem;
+  color: var(--text-2);
+  letter-spacing: 0.03em;
+}
+
+.project-category-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  background: rgba(251,146,60,0.08);
+  border: 1px solid rgba(251,146,60,0.2);
+  padding: 0.18rem 0.55rem;
+  border-radius: 5px;
+}
+
+.project-card h3 {
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.project-desc {
+  font-size: 0.92rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Project body card */
+.project-body {
+  margin-top: 0.75rem;
+}
+
+.project-body p {
+  font-size: 0.93rem;
+  margin: 0.75rem 0;
+}
+
+/* Architecture images */
+.project-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin: 1rem 0;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--dur-med) var(--ease), box-shadow var(--dur-med);
+}
+
+.project-img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+
+/* Architecture diagram flow */
+.arch-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 1rem 0 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(56,189,248,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.node {
+  background: var(--surface-hi);
+  border: 1px solid var(--border-hi);
+  color: var(--text);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+}
+
+.node:hover {
+  background: rgba(56,189,248,0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.arrow {
+  color: var(--accent);
+  font-size: 0.9rem;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* figure / figcaption */
+figure.arch { margin: 0; }
+
+figure.arch figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+/* Project links */
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.proj-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-hi);
+  transition: background var(--dur-fast), transform var(--dur-fast);
+}
+
+.proj-link:hover {
+  background: rgba(56,189,248,0.08);
+  transform: translateX(2px);
+}
+
+/* Project highlights list */
+.project-highlights {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-highlights li {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  padding-left: 1.1em;
+  position: relative;
+}
+
+.project-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.7em;
+  top: 0.2em;
+}
+
+.project-highlights strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ── Command palette ────────────────────────────────────── */
+.palette {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 500;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 18vh;
+}
+
 .palette.hidden { display: none; }
-.palette-card { width: min(500px, 90%); background: var(--card); border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
-#paletteInput { width: 100%; padding: 1.2rem; background: transparent; border: none; color: white; border-bottom: 1px solid rgba(255,255,255,0.1); outline: none; }
-#paletteList li { padding: 1rem; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); }
-#paletteList li:hover { background: rgba(56,189,248,0.1); color: var(--accent); }
+
+.palette-card {
+  width: min(520px, 90vw);
+  background: var(--surface-hi);
+  border: 1px solid var(--border-hi);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  animation: paletteIn 0.2s var(--ease) both;
+}
+
+@keyframes paletteIn {
+  from { opacity: 0; transform: translateY(-14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#paletteInput {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#paletteInput::placeholder { color: var(--text-2); }
+
+#paletteList li {
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-2);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+
+#paletteList li:hover {
+  background: rgba(56,189,248,0.08);
+  color: var(--accent);
+}
+
+#paletteList li:last-child { border-bottom: none; }
+
+/* ── Muted text ────────────────────────────────────────── */
+.muted { color: var(--text-2); }
+
+/* ── Hidden ────────────────────────────────────────────── */
+.hidden { display: none !important; }
