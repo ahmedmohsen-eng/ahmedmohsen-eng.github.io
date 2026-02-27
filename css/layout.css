@@ -223,6 +223,8 @@ section[id], header[id] {
 h1 {
   animation: heroIn 0.9s var(--ease) 0.1s both;
   margin-bottom: 1.1rem;
+  line-height: 1.28;          /* extra space so descenders (g,y,p) never clip */
+  overflow: visible;
 }
 
 @keyframes heroIn {
@@ -230,15 +232,19 @@ h1 {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* First line of h1 — block so its paint box includes the descender zone */
+.h1-line {
+  display: block;
+  padding-bottom: 0.18em;   /* gives g/y/p full room before next line */
+}
+
 .gradient {
   background: linear-gradient(125deg, var(--accent) 0%, var(--accent-2) 60%, var(--accent-warm) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  /* prevent descenders (g, y, p) from being clipped by the gradient bounding box */
-  display: inline-block;
-  padding-bottom: 0.12em;
-  line-height: 1.15;
+  display: block;            /* own box so gradient never clips its own descenders */
+  padding-bottom: 0.14em;
 }
 
 .lead {
