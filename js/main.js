@@ -1,90 +1,54 @@
 import { loadCF } from './codeforces.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* THEME */
-  const root = document.documentElement;
-  const btn = document.getElementById('themeToggle');
-
-  if(btn){
-    btn.onclick = () => {
-      root.classList.toggle('light');
-      localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-    };
-  }
-
-  /* CURSOR GLOW */
-  const cursor = document.getElementById('cursor');
-  if(cursor){
-    window.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-    });
-  }
-
-  /* SCROLL PROGRESS */
-  const bar = document.getElementById('progress');
-  if(bar){
-    window.addEventListener('scroll', () => {
-      const h = document.documentElement;
-      const max = h.scrollHeight - h.clientHeight;
-      const sc = max > 0 ? (h.scrollTop / max) * 100 : 0;
-      bar.style.width = sc + "%";
-    });
-  }
-
-  /* REVEAL */
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add('active');
-        obs.unobserve(e.target);
-      }
-    });
-  }, {threshold: 0.15});
-
-  document.querySelectorAll('.card,.project-card,.section h2,.profile')
-    .forEach(el => {
-      el.classList.add('reveal');
-      obs.observe(el);
+    const root = document.documentElement;
+    
+    // Theme Logic
+    document.getElementById('themeToggle').addEventListener('click', () => {
+        root.classList.toggle('light');
+        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
     });
 
-  /* NAV ACTIVE LINK */
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('.nav-links a');
+    // Filtering Logic (Fixed syntax/Reactive issues)
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
 
-  const secObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        const id = entry.target.id;
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === "#" + id);
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filter = btn.dataset.filter;
+            
+            // Update UI
+            filterBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
+            btn.setAttribute('aria-pressed', 'true');
+
+            projects.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
         });
-      }
     });
-  }, {threshold: 0.4});
 
-  sections.forEach(s => secObs.observe(s));
-
-  /* FILTER BUTTONS */
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter; // "backend", "embedded", "ai", or "all"
-
-      projectCards.forEach(card => {
-        if(filter === 'all' || card.dataset.category === filter){
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+    // Smooth Scroll Progress
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progress").style.width = scrolled + "%";
     });
-  });
 
-  /* CODEFORCES */
-  loadCF('hackgg106');
+    // Custom Cursor (Desktop only)
+    if (window.innerWidth > 768) {
+        window.addEventListener('mousemove', e => {
+            const cursor = document.getElementById('cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    }
 
+    loadCF('hackgg106');
 });
