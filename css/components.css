@@ -1,45 +1,24 @@
-.card {
-  background: var(--card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 24px;
-  padding: 2.5rem;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-}
+.brand { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--text); font-weight: 800; }
+.logo { background: var(--accent); color: #000; padding: 5px 10px; border-radius: 8px; }
 
-.card:hover {
-  transform: translateY(-10px);
-  background: rgba(30, 41, 59, 0.7);
-  border-color: var(--accent);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
+.badge { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 5px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+h1 { font-size: 3rem; margin: 1rem 0; font-weight: 900; }
+.gradient { background: linear-gradient(90deg, var(--accent), #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.looking-for { margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 0.85rem; }
 
-.tag {
-  background: rgba(14, 165, 233, 0.1);
-  color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border: 1px solid rgba(14, 165, 233, 0.2);
-}
+.card, .project-card { background: var(--card); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 1.5rem; transition: 0.3s; }
+.project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.tag { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; margin-right: 5px; }
 
-.filter-btn {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 8px 20px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
+/* Architecture Visuals */
+.arch-diagram { display: flex; align-items: center; gap: 8px; margin: 1rem 0; }
+.node { background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-family: 'Fira Code'; }
+.arrow { color: var(--accent); font-weight: bold; }
 
-.filter-btn.active {
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-}
+/* Command Palette */
+.palette { position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 3000; display: flex; justify-content: center; padding-top: 15vh; backdrop-filter: blur(4px); }
+.palette.hidden { display: none; }
+.palette-card { width: min(500px, 90%); background: var(--card); border: 1px solid var(--accent); border-radius: 12px; overflow: hidden; }
+#paletteInput { width: 100%; padding: 1.2rem; background: transparent; border: none; color: white; border-bottom: 1px solid rgba(255,255,255,0.1); outline: none; }
+#paletteList li { padding: 1rem; cursor: pointer; border-bottom: 1px solid rgba(255,255,255,0.05); }
+#paletteList li:hover { background: rgba(56,189,248,0.1); color: var(--accent); }
