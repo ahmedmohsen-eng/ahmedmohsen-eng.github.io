@@ -1,12 +1,7 @@
-.hidden{display:none!important} 
+.num { color: var(--accent); font-family: 'Fira Code'; margin-right: 5px; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.mono { font-family: 'Fira Code'; font-size: 0.75rem; }
+.project-preview { width: 100%; margin-top: 1.5rem; border-radius: 8px; opacity: 0.8; }
 
-.card,.project-card,.profile,.section h2{ 
-  opacity:0; 
-  transform:translateY(20px); 
-  transition:.8s; 
-} 
-
-.active{ 
-  opacity:1!important; 
-  transform:none!important; 
-}
+.filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.1); color: var(--muted); padding: 5px 15px; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+.filter-btn.active { background: var(--accent); color: black; border-color: var(--accent); }
