@@ -1,40 +1,46 @@
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+/* Nav Fix */
 nav {
   position: fixed; top: 0; width: 100%; height: var(--nav-h);
-  backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(10, 15, 26, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 100;
 }
 
-.nav-inner {
-  height: 100%; display: flex; align-items: center; justify-content: space-between;
-}
-
 header {
-  padding-top: calc(var(--nav-h) + 2rem);
-  min-height: 80vh;
-  display: flex; align-items: center;
+  padding-top: calc(var(--nav-h) + 4rem);
+  padding-bottom: 3rem;
 }
 
 .hero-grid {
-  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-.profile {
-  position: relative; width: 100%; max-width: 320px; margin: auto;
-  border-radius: 24px; border: 2px solid var(--accent); overflow: hidden;
-}
-
-/* MOBILE FIX: Reduce gaps and scale image */
+/* Mobile Swap & Fix */
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    text-align: center;
     display: flex;
-    flex-direction: column-reverse; /* Swaps text and image positions */
+    flex-direction: column-reverse; /* Text first, then image on scroll up */
+    text-align: center;
+    gap: 1.5rem;
   }
   
-  .profile { max-width: 220px; margin-bottom: 1.5rem; }
-  header { padding-top: calc(var(--nav-h) + 1rem); min-height: auto; }
-  .section-gap { margin-top: 2rem; }
+  .profile {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  header { padding-top: calc(var(--nav-h) + 2rem); }
+  .section { margin-top: 3rem; } /* Tightens vertical space */
 }
 
 .section { margin-top: var(--section-gap); }
