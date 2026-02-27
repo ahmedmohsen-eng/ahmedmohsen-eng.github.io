@@ -1,54 +1,50 @@
 import { loadCF } from './codeforces.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.documentElement;
-    
-    // Theme Logic
-    document.getElementById('themeToggle').addEventListener('click', () => {
-        root.classList.toggle('light');
-        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+  const root = document.documentElement;
+  
+  // 1. Theme Toggle
+  const themeBtn = document.getElementById('themeToggle');
+  themeBtn?.addEventListener('click', () => {
+    const isLight = root.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+
+  // 2. Cursor Glow (Optimized for performance)
+  const cursor = document.getElementById('cursor');
+  if (window.matchMedia("(pointer: fine)").matches) { // Only for mouse users
+    window.addEventListener('mousemove', (e) => {
+      requestAnimationFrame(() => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
     });
+  }
 
-    // Filtering Logic (Fixed syntax/Reactive issues)
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project-card');
+  // 3. Project Filtering (Clean Logic)
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
-            
-            // Update UI
-            filterBtns.forEach(b => b.setAttribute('aria-pressed', 'false'));
-            btn.setAttribute('aria-pressed', 'true');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
 
-            projects.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => card.style.opacity = '1', 10);
-                } else {
-                    card.style.opacity = '0';
-                    setTimeout(() => card.style.display = 'none', 300);
-                }
-            });
-        });
+      // Toggle active button UI
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'block';
+          setTimeout(() => card.style.opacity = '1', 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.display = 'none';
+        }
+      });
     });
+  });
 
-    // Smooth Scroll Progress
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        document.getElementById("progress").style.width = scrolled + "%";
-    });
-
-    // Custom Cursor (Desktop only)
-    if (window.innerWidth > 768) {
-        window.addEventListener('mousemove', e => {
-            const cursor = document.getElementById('cursor');
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-    }
-
-    loadCF('hackgg106');
+  // 4. Load external API
+  loadCF('hackgg106');
 });
