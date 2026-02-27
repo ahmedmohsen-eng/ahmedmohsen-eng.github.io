@@ -1,170 +1,264 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<title>Ahmed Mohsen — Backend & Embedded Systems Engineer</title>
+  <title>Ahmed Mohsen — Backend & Embedded Systems Engineer</title>
+  <meta name="description" content="Ahmed Mohsen — Aspiring ICPC competitor and backend enthusiast, currently studying Computer Engineering at UFE. Exploring algorithms, embedded systems, and scalable backend architecture." />
 
-<meta http-equiv="Content-Security-Policy"
-content="
-default-src 'self';
-img-src 'self' https:;
-script-src 'self';
-style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
-font-src https://fonts.gstatic.com;
-connect-src https://codeforces.com;
-">
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          img-src 'self' https:;
+          script-src 'self';
+          style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+          font-src https://fonts.gstatic.com;
+          connect-src https://codeforces.com;
+        ">
 
-<link rel="icon" href="public/assets/favicon.ico"/>
-<link rel="preload" as="image" href="public/assets/profile_photo.jpg">
+  <meta property="og:title" content="Ahmed Mohsen — Engineering Portfolio" />
+  <meta property="og:description" content="Aspiring ICPC competitor • Backend & Embedded Systems • UFE Computer Engineering" />
+  <meta property="og:image" content="public/assets/og-image.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="icon" href="public/assets/favicon.ico" />
+  <link rel="preload" as="image" href="public/assets/profile_photo.jpg">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 
-<script>
-(function(){
-try{
-const t=localStorage.getItem('theme');
-if(t==='light')document.documentElement.classList.add('light');
-else if(!t&&window.matchMedia('(prefers-color-scheme: light)').matches){
-document.documentElement.classList.add('light');
-}
-}catch(e){}
-})();
-</script>
+  <script>
+    (function() {
+      try {
+        const t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+        else if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
-<link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
-
 <body>
 
-<nav>
-<div class="container nav-inner">
-<a href="#top" class="brand">
-<div class="logo">AM</div>
-<div class="brand-name">Ahmed.Dev</div>
-</a>
+  <nav>
+    <div class="container nav-inner" role="navigation" aria-label="Main navigation">
+      <a href="#top" class="brand" aria-label="Go to top">
+        <div class="logo" aria-hidden="true">AM</div>
+        <div class="brand-name">Ahmed.Dev</div>
+      </a>
 
-<div class="nav-links">
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</div>
+      <div class="nav-links" role="menubar" aria-label="Primary">
+        <a role="menuitem" href="#skills">Skills</a>
+        <a role="menuitem" href="#projects">Projects</a>
+        <a role="menuitem" href="#contact">Contact</a>
+      </div>
 
-<div class="nav-actions">
-<button id="themeToggle" class="theme-btn">🌙</button>
-<a class="cv-btn" href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" download>Download CV</a>
-</div>
-</div>
-</nav>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+        <a class="cv-btn" href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" download rel="noopener">Download CV</a>
+      </div>
+    </div>
+  </nav>
 
-<header id="top" class="container">
-<div class="hero-grid">
+  <header id="top" class="container">
+    <div class="hero-grid">
+      <main class="hero-content" role="main" aria-labelledby="hero-title">
+        <span class="badge">Computer Engineering — UFE</span>
 
-<main class="hero-content">
-<span class="badge">Computer Engineering — UFE</span>
+        <h1 id="hero-title">
+          Aspiring ICPC Competitor & Backend Developer<br>
+          <span class="gradient">in Training</span>
+        </h1>
 
-<h1>
-Backend & Embedded Systems Engineer<br>
-<span class="gradient">in Training</span>
-</h1>
+        <p class="lead">
+          Computer Engineering student at UFE, driven by algorithmic challenges and scalable backend systems. Passionate about ICPC competitions, mastering competitive programming, and building robust, efficient software solutions.
+        </p>
 
-<p class="lead">
-Schneider Electric scholar specializing in algorithmic problem solving, firmware systems, and scalable backend architectures.
-</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn ghost" href="https://codeforces.com/profile/hackgg106" target="_blank" rel="noopener noreferrer">Codeforces</a>
+        </div>
 
-<div class="hero-ctas">
-<a class="btn primary" href="#projects">View Projects</a>
-<a class="btn ghost" href="https://codeforces.com/profile/hackgg106" target="_blank" rel="noopener">Codeforces</a>
-</div>
-</main>
+        <div class="looking-for" aria-label="Opportunities I'm looking for">
+          <strong>Seeking:</strong> internships in backend, embedded, or systems engineering.
+        </div>
+      </main>
 
-<aside class="hero-aside">
-<figure class="profile">
-<img src="public/assets/profile_photo.jpg" alt="Portrait of Ahmed Mohsen" loading="lazy">
+      <aside class="hero-aside" aria-hidden="false">
+        <figure class="profile">
+          <img src="public/assets/profile_photo.jpg" alt="Portrait of Ahmed Mohsen" loading="lazy"
+               onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'">
+          <figcaption class="live" aria-live="polite">
+            <div id="cf-rank">Loading</div>
+            <div id="cf-rating" class="rating">...</div>
+          </figcaption>
+        </figure>
+      </aside>
+    </div>
+  </header>
 
-<figcaption class="live">
-<div id="cf-rank">Loading</div>
-<div id="cf-rating" class="rating">...</div>
-</figcaption>
-</figure>
-</aside>
+  <section id="skills" class="section container" aria-labelledby="skills-title">
+    <h2 id="skills-title"><span class="accent">01.</span> Skills & Tools</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="small-head">Languages</div>
+        <div class="stack">
+          <span class="tag">C++ (STL)</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
 
-</div>
-</header>
+      <div class="card">
+        <div class="small-head">Problem Solving</div>
+        <div class="stack">
+          <span class="tag">Algorithms</span>
+          <span class="tag">Data Structures</span>
+        </div>
+      </div>
 
-<section id="skills" class="section container">
-<h2><span class="accent">01.</span> Skills & Tools</h2>
+      <div class="card">
+        <div class="small-head">Tools</div>
+        <div class="stack">
+          <span class="tag">Git</span>
+          <span class="tag">CLion</span>
+          <span class="tag">PyCharm</span>
+          <span class="tag">Tinkercad</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="cards-grid">
+  <section class="section container" aria-label="Project filters">
+    <div class="filters" role="toolbar" aria-label="Filter projects">
+      <button data-filter="all" class="filter-btn" aria-pressed="true">All</button>
+      <button data-filter="backend" class="filter-btn">Backend</button>
+      <button data-filter="embedded" class="filter-btn">Embedded</button>
+      <button data-filter="ai" class="filter-btn">AI</button>
+    </div>
+  </section>
 
-<div class="card">
-<div class="small-head">Languages</div>
-<div class="stack">
-<span class="tag">C++</span>
-<span class="tag">Python</span>
-</div>
-</div>
+  <section id="projects" class="section container" aria-labelledby="projects-title">
+    <h2 id="projects-title"><span class="accent">02.</span> Technical Projects</h2>
 
-<div class="card">
-<div class="small-head">Problem Solving</div>
-<div class="stack">
-<span class="tag">Algorithms</span>
-<span class="tag">Data Structures</span>
-</div>
-</div>
+    <article class="project-card" data-category="ai" aria-labelledby="proj1-title">
+      <header>
+        <div class="mono date">Feb 2026 — Present</div>
+        <h3 id="proj1-title">Customer Support AI Orchestrator</h3>
+        <p class="muted">Modular backend pipeline coordinating analytics, NLP sentiment, and retrieval-augmented generation.</p>
+      </header>
 
-<div class="card">
-<div class="small-head">Tools</div>
-<div class="stack">
-<span class="tag">Git</span>
-<span class="tag">CLion</span>
-<span class="tag">PyCharm</span>
-</div>
-</div>
+      <div class="card project-body">
+        <div class="stack">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Redis</span>
+          <span class="tag">RAG</span>
+        </div>
 
-</div>
-</section>
+        <p>Designed centralized orchestration and service separation for scalable, fault-tolerant flows.</p>
 
-<section id="projects" class="section container">
-<h2><span class="accent">02.</span> Technical Projects</h2>
+        <figure class="arch">
+          <img src="public/assets/ai-arch.png" alt="AI orchestrator architecture diagram" loading="lazy" class="project-img">
+          <figcaption>System orchestration architecture</figcaption>
 
-<article class="project-card" data-category="ai">
+          <div class="arch-diagram" data-animate>
+            <div class="node">Ingestion</div>
+            <div class="arrow"></div>
+            <div class="node">ML Classification</div>
+            <div class="arrow"></div>
+            <div class="node">NLP Sentiment</div>
+            <div class="arrow"></div>
+            <div class="node">RAG Retrieval</div>
+            <div class="arrow"></div>
+            <div class="node">Unified Response</div>
+          </div>
+        </figure>
 
-<div class="card project-body">
-<h3>Customer Support AI Orchestrator</h3>
+        <div class="project-links">
+          <a href="https://github.com/ahmedmohsen-eng/support-orchestrator" target="_blank" rel="noopener noreferrer">Source</a>
+          <a href="public/assets/support-orchestrator-arch.png" target="_blank" rel="noopener noreferrer">Full architecture image</a>
+        </div>
 
-<img class="project-img" src="public/assets/ai-arch.png" alt="AI architecture" loading="lazy">
+        <ul class="project-highlights">
+          <li><strong>Challenge:</strong> fault-tolerant ingestion with at-most-once semantics.</li>
+          <li><strong>Impact:</strong> reduced average triage latency from <strong>1.8s → 450ms</strong>.</li>
+        </ul>
+      </div>
+    </article>
 
-<div class="arch-diagram">
-<div class="node">Ingestion</div>
-<div class="arrow"></div>
-<div class="node">ML Classification</div>
-<div class="arrow"></div>
-<div class="node">NLP Sentiment</div>
-<div class="arrow"></div>
-<div class="node">RAG Retrieval</div>
-<div class="arrow"></div>
-<div class="node">Unified Response</div>
-</div>
+    <article class="project-card" data-category="embedded" aria-labelledby="proj2-title">
+      <header>
+        <div class="mono date">Nov 2023 — Present</div>
+        <h3 id="proj2-title">Integrated Hardware Control System</h3>
+        <p class="muted">Multi-sensor monitoring firmware with asynchronous input handling and automated actuation.</p>
+      </header>
 
-</div>
-</article>
+      <div class="card project-body">
+        <div class="stack">
+          <span class="tag">C++</span>
+          <span class="tag">State Machine</span>
+          <span class="tag">Sensors</span>
+        </div>
 
-</section>
+        <p>Firmware for sensor fusion, asynchronous IR control, and safety-driven actuation logic.</p>
 
-<footer id="contact" class="container">
-<h3>Connect</h3>
-<p><a href="mailto:ahmed.mohsen.study@gmail.com">ahmed.mohsen.study@gmail.com</a></p>
-</footer>
+        <figure class="arch">
+          <img src="public/assets/embedded-arch.png" alt="Embedded control architecture diagram" loading="lazy" class="project-img">
+          <figcaption>Sensor → Controller → Actuator with safety rules</figcaption>
 
-<div id="progress"></div>
-<div id="cursor"></div>
+          <div class="arch-diagram" data-animate>
+            <div class="node">Ultrasonic</div>
+            <div class="arrow"></div>
+            <div class="node">MCU (State Machine)</div>
+            <div class="arrow"></div>
+            <div class="node">Actuators</div>
+          </div>
+        </figure>
 
-<script type="module" src="js/main.js"></script>
+        <div class="project-links">
+          <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation" target="_blank" rel="noopener noreferrer">Part 1</a>
+          <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion" target="_blank" rel="noopener noreferrer">Part 2</a>
+        </div>
 
+        <ul class="project-highlights">
+          <li>Real-time sensor fusion (Ultrasonic, PIR, Temp, Photo)</li>
+          <li>IR remote asynchronous input handling and safety interlocks</li>
+        </ul>
+      </div>
+    </article>
+
+  </section>
+
+  <footer id="contact" class="container">
+    <h3>Connect</h3>
+    <p><a href="mailto:ahmed.mohsen.study@gmail.com">ahmed.mohsen.study@gmail.com</a></p>
+    <p>
+      <a href="https://github.com/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer">GitHub</a> •
+      <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </p>
+    <p class="muted" style="margin-top:1rem">Schneider Electric Excellence Scholar</p>
+    <p class="muted">v1.0.0 • Built from scratch</p>
+  </footer>
+
+  <div id="palette" class="palette hidden" aria-hidden="true">
+    <div class="palette-card" role="dialog" aria-label="Command palette">
+      <input id="paletteInput" placeholder="Type a command or page…" aria-label="Command input" />
+      <ul id="paletteList" role="listbox" aria-label="Commands">
+        <li data-go="#skills" role="option">Skills</li>
+        <li data-go="#projects" role="option">Projects</li>
+        <li data-go="#contact" role="option">Contact</li>
+        <li data-go="https://github.com/ahmedmohsen-eng" role="option">GitHub</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="progress"></div>
+  <div id="cursor"></div>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
