@@ -3,7 +3,7 @@
    ========================================================= */
 
 :root {
-  /*  Colours  */
+  /* Colours */
   --bg:           #04080f;
   --bg-2:         #080f1e;
   --surface:      rgba(12, 22, 44, 0.72);
@@ -18,7 +18,7 @@
   --glow:         rgba(56, 189, 248, 0.15);
 
   /* Typography */
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body:    'DM Sans', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
@@ -142,11 +142,11 @@ body::before {
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.1;          /* overridden per-level below */
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.22; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.28; } /* tall enough for g/y/p descenders */
 h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 
