@@ -2,4 +2,49 @@
 @import 'layout.css';
 @import 'components.css';
 @import 'utilities.css';
-;
+
+/* Additional global fixes for layout & responsiveness */
+body {
+  scroll-padding-top: calc(var(--nav-h) + 1rem);
+}
+
+header {
+  padding-top: calc(var(--nav-h) + 4rem); /* ensure hero starts below nav */
+}
+
+/* Responsive images globally */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fix profile badge positioning to avoid overlap */
+.profile-wrapper { position: relative; }
+.cf-badge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(40%, 40%);
+  background: #0f172a;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(56,189,248,.28);
+  min-width: 120px;
+  text-align: center;
+  font-size: 0.75rem;
+  z-index: 20;
+}
+
+/* Add cursor glow effect for better visuals */
+#cursor {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  transition: transform .08s linear;
+}
