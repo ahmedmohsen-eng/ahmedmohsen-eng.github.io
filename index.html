@@ -7,7 +7,6 @@
   <title>Ahmed Mohsen — Backend & Embedded Systems Engineer</title>
   <meta name="description" content="Ahmed Mohsen — Computer Engineering student specializing in algorithms, backend firmware, and backend architecture. Seeking internships in backend, systems, or embedded engineering." />
 
-  <!-- SECURITY -->
   <meta http-equiv="Content-Security-Policy"
         content="
           default-src 'self';
@@ -18,22 +17,18 @@
           connect-src https://codeforces.com;
         ">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Ahmed Mohsen — Engineering Portfolio" />
   <meta property="og:description" content="Algorithms • Embedded Systems • Backend Architecture" />
   <meta property="og:image" content="public/assets/og-image.png" />
 
   <link rel="icon" href="public/assets/favicon.ico" />
 
-  <!-- Preload LCP image -->
   <link rel="preload" as="image" href="public/assets/profile_photo.jpg">
 
-  <!-- FONT preload (optional self-host later) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Prevent theme flash: inline early theme init -->
   <script>
     (function() {
       try {
@@ -46,10 +41,8 @@
     })();
   </script>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -70,7 +63,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="container nav-inner" role="navigation" aria-label="Main navigation">
       <a href="#top" class="brand" aria-label="Go to top">
@@ -91,7 +83,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header id="top" class="container">
     <div class="hero-grid">
       <main class="hero-content" role="main" aria-labelledby="hero-title">
@@ -118,7 +109,7 @@
 
       <aside class="hero-aside" aria-hidden="false">
         <figure class="profile">
-          <img src="public/assets/profile_photo.jpg" alt="Portrait of Ahmed Mohsen" loading="lazy"
+          <img src="public/assets/profile_photo.jpg" alt="Portrait of Ahmed Mohsen" loading="lazy" class="intro-img"
                onerror="this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'">
           <figcaption class="live" aria-live="polite">
             <div id="cf-rank">Loading</div>
@@ -129,7 +120,6 @@
     </div>
   </header>
 
-  <!-- SKILLS -->
   <section id="skills" class="section container" aria-labelledby="skills-title">
     <h2 id="skills-title"><span class="accent">01.</span> Skills & Tools</h2>
     <div class="cards-grid">
@@ -161,7 +151,6 @@
     </div>
   </section>
 
-  <!-- PROJECT FILTERS -->
   <section class="section container" aria-label="Project filters">
     <div class="filters" role="toolbar" aria-label="Filter projects">
       <button data-filter="all" class="filter-btn" aria-pressed="true">All</button>
@@ -171,11 +160,9 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="section container" aria-labelledby="projects-title">
     <h2 id="projects-title"><span class="accent">02.</span> Technical Projects</h2>
 
-    <!-- Project: AI Orchestrator -->
     <article class="project-card" data-category="ai" aria-labelledby="proj1-title">
       <header>
         <div class="mono date">Feb 2026 — Present</div>
@@ -193,9 +180,8 @@
 
         <p>Designed centralized orchestration and service separation for scalable, fault-tolerant flows.</p>
 
-        <!-- Animated architecture diagram -->
         <figure class="arch">
-          <img src="public/assets/ai-arch.png" alt="AI orchestrator architecture diagram" loading="lazy">
+          <img src="public/assets/ai-arch.png" alt="AI orchestrator architecture diagram" loading="lazy" class="project-img">
           <figcaption>System orchestration architecture</figcaption>
 
           <div class="arch-diagram" data-animate>
@@ -223,7 +209,6 @@
       </div>
     </article>
 
-    <!-- Project: Embedded Control -->
     <article class="project-card" data-category="embedded" aria-labelledby="proj2-title">
       <header>
         <div class="mono date">Nov 2023 — Present</div>
@@ -240,9 +225,8 @@
 
         <p>Firmware for sensor fusion, asynchronous IR control, and safety-driven actuation logic.</p>
 
-        <!-- Animated architecture diagram -->
         <figure class="arch">
-          <img src="public/assets/embedded-arch.png" alt="Embedded control architecture diagram" loading="lazy">
+          <img src="public/assets/embedded-arch.png" alt="Embedded control architecture diagram" loading="lazy" class="project-img">
           <figcaption>Sensor → Controller → Actuator with safety rules</figcaption>
 
           <div class="arch-diagram" data-animate>
@@ -268,7 +252,6 @@
 
   </section>
 
-  <!-- CONTACT / FOOTER -->
   <footer id="contact" class="container">
     <h3>Connect</h3>
     <p><a href="mailto:ahmed.mohsen.study@gmail.com">ahmed.mohsen.study@gmail.com</a></p>
@@ -280,7 +263,6 @@
     <p class="muted">v1.0.0 • Built from scratch</p>
   </footer>
 
-  <!-- COMMAND PALETTE -->
   <div id="palette" class="palette hidden" aria-hidden="true">
     <div class="palette-card" role="dialog" aria-label="Command palette">
       <input id="paletteInput" placeholder="Type a command or page…" aria-label="Command input" />
@@ -294,7 +276,6 @@
   </div>
 <div id="progress"></div>
 <div id="cursor"></div>
-  <!-- SCRIPTS -->
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
