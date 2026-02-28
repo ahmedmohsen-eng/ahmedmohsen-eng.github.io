@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ahmed Mohsen — Backend & Embedded Systems Engineer</title>
-  <meta name="description" content="Aspiring ICPC competitor and Computer Engineering student at UFE. Specializing in backend architecture, embedded systems, and competitive programming." />
+  <title>Ahmed Mohsen &#8212; Computer Engineering Student</title>
+  <meta name="description" content="Computer Engineering student at UFE and Schneider Electric Excellence Scholar. Algorithms, embedded systems, and AI/RAG." />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src https://codeforces.com;">
-  <meta property="og:title" content="Ahmed Mohsen — Engineering Portfolio" />
-  <meta property="og:description" content="Aspiring ICPC Competitor • Backend & Embedded Systems • UFE Computer Engineering" />
+  <meta property="og:title" content="Ahmed Mohsen &#8212; Engineering Portfolio" />
+  <meta property="og:description" content="Algorithms &amp; Systems &#8226; ICPC Aspirant &#8226; UFE Computer Engineering" />
   <meta property="og:image" content="public/assets/og-image.png" />
   <link rel="icon" href="public/assets/favicon.ico" />
   <link rel="preload" as="image" href="public/assets/profile_photo.jpg">
@@ -17,12 +17,11 @@
   <script>
     (function() {
       try {
-        const t = localStorage.getItem('theme');
+        var t = localStorage.getItem('theme');
         if (t === 'light') document.documentElement.classList.add('light');
-        else if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        else if (!t && window.matchMedia('(prefers-color-scheme: light)').matches)
           document.documentElement.classList.add('light');
-        }
-      } catch (e) {}
+      } catch(e) {}
     })();
   </script>
   <link rel="stylesheet" href="css/main.css">
@@ -34,9 +33,9 @@
     "url":"https://yourdomain.com",
     "sameAs":["https://github.com/ahmedmohsen-eng","https://linkedin.com/in/ahmedmohseneng"],
     "jobTitle":"Computer Engineering Student",
-    "alumniOf":"Universite Francaise d'Egypte",
+    "alumniOf":"Universite Francaise d Egypte",
     "award":"Schneider Electric Excellence Scholar",
-    "knowsAbout":["Algorithms","Embedded Systems","Backend Development","Competitive Programming"]
+    "knowsAbout":["Algorithms","Embedded Systems","RAG","Competitive Programming"]
   }
   </script>
 </head>
@@ -55,10 +54,11 @@
       <div class="nav-links" role="menubar">
         <a role="menuitem" href="#skills">Skills</a>
         <a role="menuitem" href="#projects">Projects</a>
+        <a role="menuitem" href="#certifications">Certifications</a>
         <a role="menuitem" href="#contact">Contact</a>
       </div>
       <div class="nav-actions">
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">&#127769;</button>
         <a class="cv-btn" href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" download rel="noopener">Download CV</a>
       </div>
     </div>
@@ -68,14 +68,15 @@
   <header id="top" class="container">
     <div class="hero-grid">
       <main class="hero-content" role="main" aria-labelledby="hero-title">
-        <span class="badge">Computer Engineering — UFE</span>
+        <span class="badge">Computer Engineering &#8212; UFE</span>
         <h1 id="hero-title">
-          <span class="h1-line">Backend Engineer &amp;</span>
-          <span class="gradient">ICPC Aspirant</span>
+          <span class="h1-line">Algorithms &amp; Systems</span>
+          <span class="gradient">Engineer in Training</span>
         </h1>
         <p class="lead">
-          Computer Engineering student at UFE, obsessed with algorithmic challenges and high-performance systems.
-          Competing on Codeforces, architecting backend solutions, and exploring the boundary between software and silicon.
+          Computer Engineering student at UFE and Schneider Electric Excellence Scholar.
+          Solving algorithmic problems on Codeforces, building embedded systems in C++,
+          and exploring AI through RAG architectures. I think in first principles before writing a single line of code.
         </p>
         <div class="hero-ctas">
           <a class="btn primary" href="#projects">View Projects</a>
@@ -83,7 +84,7 @@
         </div>
         <div class="looking-for">
           <span class="looking-label">Open to</span>
-          <span>Backend &middot; Embedded &middot; Systems Engineering internships</span>
+          <span>Algorithms &middot; Embedded Systems &middot; AI/ML internships</span>
         </div>
       </main>
       <aside class="hero-aside" aria-label="Profile and competitive programming stats">
@@ -97,8 +98,8 @@
           </div>
           <div class="cf-card live" aria-live="polite">
             <div class="cf-label">CODEFORCES</div>
-            <div id="cf-rank" class="cf-rank">Loading</div>
             <div id="cf-rating" class="cf-rating">&#8212;</div>
+            <div id="cf-rank" class="cf-rank">Loading</div>
           </div>
         </figure>
       </aside>
@@ -134,9 +135,21 @@
         <div class="small-head">Tools</div>
         <div class="stack">
           <span class="tag">Git</span>
-          <span class="tag">CLion</span>
+          <span class="tag">VS Code</span>
           <span class="tag">PyCharm</span>
           <span class="tag">Tinkercad</span>
+          <span class="tag">Google Colab</span>
+        </div>
+      </div>
+
+      <div class="card skill-card">
+        <div class="card-icon">&#8730;</div>
+        <div class="small-head">Foundations</div>
+        <div class="stack">
+          <span class="tag">Discrete Mathematics</span>
+          <span class="tag">Linear Algebra</span>
+          <span class="tag">Recursion</span>
+          <span class="tag">Signal Processing</span>
         </div>
       </div>
 
@@ -147,7 +160,6 @@
   <div class="filter-bar container">
     <div class="filters" role="toolbar" aria-label="Filter projects">
       <button data-filter="all"      class="filter-btn active" aria-pressed="true">All</button>
-      <button data-filter="backend"  class="filter-btn" aria-pressed="false">Backend</button>
       <button data-filter="embedded" class="filter-btn" aria-pressed="false">Embedded</button>
       <button data-filter="ai"       class="filter-btn" aria-pressed="false">AI</button>
     </div>
@@ -161,18 +173,18 @@
     <article class="project-card" data-category="ai" aria-labelledby="proj1-title">
       <div class="project-meta">
         <div class="mono date">Feb 2026 &#8212; Mar 2026</div>
-        <div class="project-category-badge">AI &middot; Backend</div>
+        <div class="project-category-badge">AI &middot; Python</div>
       </div>
       <h3 id="proj1-title">Customer Support AI Orchestrator</h3>
-      <p class="project-desc muted">Modular backend pipeline coordinating analytics, NLP sentiment, and retrieval-augmented generation.</p>
+      <p class="project-desc muted">Python-based prototype pipeline for automated ticket classification using sentiment analysis and retrieval-augmented generation. Focused on logical data flow and mathematically-grounded vector retrieval.</p>
       <div class="card project-body">
         <div class="stack">
           <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Redis</span>
           <span class="tag">RAG</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Sentiment Analysis</span>
         </div>
-        <p>Designed centralized orchestration and service separation for scalable, fault-tolerant flows.</p>
+        <p>Investigated RAG to bridge the gap between static LLMs and dynamic data. Built a prototype pipeline focused on logical data flow and context-aware retrieval.</p>
         <figure class="arch">
           <img src="public/assets/ai-arch.png" alt="AI orchestrator architecture diagram" loading="lazy" class="project-img">
           <figcaption>System orchestration architecture</figcaption>
@@ -238,11 +250,91 @@
 
   </section>
 
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section container" aria-labelledby="certs-title">
+    <h2 id="certs-title"><span class="sec-num">03.</span> Recognition &amp; Certifications</h2>
+    <div class="certs-grid">
+
+      <div class="card cert-card">
+        <div class="cert-meta">
+          <span class="cert-date mono">Nov 2025</span>
+          <span class="cert-issuer">Schneider Electric</span>
+        </div>
+        <h3 class="cert-title">Schneider Electric &amp; UFE Excellence Scholarship</h3>
+        <p class="cert-desc">Merit-based scholarship awarded to top Computer Engineering students at UFE for academic excellence.</p>
+        <div class="cert-image-wrap">
+          <img src="public/assets/certs/schneider-scholarship.jpg" alt="Schneider Electric Excellence Scholarship certificate" loading="lazy" class="cert-img" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+
+      <div class="card cert-card">
+        <div class="cert-meta">
+          <span class="cert-date mono">Feb 2026</span>
+          <span class="cert-issuer">ICPC UFE Community</span>
+        </div>
+        <h3 class="cert-title">5th Place &#8212; Newcomers Contest</h3>
+        <p class="cert-desc">Placed 5th out of all participants in first competitive programming contest. Solved 4/4 problems.</p>
+        <div class="cert-image-wrap">
+          <img src="public/assets/certs/icpc-newcomers.jpg" alt="ICPC Newcomers Contest certificate" loading="lazy" class="cert-img" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+
+      <div class="card cert-card">
+        <div class="cert-meta">
+          <span class="cert-date mono">Jan 2026</span>
+          <span class="cert-issuer">Google Developers</span>
+        </div>
+        <h3 class="cert-title">Google Machine Learning Badges</h3>
+        <p class="cert-desc">Completed Google&#39;s foundational ML learning path covering core machine learning concepts and workflows.</p>
+        <div class="cert-image-wrap">
+          <img src="public/assets/certs/google-ml.jpg" alt="Google Machine Learning certificate" loading="lazy" class="cert-img" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+
+      <div class="card cert-card">
+        <div class="cert-meta">
+          <span class="cert-date mono">Jan 2024</span>
+          <span class="cert-issuer">Egyptian Academy for Engineering &#8212; Ministry of Military Production</span>
+        </div>
+        <h3 class="cert-title">Basics of Artificial Intelligence</h3>
+        <p class="cert-desc">Formal certification covering neural networks, machine learning fundamentals, and AI principles.</p>
+        <div class="cert-image-wrap">
+          <img src="public/assets/certs/ai-cert.jpg" alt="AI certification certificate" loading="lazy" class="cert-img" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+
+      <div class="card cert-card">
+        <div class="cert-meta">
+          <span class="cert-date mono">Jan 2023</span>
+          <span class="cert-issuer">EGY STEM &middot; EL-Forsa Academy</span>
+        </div>
+        <h3 class="cert-title">Arduino Level 1 &amp; Robotics Diploma</h3>
+        <p class="cert-desc">Hardware interfacing, electronics, and microcontroller programming with hands-on project work.</p>
+        <div class="cert-image-wrap">
+          <img src="public/assets/certs/arduino-cert.jpg" alt="Arduino diploma certificate" loading="lazy" class="cert-img" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+
+      <div class="card cert-card">
+        <div class="cert-meta">
+          <span class="cert-date mono">Jan 2022</span>
+          <span class="cert-issuer">Southern Illinois University, Carbondale</span>
+        </div>
+        <h3 class="cert-title">American Math Olympiad &#8212; Certificate of Participation</h3>
+        <p class="cert-desc">Selected to participate in international mathematical problem-solving competition.</p>
+        <div class="cert-image-wrap">
+          <img src="public/assets/certs/amo-cert.jpg" alt="American Math Olympiad certificate" loading="lazy" class="cert-img" onerror="this.parentElement.style.display='none'">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- FOOTER / CONTACT -->
   <footer id="contact" class="container">
     <div class="footer-inner">
       <div class="footer-left">
-        <h3>Let's Connect</h3>
+        <h3>Let&#39;s Connect</h3>
         <a href="mailto:ahmed.mohsen.ce@gmail.com" class="footer-email">ahmed.mohsen.ce&#64;gmail.com</a>
         <div class="footer-links">
           <a href="https://github.com/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -255,7 +347,7 @@
       <div class="footer-right">
         <p class="muted">Schneider Electric Excellence Scholar</p>
         <p class="muted">Computer Engineering &middot; UFE &middot; Cairo</p>
-        <p class="muted footer-version">v1.0.0 &middot; Built from scratch</p>
+        <p class="muted footer-version">v1.0.0 &middot; Ahmed Mohsen &middot; 2026</p>
       </div>
     </div>
   </footer>
@@ -263,10 +355,11 @@
   <!-- COMMAND PALETTE -->
   <div id="palette" class="palette hidden" aria-hidden="true">
     <div class="palette-card" role="dialog" aria-label="Command palette">
-      <input id="paletteInput" placeholder="Navigate to... (try 'skills' or 'github')" aria-label="Command input" autocomplete="off" />
+      <input id="paletteInput" placeholder="Navigate to... (try skills or github)" aria-label="Command input" autocomplete="off" />
       <ul id="paletteList" role="listbox">
         <li data-go="#skills" role="option">Skills</li>
         <li data-go="#projects" role="option">Projects</li>
+        <li data-go="#certifications" role="option">Certifications</li>
         <li data-go="#contact" role="option">Contact</li>
         <li data-go="https://github.com/ahmedmohsen-eng" role="option">GitHub</li>
         <li data-go="https://codeforces.com/profile/hackgg106" role="option">Codeforces</li>
@@ -275,6 +368,6 @@
     </div>
   </div>
 
-  <script type="module" src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
