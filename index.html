@@ -1,20 +1,34 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ahmed Mohsen &#8212; Backend &amp; AI Engineer in Training</title>
-  <meta name="description" content="Backend &amp; AI engineering student at UFE following a 2026 roadmap toward FastAPI, RAG systems, DevOps, and ICPC ACPC-level competitive programming." />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https:; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src https://fonts.gstatic.com; connect-src https://codeforces.com;">
-  <meta property="og:title" content="Ahmed Mohsen &#8212; Engineering Portfolio" />
-  <meta property="og:description" content="Algorithms &amp; Systems &#8226; ICPC Aspirant &#8226; UFE Computer Engineering" />
-  <meta property="og:image" content="public/assets/og-image.png" />
+  <title>Ahmed Mohsen &#8212; Algorithms &amp; Systems Engineer</title>
+  <meta name="description" content="Computer Engineering student at UFE, Schneider Electric Excellence Scholar. Building AI systems and solving algorithmic problems. Seeking software engineering internships." />
+
+  <!-- Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 img-src 'self' https: data:;
+                 script-src 'self' 'unsafe-inline';
+                 style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+                 font-src https://fonts.gstatic.com;
+                 connect-src https://codeforces.com;">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Ahmed Mohsen &#8212; Engineering Portfolio" />
+  <meta property="og:description" content="Algorithms &amp; Systems &#8226; AI/RAG &#8226; UFE Computer Engineering" />
+  <meta property="og:image"       content="public/assets/og-image.png" />
+  <meta property="og:type"        content="website" />
   <link rel="icon" href="public/assets/favicon.ico" />
+
+  <!-- Preloads -->
   <link rel="preload" as="image" href="public/assets/profile_photo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <!-- Inline theme: runs before paint to avoid flash -->
   <script>
     (function() {
       try {
@@ -25,30 +39,40 @@
       } catch(e) {}
     })();
   </script>
+
   <link rel="stylesheet" href="css/main.css">
+
+  <!-- Schema.org structured data -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Ahmed Mohsen",
-    "url":"https://yourdomain.com",
-    "sameAs":["https://github.com/ahmedmohsen-eng","https://linkedin.com/in/ahmedmohseneng"],
-    "jobTitle":"Backend & AI Engineer (Student)",
-    "alumniOf":"Universite Francaise d Egypte",
-    "award":"Schneider Electric Excellence Scholar",
-    "knowsAbout":["Algorithms","FastAPI","RAG","LangChain","Competitive Programming","System Design"]
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahmed Mohsen",
+    "url": "https://ahmedmohsen-eng.github.io",
+    "sameAs": [
+      "https://github.com/ahmedmohsen-eng",
+      "https://linkedin.com/in/ahmedmohseneng",
+      "https://codeforces.com/profile/hackgg106"
+    ],
+    "jobTitle": "Computer Engineering Student",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universite Francaise d Egypte"
+    },
+    "award": "Schneider Electric Excellence Scholar",
+    "knowsAbout": ["Algorithms", "Data Structures", "Python", "C++", "RAG Systems", "Competitive Programming"]
   }
   </script>
 </head>
 <body>
 
-  <div id="progress"></div>
-  <div id="cursor"></div>
+  <div id="progress" role="progressbar" aria-hidden="true"></div>
+  <div id="cursor"   aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="Go to top">
+      <a href="#top" class="brand" aria-label="Ahmed Mohsen — go to top">
         <div class="logo" aria-hidden="true">AM</div>
         <span class="brand-name">Ahmed<span class="brand-dot">.Dev</span></span>
       </a>
@@ -59,8 +83,11 @@
         <a role="menuitem" href="#contact">Contact</a>
       </div>
       <div class="nav-actions">
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">&#127769;</button>
-        <a class="cv-btn" href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" download rel="noopener">Download CV</a>
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle colour theme">&#127769;</button>
+        <a class="cv-btn"
+           href="public/assets/Ahmed-Mohsen-Engineering-CV.pdf"
+           download
+           rel="noopener">Download CV</a>
       </div>
     </div>
   </nav>
@@ -68,90 +95,79 @@
   <!-- HERO -->
   <header id="top" class="container">
     <div class="hero-grid">
+
       <main class="hero-content" role="main" aria-labelledby="hero-title">
-        <span class="badge">Backend &amp; AI Engineer Track &#8212; UFE</span>
+        <span class="badge">Computer Engineering &#8212; UFE</span>
+
         <h1 id="hero-title">
-          <span class="h1-line">Backend, AI &amp; Systems</span>
+          <span class="h1-line">Algorithms &amp; Systems</span>
           <span class="gradient">Engineer in Training</span>
         </h1>
+
         <p class="lead">
-          Computer Engineering student at UFE and Schneider Electric Excellence Scholar,
-          following a 2026 roadmap toward Backend &amp; AI Engineer and ICPC ACPC-level competitor.
-          Learning to design FastAPI backends, production RAG pipelines, and contest-ready C++ algorithms from first principles.
+          Schneider Electric Excellence Scholar at UFE.
+          Solving algorithmic problems on Codeforces, building embedded firmware in C++,
+          and architecting RAG-based AI pipelines from first principles.
+          On a structured path toward software engineering at scale.
         </p>
+
         <div class="hero-ctas">
           <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn ghost" href="https://codeforces.com/profile/hackgg106" target="_blank" rel="noopener noreferrer">Codeforces &#x2197;</a>
+          <a class="btn ghost"
+             href="https://codeforces.com/profile/hackgg106"
+             target="_blank"
+             rel="noopener noreferrer">Codeforces &#x2197;</a>
         </div>
+
         <div class="looking-for">
-          <span class="looking-label">Focused on</span>
-          <span>Backend &amp; AI Engineering &middot; Competitive Programming &middot; ICPC ACPC prep</span>
+          <span class="looking-label">Seeking</span>
+          <span>Software Engineering Internships &middot; Algorithms &middot; AI Systems</span>
         </div>
       </main>
+
       <aside class="hero-aside" aria-label="Profile and competitive programming stats">
         <figure class="profile-figure">
           <div class="profile-blob-wrap">
-            <svg class="profile-blob-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg class="profile-blob-svg"
+                 viewBox="0 0 300 300"
+                 xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <clipPath id="blobClip">
-                  <path>
-                    <animate
-                      attributeName="d"
-                      dur="8s"
-                      repeatCount="indefinite"
-                      values="
-                        M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z;
-                        M150,35 C205,25 265,75 268,130 C272,185 240,240 190,258 C140,276 85,260 55,218 C22,175 28,110 58,72 C86,36 97,45 150,35 Z;
-                        M165,38 C218,28 268,80 272,135 C276,190 245,245 195,260 C145,275 88,255 58,212 C26,168 35,105 62,68 C88,33 114,48 165,38 Z;
-                        M155,42 C208,32 262,78 268,132 C275,188 248,238 198,257 C148,276 90,262 60,220 C28,176 32,112 58,74 C83,38 104,52 155,42 Z;
-                        M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z
-                      "
+                  <path id="blobPath">
+                    <animate attributeName="d"
+                      dur="10s" repeatCount="indefinite"
                       calcMode="spline"
-                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
-                    />
+                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+                      values="M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z;
+                              M150,35 C205,25 265,75 268,130 C272,185 240,240 190,258 C140,276 85,260 55,218 C22,175 28,110 58,72 C86,36 97,45 150,35 Z;
+                              M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z" />
                   </path>
                 </clipPath>
-                <!-- Accent border path (animated, slightly outside) -->
-                <path id="blobBorder">
-                  <animate
-                    attributeName="d"
-                    dur="8s"
-                    repeatCount="indefinite"
-                    values="
-                      M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z;
-                      M150,35 C205,25 265,75 268,130 C272,185 240,240 190,258 C140,276 85,260 55,218 C22,175 28,110 58,72 C86,36 97,45 150,35 Z;
-                      M165,38 C218,28 268,80 272,135 C276,190 245,245 195,260 C145,275 88,255 58,212 C26,168 35,105 62,68 C88,33 114,48 165,38 Z;
-                      M155,42 C208,32 262,78 268,132 C275,188 248,238 198,257 C148,276 90,262 60,220 C28,176 32,112 58,74 C83,38 104,52 155,42 Z;
-                      M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z
-                    "
-                    calcMode="spline"
-                    keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
-                  />
-                </path>
               </defs>
 
-              <!-- Photo clipped to blob -->
-              <image
-                href="public/assets/profile_photo.jpg"
-                x="0" y="0"
-                width="300" height="300"
+              <!-- Profile photo clipped to blob -->
+              <image href="public/assets/profile_photo.jpg"
+                x="0" y="0" width="300" height="300"
                 preserveAspectRatio="xMidYMid slice"
-                clip-path="url(#blobClip)"
-                onerror="this.href.baseVal='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=300'"
-              />
+                clip-path="url(#blobClip)" />
 
-              <!-- Animated border stroke -->
-              <use href="#blobBorder"
-                fill="none"
-                stroke="rgba(56,189,248,0.55)"
-                stroke-width="2"
-              />
+              <!-- Animated border stroke follows blob shape -->
+              <path fill="none" stroke="rgba(56,189,248,0.5)" stroke-width="2">
+                <animate attributeName="d"
+                  dur="10s" repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+                  values="M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z;
+                          M150,35 C205,25 265,75 268,130 C272,185 240,240 190,258 C140,276 85,260 55,218 C22,175 28,110 58,72 C86,36 97,45 150,35 Z;
+                          M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z" />
+              </path>
             </svg>
           </div>
-          <div class="cf-card live" aria-live="polite">
+
+          <div class="cf-card" aria-live="polite">
             <div class="cf-label">CODEFORCES</div>
             <div id="cf-rating" class="cf-rating">&#8212;</div>
-            <div id="cf-rank" class="cf-rank">Loading</div>
+            <div id="cf-rank"   class="cf-rank">Loading</div>
           </div>
         </figure>
       </aside>
@@ -160,62 +176,59 @@
 
   <!-- SKILLS -->
   <section id="skills" class="section container" aria-labelledby="skills-title">
-    <h2 id="skills-title"><span class="sec-num">01.</span> Skills &amp; Focus Areas</h2>
+    <h2 id="skills-title"><span class="sec-num">01.</span> Skills &amp; Foundations</h2>
     <div class="cards-grid">
 
       <div class="card skill-card">
         <div class="card-icon">&#9889;</div>
-        <div class="small-head">Backend &amp; AI</div>
+        <div class="small-head">Languages</div>
         <div class="stack">
+          <span class="tag">C++ (STL)</span>
           <span class="tag">Python</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">RAG systems</span>
         </div>
       </div>
 
       <div class="card skill-card">
         <div class="card-icon">&#129504;</div>
-        <div class="small-head">Competitive Programming</div>
+        <div class="small-head">Problem Solving</div>
         <div class="stack">
-          <span class="tag">C++ (STL)</span>
+          <span class="tag">Algorithms</span>
           <span class="tag">Data Structures</span>
-          <span class="tag">Graph Algorithms</span>
+          <span class="tag">Graph Theory</span>
           <span class="tag">Dynamic Programming</span>
         </div>
       </div>
 
       <div class="card skill-card">
         <div class="card-icon">&#128296;</div>
-        <div class="small-head">Systems &amp; DevOps</div>
+        <div class="small-head">AI &amp; Systems</div>
         <div class="stack">
-          <span class="tag">SQL / PostgreSQL</span>
-          <span class="tag">System Design</span>
+          <span class="tag">RAG Pipelines</span>
+          <span class="tag">NLP / Sentiment</span>
           <span class="tag">Git &amp; GitHub</span>
-          <span class="tag">Docker</span>
+          <span class="tag">VS Code · Colab</span>
         </div>
       </div>
 
       <div class="card skill-card">
-        <div class="card-icon">&#8730;</div>
+        <div class="card-icon">&#128218;</div>
         <div class="small-head">Foundations</div>
         <div class="stack">
           <span class="tag">Discrete Mathematics</span>
+          <span class="tag">Linear Algebra</span>
           <span class="tag">Algorithms &amp; Complexity</span>
-          <span class="tag">Problem Solving Patterns</span>
-          <span class="tag">Clean Code &amp; Reviews</span>
+          <span class="tag">Clean Code</span>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- FILTER BAR -->
-  <div class="filter-bar container">
-    <div class="filters" role="toolbar" aria-label="Filter projects">
+  <div class="filter-bar container" role="toolbar" aria-label="Filter projects by category">
+    <div class="filters">
       <button data-filter="all"      class="filter-btn active" aria-pressed="true">All</button>
-      <button data-filter="embedded" class="filter-btn" aria-pressed="false">Embedded</button>
-      <button data-filter="ai"       class="filter-btn" aria-pressed="false">AI</button>
+      <button data-filter="embedded" class="filter-btn"         aria-pressed="false">Embedded</button>
+      <button data-filter="ai"       class="filter-btn"         aria-pressed="false">AI</button>
     </div>
   </div>
 
@@ -223,14 +236,18 @@
   <section id="projects" class="section container" aria-labelledby="projects-title">
     <h2 id="projects-title"><span class="sec-num">02.</span> Technical Projects</h2>
 
-    <!-- Project 1 -->
+    <!-- Project 1 — AI -->
     <article class="project-card" data-category="ai" aria-labelledby="proj1-title">
       <div class="project-meta">
         <div class="mono date">Feb 2026 &#8212; Mar 2026</div>
         <div class="project-category-badge">AI &middot; Python</div>
       </div>
       <h3 id="proj1-title">Customer Support AI Orchestrator</h3>
-      <p class="project-desc muted">Python-based prototype pipeline for automated ticket classification using sentiment analysis and retrieval-augmented generation. Focused on logical data flow and mathematically-grounded vector retrieval.</p>
+      <p class="project-desc muted">
+        Python-based prototype pipeline for automated ticket classification using sentiment
+        analysis and retrieval-augmented generation. Focused on logical data flow and
+        mathematically-grounded vector retrieval.
+      </p>
       <div class="card project-body">
         <div class="stack">
           <span class="tag">Python</span>
@@ -238,11 +255,17 @@
           <span class="tag">NLP</span>
           <span class="tag">Sentiment Analysis</span>
         </div>
-        <p>Investigated RAG to bridge the gap between static LLMs and dynamic data. Built a prototype pipeline focused on logical data flow and context-aware retrieval.</p>
+        <p>
+          Investigated RAG to bridge the gap between static LLMs and dynamic data.
+          Built a prototype pipeline focused on logical data flow and context-aware retrieval.
+        </p>
         <figure class="arch">
-          <img src="public/assets/ai-arch.png" alt="AI orchestrator architecture diagram" loading="lazy" class="project-img">
+          <img src="public/assets/ai-arch.png"
+               alt="AI orchestrator architecture diagram"
+               loading="lazy"
+               class="project-img">
           <figcaption>System orchestration architecture</figcaption>
-          <div class="arch-diagram" data-animate>
+          <div class="arch-diagram">
             <div class="node">Ingestion</div>
             <div class="arrow">&#8594;</div>
             <div class="node">ML Classify</div>
@@ -255,35 +278,46 @@
           </div>
         </figure>
         <div class="project-links">
-          <a href="https://github.com/ahmedmohsen-eng/support-orchestrator" target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Source</a>
-          <a href="public/assets/support-orchestrator-arch.png" target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Full diagram</a>
+          <a href="https://github.com/ahmedmohsen-eng/support-orchestrator"
+             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Source</a>
+          <a href="public/assets/support-orchestrator-arch.png"
+             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Full diagram</a>
         </div>
         <ul class="project-highlights">
-          <li><strong>Challenge:</strong> fault-tolerant ingestion with at-most-once semantics.</li>
-          <li><strong>Impact:</strong> reduced average triage latency from <strong>1.8s to 450ms</strong>.</li>
+          <li><strong>Challenge:</strong> Fault-tolerant ingestion with at-most-once semantics.</li>
+          <li><strong>Result:</strong> Reduced average triage latency from <strong>1.8 s to 450 ms</strong>.</li>
         </ul>
       </div>
     </article>
 
-    <!-- Project 2 -->
+    <!-- Project 2 — Embedded -->
     <article class="project-card" data-category="embedded" aria-labelledby="proj2-title">
       <div class="project-meta">
         <div class="mono date">Nov 2023</div>
         <div class="project-category-badge">Embedded &middot; C++</div>
       </div>
       <h3 id="proj2-title">Integrated Hardware Control System</h3>
-      <p class="project-desc muted">Multi-sensor monitoring firmware with asynchronous input handling and automated actuation.</p>
+      <p class="project-desc muted">
+        Multi-sensor monitoring firmware with asynchronous input handling and automated
+        actuation logic. Built and simulated on Tinkercad.
+      </p>
       <div class="card project-body">
         <div class="stack">
           <span class="tag">C++</span>
           <span class="tag">State Machine</span>
-          <span class="tag">Sensors</span>
+          <span class="tag">Sensor Fusion</span>
         </div>
-        <p>Firmware for sensor fusion, asynchronous IR control, and safety-driven actuation logic.</p>
+        <p>
+          Firmware for sensor fusion, asynchronous IR control, and
+          safety-driven actuation logic across two integrated subsystems.
+        </p>
         <figure class="arch">
-          <img src="public/assets/embedded-arch.png" alt="Embedded control architecture diagram" loading="lazy" class="project-img">
-          <figcaption>Sensor &#8594; Controller &#8594; Actuator with safety rules</figcaption>
-          <div class="arch-diagram" data-animate>
+          <img src="public/assets/embedded-arch.png"
+               alt="Embedded control architecture diagram"
+               loading="lazy"
+               class="project-img">
+          <figcaption>Sensor &#8594; Controller &#8594; Actuator with safety interlocks</figcaption>
+          <div class="arch-diagram">
             <div class="node">Ultrasonic</div>
             <div class="arrow">&#8594;</div>
             <div class="node">MCU (FSM)</div>
@@ -292,60 +326,73 @@
           </div>
         </figure>
         <div class="project-links">
-          <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation" target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Part 1</a>
-          <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion" target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Part 2</a>
+          <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation"
+             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Part 1</a>
+          <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion"
+             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Part 2</a>
         </div>
         <ul class="project-highlights">
-          <li>Real-time sensor fusion (Ultrasonic, PIR, Temp, Photo)</li>
-          <li>IR remote asynchronous input handling and safety interlocks</li>
+          <li>Real-time sensor fusion: Ultrasonic, PIR, Temperature, Photoresistor</li>
+          <li>IR remote asynchronous input with safety interlocks across both subsystems</li>
         </ul>
       </div>
     </article>
-
   </section>
 
-  <!-- ROADMAP -->
+  <!-- ROADMAP — clearly future, clearly learning -->
   <section id="roadmap" class="section container" aria-labelledby="roadmap-title">
-    <h2 id="roadmap-title"><span class="sec-num">03.</span> 2026 Roadmap</h2>
-    <div class="cards-grid">
-      <article class="card">
-        <div class="small-head">Track 1 &mdash; Backend &amp; AI Engineer</div>
+    <h2 id="roadmap-title"><span class="sec-num">03.</span> 2026 Learning Roadmap</h2>
+    <p class="roadmap-subtitle muted">
+      A structured, build-first path toward software engineering at scale.
+      Everything below is actively in progress or next in queue.
+    </p>
+    <div class="cards-grid roadmap-grid">
+
+      <article class="card roadmap-card">
+        <div class="roadmap-track-badge">Track 1</div>
+        <div class="small-head">Backend &amp; AI Engineering</div>
         <p class="muted">
-          Structured path from solid Python to production FastAPI backends and RAG systems, with DevOps skills to ship projects.
+          Structured path from solid Python to production API backends and
+          RAG/LLM systems, with DevOps skills to ship projects independently.
         </p>
         <div class="stack">
-          <span class="tag">Phase 1 &mdash; Python &amp; OOP</span>
-          <span class="tag">Phase 2 &mdash; SQL &amp; FastAPI</span>
-          <span class="tag">Phase 3 &mdash; LangChain &amp; RAG</span>
-          <span class="tag">Phase 4 &mdash; Git, Docker, Deployment</span>
+          <span class="tag tag-phase">Phase 1 &mdash; Python &amp; OOP</span>
+          <span class="tag tag-phase">Phase 2 &mdash; SQL &amp; APIs</span>
+          <span class="tag tag-phase">Phase 3 &mdash; LangChain &amp; RAG</span>
+          <span class="tag tag-phase">Phase 4 &mdash; Docker &amp; Deploy</span>
         </div>
       </article>
 
-      <article class="card">
-        <div class="small-head">Track 2 &mdash; ICPC Champion</div>
+      <article class="card roadmap-card">
+        <div class="roadmap-track-badge">Track 2</div>
+        <div class="small-head">Competitive Programming</div>
         <p class="muted">
-          Competitive programming roadmap targeting ICPC ACPC: C++, core DSA, advanced graph algorithms, and contest strategy.
+          ICPC-track roadmap: advanced graph algorithms, segment trees,
+          number theory, and contest strategy toward ACPC level.
         </p>
         <div class="stack">
-          <span class="tag">C++ &amp; STL</span>
-          <span class="tag">DSA &amp; Graphs</span>
-          <span class="tag">Dynamic Programming</span>
-          <span class="tag">Number Theory &amp; Segment Trees</span>
+          <span class="tag tag-phase">DSA &amp; Graph Theory</span>
+          <span class="tag tag-phase">Dynamic Programming</span>
+          <span class="tag tag-phase">Number Theory</span>
+          <span class="tag tag-phase">Segment Trees</span>
         </div>
       </article>
 
-      <article class="card">
-        <div class="small-head">Build-First Philosophy</div>
+      <article class="card roadmap-card">
+        <div class="roadmap-track-badge">Build-First</div>
+        <div class="small-head">Projects in Progress</div>
         <p class="muted">
-          Every learning step ends with a real build: from a Customer Support AI API to a full production RAG pipeline and CP libraries.
+          Every phase ends with a real project. Learning by building,
+          not just studying.
         </p>
         <div class="stack">
-          <span class="tag">Customer Support AI API</span>
-          <span class="tag">Portfolio RAG Chatbot</span>
-          <span class="tag">Graph &amp; DP Libraries</span>
-          <span class="tag">Weekly ICPC Simulations</span>
+          <span class="tag tag-phase">Support AI API (FastAPI)</span>
+          <span class="tag tag-phase">Portfolio RAG Chatbot</span>
+          <span class="tag tag-phase">CP Algorithm Library</span>
+          <span class="tag tag-phase">Weekly Contest Practice</span>
         </div>
       </article>
+
     </div>
   </section>
 
@@ -354,13 +401,17 @@
     <div class="footer-inner">
       <div class="footer-left">
         <h3>Let&#39;s Connect</h3>
-        <a href="mailto:ahmed.mohsen.ce@gmail.com" class="footer-email">ahmed.mohsen.ce&#64;gmail.com</a>
+        <a href="mailto:ahmed.mohsen.ce@gmail.com"
+           class="footer-email">ahmed.mohsen.ce&#64;gmail.com</a>
         <div class="footer-links">
-          <a href="https://github.com/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/ahmedmohsen-eng"
+             target="_blank" rel="noopener noreferrer">GitHub</a>
           <span class="footer-sep">&middot;</span>
-          <a href="https://linkedin.com/in/ahmedmohseneng" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://linkedin.com/in/ahmedmohseneng"
+             target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <span class="footer-sep">&middot;</span>
-          <a href="https://codeforces.com/profile/hackgg106" target="_blank" rel="noopener noreferrer">Codeforces</a>
+          <a href="https://codeforces.com/profile/hackgg106"
+             target="_blank" rel="noopener noreferrer">Codeforces</a>
         </div>
       </div>
       <div class="footer-right">
@@ -371,17 +422,20 @@
     </div>
   </footer>
 
-  <!-- COMMAND PALETTE -->
+  <!-- COMMAND PALETTE (Ctrl+K) -->
   <div id="palette" class="palette hidden" aria-hidden="true">
     <div class="palette-card" role="dialog" aria-label="Command palette">
-      <input id="paletteInput" placeholder="Navigate to... (try skills or github)" aria-label="Command input" autocomplete="off" />
+      <input id="paletteInput"
+             placeholder="Navigate to&#8230; (try skills or github)"
+             aria-label="Command input"
+             autocomplete="off" />
       <ul id="paletteList" role="listbox">
-        <li data-go="#skills" role="option">Skills</li>
+        <li data-go="#skills"   role="option">Skills</li>
         <li data-go="#projects" role="option">Projects</li>
-        <li data-go="#roadmap" role="option">Roadmap</li>
-        <li data-go="#contact" role="option">Contact</li>
-        <li data-go="https://github.com/ahmedmohsen-eng" role="option">GitHub</li>
-        <li data-go="https://codeforces.com/profile/hackgg106" role="option">Codeforces</li>
+        <li data-go="#roadmap"  role="option">Roadmap</li>
+        <li data-go="#contact"  role="option">Contact</li>
+        <li data-go="https://github.com/ahmedmohsen-eng"         role="option">GitHub</li>
+        <li data-go="https://codeforces.com/profile/hackgg106"   role="option">Codeforces</li>
         <li data-go="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" role="option">Download CV</li>
       </ul>
     </div>
@@ -390,6 +444,6 @@
   <!-- SCROLL TO TOP -->
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8593;</button>
 
-  <script type="module" src="js/main.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
