@@ -88,12 +88,63 @@
       </main>
       <aside class="hero-aside" aria-label="Profile and competitive programming stats">
         <figure class="profile-figure">
-          <div class="profile-ring">
-            <img src="public/assets/profile_photo.jpg"
-                 alt="Portrait of Ahmed Mohsen"
-                 loading="lazy"
-                 class="profile-img"
-                 onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=280'">
+          <div class="profile-blob-wrap">
+            <svg class="profile-blob-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <defs>
+                <clipPath id="blobClip">
+                  <path>
+                    <animate
+                      attributeName="d"
+                      dur="8s"
+                      repeatCount="indefinite"
+                      values="
+                        M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z;
+                        M150,35 C205,25 265,75 268,130 C272,185 240,240 190,258 C140,276 85,260 55,218 C22,175 28,110 58,72 C86,36 97,45 150,35 Z;
+                        M165,38 C218,28 268,80 272,135 C276,190 245,245 195,260 C145,275 88,255 58,212 C26,168 35,105 62,68 C88,33 114,48 165,38 Z;
+                        M155,42 C208,32 262,78 268,132 C275,188 248,238 198,257 C148,276 90,262 60,220 C28,176 32,112 58,74 C83,38 104,52 155,42 Z;
+                        M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z
+                      "
+                      calcMode="spline"
+                      keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
+                    />
+                  </path>
+                </clipPath>
+                <!-- Accent border path (animated, slightly outside) -->
+                <path id="blobBorder">
+                  <animate
+                    attributeName="d"
+                    dur="8s"
+                    repeatCount="indefinite"
+                    values="
+                      M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z;
+                      M150,35 C205,25 265,75 268,130 C272,185 240,240 190,258 C140,276 85,260 55,218 C22,175 28,110 58,72 C86,36 97,45 150,35 Z;
+                      M165,38 C218,28 268,80 272,135 C276,190 245,245 195,260 C145,275 88,255 58,212 C26,168 35,105 62,68 C88,33 114,48 165,38 Z;
+                      M155,42 C208,32 262,78 268,132 C275,188 248,238 198,257 C148,276 90,262 60,220 C28,176 32,112 58,74 C83,38 104,52 155,42 Z;
+                      M160,40 C210,30 260,70 270,120 C285,175 260,230 210,255 C160,278 100,265 65,225 C28,183 30,120 55,80 C78,42 112,50 160,40 Z
+                    "
+                    calcMode="spline"
+                    keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
+                  />
+                </path>
+              </defs>
+
+              <!-- Photo clipped to blob -->
+              <image
+                href="public/assets/profile_photo.jpg"
+                x="0" y="0"
+                width="300" height="300"
+                preserveAspectRatio="xMidYMid slice"
+                clip-path="url(#blobClip)"
+                onerror="this.href.baseVal='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=300'"
+              />
+
+              <!-- Animated border stroke -->
+              <use href="#blobBorder"
+                fill="none"
+                stroke="rgba(56,189,248,0.55)"
+                stroke-width="2"
+              />
+            </svg>
           </div>
           <div class="cf-card live" aria-live="polite">
             <div class="cf-label">CODEFORCES</div>
@@ -282,6 +333,13 @@
         <li data-go="https://github.com/ahmedmohsen-eng" role="option">GitHub</li>
         <li data-go="https://codeforces.com/profile/hackgg106" role="option">Codeforces</li>
         <li data-go="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" role="option">Download CV</li>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">&#8593;</button>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
 
 <script type="module" src="js/main.js"></script>
 </body>
