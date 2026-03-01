@@ -463,3 +463,45 @@ figure.arch figcaption {
 .cert-img:hover {
   transform: scale(1.03);
 }
+
+/* ── Other certs — subtle links row ───────────────────── */
+.other-certs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+  opacity: 0.55;
+  transition: opacity var(--dur-med);
+}
+
+.other-certs:hover {
+  opacity: 0.85;
+}
+
+.other-certs-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.other-cert-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+  transition: color var(--dur-fast);
+}
+
+a.other-cert-link:hover {
+  color: var(--accent);
+}
+
+.other-certs-sep {
+  color: var(--text-2);
+  opacity: 0.4;
+  font-size: 0.7rem;
+}
