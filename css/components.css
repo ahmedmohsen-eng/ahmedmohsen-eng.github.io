@@ -505,3 +505,44 @@ a.other-cert-link:hover {
   opacity: 0.4;
   font-size: 0.7rem;
 }
+
+/* ── Scroll to top button ──────────────────────────────── */
+.scroll-top {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--surface-hi);
+  border: 1px solid var(--border-hi);
+  color: var(--accent);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 200;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition:
+    opacity var(--dur-med) var(--ease),
+    transform var(--dur-med) var(--ease),
+    background var(--dur-fast),
+    box-shadow var(--dur-fast);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.scroll-top:hover {
+  background: rgba(56,189,248,0.12);
+  box-shadow: 0 0 20px rgba(56,189,248,0.25);
+  transform: translateY(-3px);
+}
