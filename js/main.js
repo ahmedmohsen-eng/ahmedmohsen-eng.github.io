@@ -1,14 +1,12 @@
-// js/main.js
-// Central controller — theme, cursor, progress, reveal, filter, nav, palette, CF
-
+// js/main.js — Central controller
+// Theme · Cursor · Progress · Reveal · Filter · Nav · Palette · CF · Scroll-top
 import { loadCF } from './codeforces.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 1. THEME TOGGLE ──────────────────────────────────── */
-  const root   = document.documentElement;
+  const root    = document.documentElement;
   const themeBt = document.getElementById('themeToggle');
-
   if (themeBt) {
     const ICONS = { dark: '🌙', light: '☀️' };
     const update = () => {
@@ -17,8 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     update();
     themeBt.addEventListener('click', () => {
       root.classList.toggle('light');
-      try { localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark'); }
-      catch (_) {}
+      try {
+        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      } catch (_) {}
       update();
     });
   }
@@ -29,9 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let rx = -9999, ry = -9999;
     const lerp = (a, b, t) => a + (b - a) * t;
     let cx = -9999, cy = -9999;
-
-    window.addEventListener('mousemove', e => { rx = e.clientX; ry = e.clientY; }, { passive: true });
-
+    window.addEventListener('mousemove', e => {
+      rx = e.clientX;
+      ry = e.clientY;
+    }, { passive: true });
     const trackCursor = () => {
       cx = lerp(cx, rx, 0.12);
       cy = lerp(cy, ry, 0.12);
@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll(
-    '.card, .skill-card, .project-card, .project-body, .section h2, .profile-ring, .profile-figure'
+    '.card, .skill-card, .project-card, .project-body, .section h2, .profile-figure'
   ).forEach(el => {
     el.classList.add('reveal');
     obs.observe(el);
   });
 
   /* ── 5. PROJECT FILTER ────────────────────────────────── */
-  const filterBtns  = document.querySelectorAll('.filter-btn');
+  const filterBtns   = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
   filterBtns.forEach(btn => {
@@ -88,12 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-pressed', 'true');
 
       const filter = btn.dataset.filter;
-
       projectCards.forEach(card => {
         const match = filter === 'all' || card.dataset.category === filter;
         if (match) {
           card.classList.remove('hidden');
-          // Re-observe for staggered reveal if not yet active
           if (!card.classList.contains('active')) {
             card.classList.add('reveal');
             obs.observe(card);
@@ -106,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── 6. NAV ACTIVE LINK ───────────────────────────────── */
-  const sections  = document.querySelectorAll('section[id], header[id]');
-  const navLinks  = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
 
   const secObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -118,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
-  }, { threshold: 0.4, rootMargin: `0px 0px -60% 0px` });
+  }, { threshold: 0.4, rootMargin: '0px 0px -60% 0px' });
 
   sections.forEach(s => secObs.observe(s));
 
@@ -146,12 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') closePalette();
     });
 
-    // Click backdrop to close
     palette.addEventListener('click', e => {
       if (e.target === palette) closePalette();
     });
 
-    // Palette list navigation
     document.querySelectorAll('#paletteList li').forEach(item => {
       item.addEventListener('click', () => {
         const dest = item.dataset.go;
@@ -165,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Live filter palette items
     palInput.addEventListener('input', () => {
       const q = palInput.value.toLowerCase();
       document.querySelectorAll('#paletteList li').forEach(item => {
