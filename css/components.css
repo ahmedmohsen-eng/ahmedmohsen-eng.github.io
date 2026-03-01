@@ -1,3 +1,4 @@
+/* css/components.css */
 /* =========================================================
    components.css — Cards, buttons, tags, project elements
    ========================================================= */
@@ -395,115 +396,10 @@ figure.arch figcaption {
 /* ── Hidden ────────────────────────────────────────────── */
 .hidden { display: none !important; }
 
-/* ── Certifications grid ───────────────────────────────── */
-.certs-grid {
-  display: grid;
-  gap: 1.1rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin-top: 1.5rem;
-}
-
-.cert-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.cert-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.cert-date {
-  font-size: 0.72rem;
+/* ── Nav active state ──────────────────────────────────── */
+.nav-links a.active {
   color: var(--accent);
-  letter-spacing: 0.05em;
-}
-
-.cert-issuer {
-  font-size: 0.72rem;
-  color: var(--text-2);
-  font-family: var(--font-mono);
-  text-align: right;
-}
-
-.cert-title {
-  font-size: 0.95rem !important;
   font-weight: 700;
-  color: var(--text);
-  line-height: 1.3;
-}
-
-.cert-desc {
-  font-size: 0.84rem;
-  color: var(--text-2);
-  line-height: 1.55;
-}
-
-.cert-image-wrap {
-  margin-top: 0.5rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.cert-img {
-  width: 100%;
-  height: auto;
-  max-height: 180px;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-  transition: transform var(--dur-med) var(--ease);
-}
-
-.cert-img:hover {
-  transform: scale(1.03);
-}
-
-/* ── Other certs — subtle links row ───────────────────── */
-.other-certs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-  padding: 0.6rem 0;
-  border-top: 1px solid var(--border);
-  opacity: 0.55;
-  transition: opacity var(--dur-med);
-}
-
-.other-certs:hover {
-  opacity: 0.85;
-}
-
-.other-certs-label {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-2);
-}
-
-.other-cert-link {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-2);
-  transition: color var(--dur-fast);
-}
-
-a.other-cert-link:hover {
-  color: var(--accent);
-}
-
-.other-certs-sep {
-  color: var(--text-2);
-  opacity: 0.4;
-  font-size: 0.7rem;
 }
 
 /* ── Scroll to top button ──────────────────────────────── */
