@@ -1,8 +1,8 @@
-/* css/base.css */
 /* =========================================================
    base.css — Design tokens, reset, global elements
    ========================================================= */
 
+/* ── Design tokens ─────────────────────────────────────── */
 :root {
   /* Colours */
   --bg:           #04080f;
@@ -16,7 +16,6 @@
   --accent:       #38bdf8;
   --accent-2:     #818cf8;
   --accent-warm:  #fb923c;
-  --glow:         rgba(56, 189, 248, 0.15);
 
   /* Typography */
   --font-display: 'Plus Jakarta Sans', sans-serif;
@@ -24,9 +23,9 @@
   --font-mono:    'JetBrains Mono', monospace;
 
   /* Spacing / Layout */
-  --nav-h:   68px;
-  --radius:  16px;
-  --radius-sm: 8px;
+  --nav-h:      68px;
+  --radius:     16px;
+  --radius-sm:  8px;
 
   /* Animation */
   --ease:        cubic-bezier(0.16, 1, 0.3, 1);
@@ -36,28 +35,30 @@
   --dur-slow:    0.8s;
 }
 
+/* Light theme */
 .light {
-  --bg:        #f0f6ff;
-  --bg-2:      #e4eeff;
-  --surface:   rgba(255, 255, 255, 0.82);
-  --surface-hi:rgba(240, 248, 255, 0.95);
-  --border:    rgba(37, 99, 235, 0.12);
-  --border-hi: rgba(37, 99, 235, 0.40);
-  --text:      #0d1b2e;
-  --text-2:    #4a6380;
-  --accent:    #2563eb;
-  --accent-2:  #7c3aed;
-  --glow:      rgba(37, 99, 235, 0.10);
+  --bg:         #f0f6ff;
+  --bg-2:       #e4eeff;
+  --surface:    rgba(255, 255, 255, 0.82);
+  --surface-hi: rgba(240, 248, 255, 0.95);
+  --border:     rgba(37, 99, 235, 0.12);
+  --border-hi:  rgba(37, 99, 235, 0.40);
+  --text:       #0d1b2e;
+  --text-2:     #4a6380;
+  --accent:     #2563eb;
+  --accent-2:   #7c3aed;
 }
 
 /* ── Reset ──────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
-
 body {
   font-family: var(--font-body);
   font-size: 1rem;
@@ -67,21 +68,16 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
 }
-
-/* Universal image safety */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 ul { list-style: none; }
-
 button {
   font-family: var(--font-body);
   cursor: pointer;
@@ -95,14 +91,13 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(56,189,248,0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 85% 75%, rgba(129,140,248,0.07) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(251,146,60,0.03) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 15% 20%,  rgba(56,189,248,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 75%,  rgba(129,140,248,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%,  rgba(251,146,60,0.03) 0%, transparent 60%);
   animation: meshDrift 24s ease-in-out infinite alternate;
   z-index: -1;
   pointer-events: none;
 }
-
 @keyframes meshDrift {
   0%   { transform: translate(0,0) scale(1); }
   50%  { transform: translate(-2%, 1.5%) scale(1.03); }
@@ -112,8 +107,7 @@ body::before {
 /* ── Scroll progress bar ───────────────────────────────── */
 #progress {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   height: 2px;
   width: 0%;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
@@ -134,44 +128,37 @@ body::before {
   transition: left 0.06s linear, top 0.06s linear;
   will-change: left, top;
 }
-
-@media (hover: none) {
-  #cursor { display: none; }
-}
+@media (hover: none) { #cursor { display: none; } }
 
 /* ── Typography scale ──────────────────────────────────── */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 800;
-  line-height: 1.1;          /* overridden per-level below */
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
-
-h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.28; } /* tall enough for g/y/p descenders */
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.28; }
 h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
 h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
-
-p { color: var(--text-2); }
-
-.mono, .date { font-family: var(--font-mono); }
+p  { color: var(--text-2); }
 
 /* ── Reveal animation ──────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity var(--dur-slow) var(--ease),
-              transform var(--dur-slow) var(--ease);
+  transition:
+    opacity  var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease);
 }
-
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-
 /* Staggered delays for grid children */
-.cards-grid .card:nth-child(1) { transition-delay: 0ms; }
-.cards-grid .card:nth-child(2) { transition-delay: 80ms; }
+.cards-grid .card:nth-child(1) { transition-delay:   0ms; }
+.cards-grid .card:nth-child(2) { transition-delay:  80ms; }
 .cards-grid .card:nth-child(3) { transition-delay: 160ms; }
+.cards-grid .card:nth-child(4) { transition-delay: 240ms; }
 
 /* ── Accessibility ─────────────────────────────────────── */
 :focus-visible {
@@ -179,10 +166,9 @@ p { color: var(--text-2); }
   outline-offset: 3px;
   border-radius: 4px;
 }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
     transition-duration: 0.01ms !important;
   }
   body::before { animation: none; }
