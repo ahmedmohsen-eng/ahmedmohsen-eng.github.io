@@ -1,6 +1,5 @@
-/* css/layout.css */
 /* =========================================================
-   layout.css — Navigation, hero, section grids
+   layout.css — Navigation, hero, section grids, footer
    ========================================================= */
 
 /* ── Container ─────────────────────────────────────────── */
@@ -22,10 +21,7 @@ nav {
   z-index: 100;
   transition: background var(--dur-med);
 }
-
-.light nav {
-  background: rgba(240, 246, 255, 0.85);
-}
+.light nav { background: rgba(240, 246, 255, 0.85); }
 
 .nav-inner {
   height: var(--nav-h);
@@ -42,7 +38,6 @@ nav {
   gap: 0.55rem;
   flex-shrink: 0;
 }
-
 .logo {
   width: 38px;
   height: 38px;
@@ -59,19 +54,16 @@ nav {
   transition: transform var(--dur-med) var(--ease-spring),
               box-shadow var(--dur-med);
 }
-
 .logo:hover {
   transform: rotate(-8deg) scale(1.08);
   box-shadow: 0 0 20px rgba(56,189,248,0.4);
 }
-
 .brand-name {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: -0.01em;
 }
-
 .brand-dot { color: var(--accent); }
 
 /* Nav links */
@@ -80,7 +72,6 @@ nav {
   gap: 2rem;
   align-items: center;
 }
-
 .nav-links a {
   font-size: 0.78rem;
   font-weight: 500;
@@ -90,7 +81,6 @@ nav {
   transition: color var(--dur-fast);
   position: relative;
 }
-
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -101,16 +91,10 @@ nav {
   background: var(--accent);
   transition: width var(--dur-med) var(--ease);
 }
-
 .nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
-
+.nav-links a.active  { color: var(--accent); }
 .nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
+.nav-links a.active::after { width: 100%; }
 
 /* Nav actions */
 .nav-actions {
@@ -118,7 +102,6 @@ nav {
   align-items: center;
   gap: 0.6rem;
 }
-
 .theme-btn {
   width: 36px;
   height: 36px;
@@ -131,12 +114,10 @@ nav {
   border: 1px solid var(--border);
   transition: background var(--dur-fast), transform var(--dur-fast);
 }
-
 .theme-btn:hover {
   background: var(--surface-hi);
   transform: scale(1.08);
 }
-
 .cv-btn {
   display: none;
   padding: 0.45rem 0.9rem;
@@ -150,7 +131,6 @@ nav {
   text-transform: uppercase;
   transition: background var(--dur-fast), box-shadow var(--dur-fast);
 }
-
 .cv-btn:hover {
   background: rgba(56,189,248,0.08);
   box-shadow: 0 0 14px rgba(56,189,248,0.2);
@@ -200,7 +180,6 @@ section[id], header[id] {
   margin-bottom: 1.25rem;
   animation: slideDown 0.7s var(--ease) both;
 }
-
 .badge::before {
   content: '';
   display: inline-block;
@@ -210,12 +189,10 @@ section[id], header[id] {
   background: var(--accent);
   animation: pulse 2s ease infinite;
 }
-
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+  50%       { opacity: 0.4; }
 }
-
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -224,27 +201,25 @@ section[id], header[id] {
 h1 {
   animation: heroIn 0.9s var(--ease) 0.1s both;
   margin-bottom: 1.1rem;
-  line-height: 1.28;          /* extra space so descenders (g,y,p) never clip */
+  line-height: 1.28;
   overflow: visible;
 }
-
 @keyframes heroIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* First line of h1 — block so its paint box includes the descender zone */
+/* h1 lines — block so descenders (g,y,p) never clip */
 .h1-line {
   display: block;
   padding-bottom: 0.08em;
 }
-
 .gradient {
   background: linear-gradient(125deg, var(--accent) 0%, var(--accent-2) 60%, var(--accent-warm) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: block;            /* own box so gradient never clips its own descenders */
+  display: block;
   padding-bottom: 0.14em;
 }
 
@@ -277,7 +252,6 @@ h1 {
   color: var(--text-2);
   animation: heroIn 0.9s var(--ease) 0.4s both;
 }
-
 .looking-label {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -307,12 +281,11 @@ h1 {
   height: 300px;
   animation: blobFloat 6s ease-in-out infinite;
 }
-
 @keyframes blobFloat {
-  0%   { transform: translateY(0px) rotate(0deg); }
+  0%   { transform: translateY(0px)  rotate(0deg); }
   33%  { transform: translateY(-8px) rotate(1.5deg); }
   66%  { transform: translateY(-4px) rotate(-1deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(0px)  rotate(0deg); }
 }
 
 /* Ambient glow behind the blob */
@@ -331,7 +304,6 @@ h1 {
   z-index: 0;
   pointer-events: none;
 }
-
 @keyframes glowPulse {
   0%   { opacity: 0.7; transform: scale(0.95); }
   100% { opacity: 1;   transform: scale(1.08); }
@@ -346,14 +318,13 @@ h1 {
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5))
           drop-shadow(0 0 20px rgba(56,189,248,0.15));
 }
-
 .profile-blob-wrap:hover .profile-blob-svg {
   transform: scale(1.03);
   filter: drop-shadow(0 28px 50px rgba(0,0,0,0.6))
           drop-shadow(0 0 30px rgba(56,189,248,0.25));
 }
 
-/* Deprecated — kept for mobile fallback */
+/* Fallback ring (not used when blob is present, kept for safety) */
 .profile-ring {
   width: 280px;
   height: 280px;
@@ -364,7 +335,6 @@ h1 {
     0 0 0 6px rgba(56,189,248,0.04),
     0 30px 60px rgba(0,0,0,0.4);
 }
-
 .profile-img {
   width: 100%;
   height: 100%;
@@ -386,7 +356,6 @@ h1 {
   box-shadow: 0 8px 32px rgba(0,0,0,0.45);
   z-index: 10;
 }
-
 .cf-label {
   font-family: var(--font-mono);
   font-size: 0.6rem;
@@ -394,7 +363,6 @@ h1 {
   color: var(--text-2);
   margin-bottom: 2px;
 }
-
 .cf-rank {
   font-family: var(--font-display);
   font-size: 0.75rem;
@@ -403,7 +371,6 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-
 .cf-rating {
   font-family: var(--font-mono);
   font-size: 1.4rem;
@@ -412,16 +379,12 @@ h1 {
   line-height: 1.2;
 }
 
-/* ── Section headers ───────────────────────────────────── */
+/* ── Sections ──────────────────────────────────────────── */
 .section {
   margin-top: 6rem;
   margin-bottom: 2rem;
 }
-
-.section h2 {
-  margin-bottom: 2rem;
-}
-
+.section h2 { margin-bottom: 2rem; }
 .sec-num {
   font-family: var(--font-mono);
   color: var(--accent);
@@ -437,11 +400,43 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-/* ── Filter bar ────────────────────────────────────────── */
-.filter-bar {
-  margin-top: 2rem;
+/* ── Roadmap section ───────────────────────────────────── */
+.roadmap-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  max-width: 60ch;
+}
+.roadmap-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.roadmap-card {
+  position: relative;
+  padding-top: 2.2rem;
+}
+.roadmap-track-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  background: rgba(251,146,60,0.08);
+  border: 1px solid rgba(251,146,60,0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+/* Roadmap tags styled differently — purple/indigo tones */
+.tag-phase {
+  background: rgba(129,140,248,0.08) !important;
+  border-color: rgba(129,140,248,0.2) !important;
+  color: var(--accent-2) !important;
 }
 
+/* ── Filter bar ────────────────────────────────────────── */
+.filter-bar { margin-top: 2rem; }
 .filters {
   display: flex;
   gap: 0.5rem;
@@ -454,7 +449,6 @@ footer {
   padding: 3.5rem 0 2.5rem;
   border-top: 1px solid var(--border);
 }
-
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -462,14 +456,12 @@ footer {
   gap: 2rem;
   align-items: flex-start;
 }
-
 .footer-left h3 {
   font-family: var(--font-display);
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
   color: var(--text);
 }
-
 .footer-email {
   display: inline-block;
   color: var(--accent);
@@ -478,9 +470,7 @@ footer {
   margin-bottom: 1rem;
   transition: color var(--dur-fast);
 }
-
 .footer-email:hover { color: var(--accent-2); }
-
 .footer-links {
   display: flex;
   align-items: center;
@@ -488,66 +478,46 @@ footer {
   font-size: 0.9rem;
   color: var(--text-2);
 }
-
 .footer-links a {
   color: var(--text-2);
   transition: color var(--dur-fast);
 }
-
 .footer-links a:hover { color: var(--accent); }
-
 .footer-sep { opacity: 0.4; }
-
-.footer-right {
-  text-align: right;
-}
-
+.footer-right { text-align: right; }
 .footer-right p {
   font-size: 0.82rem;
   color: var(--text-2);
   margin-bottom: 0.25rem;
 }
-
 .footer-version {
   font-family: var(--font-mono);
   opacity: 0.55;
 }
 
-/* ── Mobile ────────────────────────────────────────────── */
+/* ── Responsive ────────────────────────────────────────── */
 @media (max-width: 860px) {
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-
   .hero-aside {
     order: -1;
     padding-top: 0;
   }
-
-  .profile-blob-wrap {
-    width: 220px;
-    height: 220px;
-  }
-
-  .profile-ring {
-    width: 200px;
-    height: 200px;
-  }
-
+  .profile-blob-wrap { width: 220px; height: 220px; }
+  .profile-ring      { width: 200px; height: 200px; }
   .cf-card {
     right: -4px;
     bottom: -12px;
     min-width: 110px;
     padding: 8px 11px;
   }
-
   .hero-ctas {
     flex-direction: column;
     align-items: stretch;
     max-width: 320px;
   }
-
   .footer-right { text-align: left; }
 }
 
@@ -557,15 +527,6 @@ footer {
     padding-bottom: 3rem;
     min-height: auto;
   }
-
-  .profile-blob-wrap {
-    width: 180px;
-    height: 180px;
-  }
-
-  .profile-ring {
-    width: 170px;
-    height: 170px;
-    border-radius: 16px;
-  }
+  .profile-blob-wrap { width: 180px; height: 180px; }
+  .profile-ring      { width: 170px; height: 170px; border-radius: 16px; }
 }
