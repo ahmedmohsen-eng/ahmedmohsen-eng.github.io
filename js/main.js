@@ -172,6 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 8. CODEFORCES ────────────────────────────────────── */
   loadCF('hackgg106');
 
+  /* ── Apply default filter (AI) on load ───────────────── */
+  projectCards.forEach(card => {
+    if (card.dataset.category !== 'ai') card.classList.add('hidden');
+  });
+
   /* ── 9. SCROLL TO TOP ─────────────────────────────────── */
   const scrollTopBtn = document.getElementById('scrollTop');
   if (scrollTopBtn) {
