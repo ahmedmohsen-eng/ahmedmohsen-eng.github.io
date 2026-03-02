@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll(
-    '.card, .skill-card, .project-card, .project-body, .section h2, .profile-figure'
+    '.card, .skill-card, .project-card, .project-body, .section h2, .profile-frame'
   ).forEach(el => {
     el.classList.add('reveal');
     obs.observe(el);
