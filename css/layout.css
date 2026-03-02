@@ -274,72 +274,59 @@ h1 {
   display: inline-block;
 }
 
-/* Blob SVG wrapper */
-.profile-blob-wrap {
+/* ── Profile frame — formal, refined, engineer-appropriate ── */
+.profile-frame {
   position: relative;
-  width: 300px;
-  height: 300px;
-  animation: blobFloat 6s ease-in-out infinite;
-}
-@keyframes blobFloat {
-  0%   { transform: translateY(0px)  rotate(0deg); }
-  33%  { transform: translateY(-8px) rotate(1.5deg); }
-  66%  { transform: translateY(-4px) rotate(-1deg); }
-  100% { transform: translateY(0px)  rotate(0deg); }
-}
-
-/* Ambient glow behind the blob */
-.profile-blob-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    rgba(56,189,248,0.18) 0%,
-    rgba(129,140,248,0.10) 45%,
-    transparent 70%
-  );
-  animation: glowPulse 4s ease-in-out infinite alternate;
-  z-index: 0;
-  pointer-events: none;
-}
-@keyframes glowPulse {
-  0%   { opacity: 0.7; transform: scale(0.95); }
-  100% { opacity: 1;   transform: scale(1.08); }
-}
-
-.profile-blob-svg {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  transition: transform var(--dur-med) var(--ease);
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5))
-          drop-shadow(0 0 20px rgba(56,189,248,0.15));
-}
-.profile-blob-wrap:hover .profile-blob-svg {
-  transform: scale(1.03);
-  filter: drop-shadow(0 28px 50px rgba(0,0,0,0.6))
-          drop-shadow(0 0 30px rgba(56,189,248,0.25));
-}
-
-/* Fallback ring (not used when blob is present, kept for safety) */
-.profile-ring {
   width: 280px;
   height: 280px;
-  border-radius: 22px;
+  border-radius: 20px;
   overflow: hidden;
-  border: 1.5px solid var(--border-hi);
+
+  /* Layered border: outer glow ring + sharp inner accent line */
   box-shadow:
-    0 0 0 6px rgba(56,189,248,0.04),
-    0 30px 60px rgba(0,0,0,0.4);
+    0 0 0 1px rgba(56,189,248,0.55),       /* cyan accent border */
+    0 0 0 5px rgba(56,189,248,0.06),       /* soft halo ring     */
+    0 0 32px rgba(56,189,248,0.10),        /* ambient glow       */
+    0 24px 48px rgba(0,0,0,0.45);          /* depth shadow       */
+
+  transition:
+    box-shadow var(--dur-med) var(--ease),
+    transform  var(--dur-med) var(--ease);
 }
+
+/* Subtle top-edge light catch — gives the frame a premium feel */
+.profile-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    160deg,
+    rgba(56,189,248,0.08) 0%,
+    transparent 40%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.profile-frame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.75),
+    0 0 0 5px rgba(56,189,248,0.09),
+    0 0 44px rgba(56,189,248,0.18),
+    0 32px 60px rgba(0,0,0,0.55);
+}
+
 .profile-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+.profile-frame:hover .profile-img {
+  transform: scale(1.03);
 }
 
 /* CF card */
@@ -505,8 +492,7 @@ footer {
     order: -1;
     padding-top: 0;
   }
-  .profile-blob-wrap { width: 220px; height: 220px; }
-  .profile-ring      { width: 200px; height: 200px; }
+  .profile-frame      { width: 220px; height: 220px; }
   .cf-card {
     right: -4px;
     bottom: -12px;
@@ -527,6 +513,141 @@ footer {
     padding-bottom: 3rem;
     min-height: auto;
   }
-  .profile-blob-wrap { width: 180px; height: 180px; }
-  .profile-ring      { width: 170px; height: 170px; border-radius: 16px; }
+  .profile-frame      { width: 180px; height: 180px; border-radius: 16px; }
+}
+
+/* ── Roadmap tracks wrapper ────────────────────────────── */
+.roadmap-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Wide card variant for roadmap */
+.roadmap-card--wide {
+  width: 100%;
+}
+
+/* Phases row inside a track card */
+.roadmap-phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+/* Single phase block */
+.roadmap-phase {
+  background: rgba(56,189,248,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-color var(--dur-fast);
+}
+.roadmap-phase:hover {
+  border-color: var(--border-hi);
+}
+
+.phase-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.phase-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.phase-months {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-2);
+  margin-bottom: 0.5rem;
+}
+.roadmap-phase .stack {
+  margin-top: 0.4rem;
+}
+
+/* ── Project table (11 projects) ───────────────────────── */
+.project-table {
+  margin-top: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pt-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 1fr;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur-fast);
+  align-items: center;
+}
+.pt-row:last-child { border-bottom: none; }
+.pt-row:not(.pt-header):hover {
+  background: rgba(56,189,248,0.04);
+}
+
+.pt-header {
+  background: rgba(56,189,248,0.06);
+  border-bottom: 1px solid var(--border-hi);
+}
+.pt-header span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.pt-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.pt-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.pt-stack {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+}
+
+/* Flagship project row */
+.pt-flagship {
+  background: rgba(129,140,248,0.06);
+  border-color: rgba(129,140,248,0.2);
+}
+.pt-flagship .pt-num {
+  color: var(--accent-2);
+}
+.pt-flagship .pt-name {
+  color: var(--accent-2);
+}
+
+/* ── Roadmap responsive ────────────────────────────────── */
+@media (max-width: 640px) {
+  .roadmap-phases {
+    grid-template-columns: 1fr;
+  }
+  .pt-row {
+    grid-template-columns: 2rem 1fr;
+    gap: 0.5rem;
+  }
+  .pt-stack { display: none; }
 }
