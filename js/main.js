@@ -1,7 +1,5 @@
 // js/main.js — Central controller
 // Theme · Cursor · Progress · Reveal · Filter · Nav · Palette · CF · Scroll-top
-import { loadCF } from './codeforces.js';
-
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 1. THEME TOGGLE ──────────────────────────────────── */
@@ -73,36 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     obs.observe(el);
   });
 
-  /* ── 5. PROJECT FILTER ────────────────────────────────── */
-  const filterBtns   = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Update button states
-      filterBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
-
-      const filter = btn.dataset.filter;
-      projectCards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        if (match) {
-          card.classList.remove('hidden');
-          if (!card.classList.contains('active')) {
-            card.classList.add('reveal');
-            obs.observe(card);
-          }
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    });
-  });
-
   /* ── 6. NAV ACTIVE LINK ───────────────────────────────── */
   const sections = document.querySelectorAll('section[id], header[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
@@ -168,14 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-
-  /* ── 8. CODEFORCES ────────────────────────────────────── */
-  loadCF('hackgg106');
-
-  /* ── Apply default filter (AI) on load ───────────────── */
-  projectCards.forEach(card => {
-    if (card.dataset.category !== 'ai') card.classList.add('hidden');
-  });
 
   /* ── 9. SCROLL TO TOP ─────────────────────────────────── */
   const scrollTopBtn = document.getElementById('scrollTop');
