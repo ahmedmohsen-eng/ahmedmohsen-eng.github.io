@@ -78,7 +78,6 @@
       </a>
       <div class="nav-links" role="menubar">
         <a role="menuitem" href="#skills">Skills</a>
-        <a role="menuitem" href="#projects">Projects</a>
         <a role="menuitem" href="#roadmap">Roadmap</a>
         <a role="menuitem" href="#contact">Contact</a>
       </div>
@@ -112,7 +111,7 @@
         </p>
 
         <div class="hero-ctas">
-          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn primary" href="#roadmap">View Roadmap</a>
           <a class="btn ghost"
              href="https://codeforces.com/profile/hackgg106"
              target="_blank"
@@ -188,125 +187,13 @@
     </div>
   </section>
 
-  <!-- FILTER BAR -->
-  <div class="filter-bar container" role="toolbar" aria-label="Filter projects by category">
-    <div class="filters">
-      <button data-filter="all"      class="filter-btn"         aria-pressed="false">All</button>
-      <button data-filter="embedded" class="filter-btn"         aria-pressed="false">Embedded</button>
-      <button data-filter="ai"       class="filter-btn active" aria-pressed="true">AI</button>
-    </div>
-  </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section container" aria-labelledby="projects-title">
-    <h2 id="projects-title"><span class="sec-num">02.</span> Technical Projects</h2>
 
-    <!-- Project 1 — AI -->
-    <article class="project-card" data-category="ai" aria-labelledby="proj1-title">
-      <div class="project-meta">
-        <div class="mono date">Feb 2026 &#8212; Mar 2026</div>
-        <div class="project-category-badge">AI &middot; Python</div>
-      </div>
-      <h3 id="proj1-title">Customer Support AI Orchestrator</h3>
-      <p class="project-desc muted">
-        Python-based prototype pipeline for automated ticket classification using sentiment
-        analysis and retrieval-augmented generation. Focused on logical data flow and
-        mathematically-grounded vector retrieval.
-      </p>
-      <div class="card project-body">
-        <div class="stack">
-          <span class="tag">Python</span>
-          <span class="tag">RAG</span>
-          <span class="tag">NLP</span>
-          <span class="tag">Sentiment Analysis</span>
-        </div>
-        <p>
-          Investigated RAG to bridge the gap between static LLMs and dynamic data.
-          Built a prototype pipeline focused on logical data flow and context-aware retrieval.
-        </p>
-        <figure class="arch">
-          <img src="public/assets/ai-arch.png"
-               alt="AI orchestrator architecture diagram"
-               loading="lazy"
-               class="project-img">
-          <figcaption>System orchestration architecture</figcaption>
-          <div class="arch-diagram">
-            <div class="node">Ingestion</div>
-            <div class="arrow">&#8594;</div>
-            <div class="node">ML Classify</div>
-            <div class="arrow">&#8594;</div>
-            <div class="node">NLP Sentiment</div>
-            <div class="arrow">&#8594;</div>
-            <div class="node">RAG</div>
-            <div class="arrow">&#8594;</div>
-            <div class="node">Response</div>
-          </div>
-        </figure>
-        <div class="project-links">
-          <a href="https://github.com/ahmedmohsen-eng/support-orchestrator"
-             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Source</a>
-          <a href="public/assets/support-orchestrator-arch.png"
-             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Full diagram</a>
-        </div>
-        <ul class="project-highlights">
-          <li><strong>Learning Objective:</strong> Mastering fault-tolerant ingestion and context-aware retrieval.</li>
-          <li><strong>Performance Goal:</strong> Targeting sub-<strong>500ms</strong> triage latency through optimized vector indexing.</li>
-        </ul>
-      </div>
-    </article>
 
-    <!-- Project 2 — Embedded -->
-    <article class="project-card" data-category="embedded" aria-labelledby="proj2-title">
-      <div class="project-meta">
-        <div class="mono date">Nov 2023</div>
-        <div class="project-category-badge">Embedded &middot; C++</div>
-      </div>
-      <h3 id="proj2-title">Integrated Hardware Control System</h3>
-      <p class="project-desc muted">
-        Multi-sensor monitoring firmware with asynchronous input handling and automated
-        actuation logic. Built and simulated on Tinkercad.
-      </p>
-      <div class="card project-body">
-        <div class="stack">
-          <span class="tag">C++</span>
-          <span class="tag">State Machine</span>
-          <span class="tag">Sensor Fusion</span>
-        </div>
-        <p>
-          Firmware for sensor fusion, asynchronous IR control, and
-          safety-driven actuation logic across two integrated subsystems.
-        </p>
-        <figure class="arch">
-          <img src="public/assets/embedded-arch.png"
-               alt="Embedded control architecture diagram"
-               loading="lazy"
-               class="project-img">
-          <figcaption>Sensor &#8594; Controller &#8594; Actuator with safety interlocks</figcaption>
-          <div class="arch-diagram">
-            <div class="node">Ultrasonic</div>
-            <div class="arrow">&#8594;</div>
-            <div class="node">MCU (FSM)</div>
-            <div class="arrow">&#8594;</div>
-            <div class="node">Actuators</div>
-          </div>
-        </figure>
-        <div class="project-links">
-          <a href="https://www.tinkercad.com/things/eqKLcIvzZUT-first-part-presentation"
-             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Part 1</a>
-          <a href="https://www.tinkercad.com/things/hq8oaImdnrU-second-part-presentaion"
-             target="_blank" rel="noopener noreferrer" class="proj-link">&#x2197; Part 2</a>
-        </div>
-        <ul class="project-highlights">
-          <li>Real-time sensor fusion: Ultrasonic, PIR, Temperature, Photoresistor</li>
-          <li>IR remote asynchronous input with safety interlocks across both subsystems</li>
-        </ul>
-      </div>
-    </article>
-  </section>
 
   <!-- ROADMAP — clearly future, clearly learning -->
   <section id="roadmap" class="section container" aria-labelledby="roadmap-title">
-    <h2 id="roadmap-title"><span class="sec-num">03.</span> Engineering Roadmap</h2>
+    <h2 id="roadmap-title"><span class="sec-num">02.</span> Engineering Roadmap</h2>
     <p class="roadmap-subtitle muted">
       A structured, build-first path from current foundations to deployed AI backends
       and ICPC ACPC level. Two parallel tracks. Every phase ends with a real shipped project.
@@ -532,7 +419,6 @@
              autocomplete="off" />
       <ul id="paletteList" role="listbox">
         <li data-go="#skills"   role="option">Skills</li>
-        <li data-go="#projects" role="option">Projects</li>
         <li data-go="#roadmap"  role="option">Roadmap</li>
         <li data-go="#contact"  role="option">Contact</li>
         <li data-go="https://github.com/ahmedmohsen-eng"         role="option">GitHub</li>
