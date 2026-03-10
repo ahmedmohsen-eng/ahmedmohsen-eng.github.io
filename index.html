@@ -258,9 +258,66 @@
 
 
 
+  <!-- PROJECTS -->
+  <section id="projects" class="section container" aria-labelledby="projects-title">
+    <h2 id="projects-title"><span class="sec-num">02.</span> Projects</h2>
+
+    <div class="projects-grid">
+
+      <article class="card project-card">
+        <div class="project-header">
+          <div class="project-meta">
+            <span class="project-lang">C++17</span>
+            <span class="project-status status-wip">In Progress</span>
+          </div>
+          <a href="https://github.com/ahmedmohsen-eng/cpp-library-system"
+             target="_blank" rel="noopener noreferrer"
+             class="project-link" aria-label="View on GitHub">&#8599;</a>
+        </div>
+
+        <h3 class="project-title">C++ Library Management System</h3>
+        <p class="project-sub">CS50x Harvard Final Project</p>
+
+        <p class="project-desc">
+          Command-line library simulator built entirely from scratch in C++17 with zero external dependencies.
+          Manages books, members, and borrow transactions with full data persistence across sessions.
+        </p>
+
+        <div class="project-highlights">
+          <div class="highlight-item">
+            <span class="highlight-label">Data Structure</span>
+            <span class="highlight-val">Custom HashMap — djb2 hash, open addressing, tombstone deletion, O(1) average lookup</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-label">OOP Design</span>
+            <span class="highlight-val">4 classes — Book, Member, Librarian, HashMap — each with single responsibility</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-label">Persistence</span>
+            <span class="highlight-val">Auto-save after every write operation via pipe-delimited plain-text files</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-label">Build</span>
+            <span class="highlight-val">GNU Make · g++ -std=c++17 -Wall -Wextra -O2</span>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">C++17</span>
+          <span class="tag">OOP</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">Hash Map</span>
+          <span class="tag">File I/O</span>
+          <span class="tag">GNU Make</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
   <!-- ROADMAP — clearly future, clearly learning -->
   <section id="roadmap" class="section container" aria-labelledby="roadmap-title">
-    <h2 id="roadmap-title"><span class="sec-num">04.</span> Engineering Roadmap</h2>
+    <h2 id="roadmap-title"><span class="sec-num">03.</span> Engineering Roadmap</h2>
     <p class="roadmap-subtitle muted">
       A structured, build-first path from current foundations to deployed AI backends
       and ICPC ACPC level. Two parallel tracks building toward a Research Engineer or Algorithm Specialist role. Every phase ends with a real shipped project.
@@ -452,63 +509,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section container" aria-labelledby="projects-title">
-    <h2 id="projects-title"><span class="sec-num">03.</span> Projects</h2>
-
-    <div class="projects-grid">
-
-      <article class="card project-card">
-        <div class="project-header">
-          <div class="project-meta">
-            <span class="project-lang">C++17</span>
-            <span class="project-status status-wip">In Progress</span>
-          </div>
-          <a href="https://github.com/ahmedmohsen-eng/cpp-library-system"
-             target="_blank" rel="noopener noreferrer"
-             class="project-link" aria-label="View on GitHub">&#8599;</a>
-        </div>
-
-        <h3 class="project-title">C++ Library Management System</h3>
-        <p class="project-sub">CS50x Harvard Final Project</p>
-
-        <p class="project-desc">
-          Command-line library simulator built entirely from scratch in C++17 with zero external dependencies.
-          Manages books, members, and borrow transactions with full data persistence across sessions.
-        </p>
-
-        <div class="project-highlights">
-          <div class="highlight-item">
-            <span class="highlight-label">Data Structure</span>
-            <span class="highlight-val">Custom HashMap — djb2 hash, open addressing, tombstone deletion, O(1) average lookup</span>
-          </div>
-          <div class="highlight-item">
-            <span class="highlight-label">OOP Design</span>
-            <span class="highlight-val">4 classes — Book, Member, Librarian, HashMap — each with single responsibility</span>
-          </div>
-          <div class="highlight-item">
-            <span class="highlight-label">Persistence</span>
-            <span class="highlight-val">Auto-save after every write operation via pipe-delimited plain-text files</span>
-          </div>
-          <div class="highlight-item">
-            <span class="highlight-label">Build</span>
-            <span class="highlight-val">GNU Make · g++ -std=c++17 -Wall -Wextra -O2</span>
-          </div>
-        </div>
-
-        <div class="project-tags">
-          <span class="tag">C++17</span>
-          <span class="tag">OOP</span>
-          <span class="tag">Data Structures</span>
-          <span class="tag">Hash Map</span>
-          <span class="tag">File I/O</span>
-          <span class="tag">GNU Make</span>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
   <!-- FOOTER / CONTACT -->
   <footer id="contact" class="container">
     <div class="footer-inner">
@@ -548,13 +548,6 @@
         <li data-go="#contact"  role="option">Contact</li>
         <li data-go="https://github.com/ahmedmohsen-eng"         role="option">GitHub</li>
         <li data-go="https://codeforces.com/profile/hackgg106"   role="option">Codeforces</li>
-        <li data-go="public/assets/Ahmed-Mohsen-Engineering-CV.pdf" role="option">Download CV</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SCROLL TO TOP -->
-  <butt
 
 <script type="module" src="js/main.js"></script>
 </body>
