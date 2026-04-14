@@ -394,3 +394,131 @@ figure.arch figcaption {
   box-shadow: 0 0 20px rgba(56,189,248,0.25);
   transform: translateY(-3px);
 }
+
+/* ── Light mode overrides ────────────────────────────────── */
+html.light .card {
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(37,99,235,0.12);
+  box-shadow: 0 4px 24px rgba(37,99,235,0.08), 0 1px 3px rgba(0,0,0,0.06);
+}
+html.light .card:hover {
+  box-shadow: 0 8px 32px rgba(37,99,235,0.14), 0 1px 4px rgba(0,0,0,0.08);
+  border-color: rgba(37,99,235,0.28);
+}
+html.light .tag {
+  background: rgba(37,99,235,0.08);
+  border-color: rgba(37,99,235,0.18);
+  color: #1e40af;
+}
+html.light .tag.tag-phase {
+  background: rgba(37,99,235,0.07);
+  border-color: rgba(37,99,235,0.15);
+  color: #1d4ed8;
+}
+html.light .btn.primary {
+  background: #2563eb;
+  color: #fff;
+}
+html.light .btn.ghost {
+  border-color: rgba(37,99,235,0.4);
+  color: #2563eb;
+}
+html.light .btn.ghost:hover {
+  background: rgba(37,99,235,0.08);
+}
+html.light .badge {
+  background: rgba(37,99,235,0.1);
+  border-color: rgba(37,99,235,0.2);
+  color: #1e40af;
+}
+html.light .roadmap-track-badge {
+  background: rgba(37,99,235,0.1);
+  color: #1e40af;
+}
+html.light .roadmap-phase {
+  background: rgba(37,99,235,0.05);
+  border-color: rgba(37,99,235,0.12);
+}
+html.light .project-status.status-wip {
+  background: rgba(217,119,6,0.1);
+  border-color: rgba(217,119,6,0.25);
+}
+html.light .scroll-top {
+  background: rgba(37,99,235,0.12);
+  color: #2563eb;
+}
+html.light .scroll-top:hover {
+  background: rgba(37,99,235,0.2);
+  box-shadow: 0 0 20px rgba(37,99,235,0.2);
+}
+html.light #palette .palette-box {
+  background: rgba(255,255,255,0.98);
+  border-color: rgba(37,99,235,0.2);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.15);
+}
+html.light #paletteInput {
+  background: transparent;
+  color: #0d1b2e;
+  border-bottom-color: rgba(37,99,235,0.15);
+}
+html.light #paletteList li:hover {
+  background: rgba(37,99,235,0.07);
+}
+html.light footer {
+  border-top-color: rgba(37,99,235,0.12);
+}
+html.light .muted, html.light p.muted {
+  color: #3a5270;
+}
+html.light .gradient {
+  background: linear-gradient(125deg, #2563eb 0%, #7c3aed 60%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+html.light .h1-line {
+  color: #0d1b2e;
+}
+html.light .phase-label {
+  color: #2563eb;
+}
+html.light .phase-title {
+  color: #0d1b2e;
+}
+html.light .phase-months {
+  color: #3a5270;
+}
+html.light .small-head {
+  color: #0d1b2e;
+}
+html.light .sec-num {
+  color: #2563eb;
+}
+html.light .project-lang {
+  background: rgba(37,99,235,0.08);
+  border-color: rgba(37,99,235,0.2);
+  color: #1e40af;
+}
+html.light .highlight-label {
+  color: #2563eb;
+}
+html.light .project-highlights {
+  border-left-color: rgba(37,99,235,0.25);
+}
+html.light .footer-email,
+html.light .footer-links a {
+  color: #2563eb;
+}
+html.light .nav-links a {
+  color: #1e3a5f;
+}
+html.light .nav-links a:hover,
+html.light .nav-links a.active {
+  color: #2563eb;
+}
+html.light .brand-name {
+  color: #0d1b2e;
+}
+html.light .theme-btn {
+  color: #2563eb;
+}
