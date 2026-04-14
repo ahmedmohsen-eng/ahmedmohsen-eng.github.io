@@ -6,17 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const root    = document.documentElement;
   const themeBt = document.getElementById('themeToggle');
   if (themeBt) {
-    const ICONS = { dark: '🌙', light: '☀️' };
-    const update = () => {
-      themeBt.textContent = root.classList.contains('light') ? ICONS.light : ICONS.dark;
+    const applyTheme = (isLight) => {
+      if (isLight) {
+        root.classList.add('light');
+      } else {
+        root.classList.remove('light');
+      }
+      themeBt.textContent = isLight ? '☀️' : '🌙';
+      themeBt.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (_) {}
     };
-    update();
+
+    // Set initial icon based on current class (set by inline script)
+    applyTheme(root.classList.contains('light'));
+
     themeBt.addEventListener('click', () => {
-      root.classList.toggle('light');
-      try {
-        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
-      } catch (_) {}
-      update();
+      applyTheme(!root.classList.contains('light'));
     });
   }
 
