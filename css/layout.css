@@ -21,7 +21,7 @@ nav {
   z-index: 100;
   transition: background var(--dur-med);
 }
-.light nav { background: rgba(240, 246, 255, 0.85); }
+html.light nav { background: rgba(220, 235, 255, 0.90); border-bottom-color: rgba(37,99,235,0.15); }
 
 .nav-inner {
   height: var(--nav-h);
