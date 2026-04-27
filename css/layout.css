@@ -1,463 +1,1074 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ahmed Mohsen — Computer Engineering Student | Algorithms, AI &amp; Competitive Programming | UFE Egypt</title>
+/* =========================================================
+   layout.css — Navigation, hero, section grids, footer
+   ========================================================= */
 
-  <!-- Primary SEO -->
-  <meta name="description" content="Ahmed Mohsen — Computer Engineering student at UFE on the AI & Data Science track, Schneider Electric Excellence Scholar. NVIDIA DLI certified. Competitive programmer on Codeforces (hackgg106). Building toward Research Engineer at ethical AI labs via French Masters." />
-  <meta name="keywords" content="Ahmed Mohsen, Computer Engineering, UFE, Universite Francaise Egypte, ICPC, Competitive Programming, Codeforces, hackgg106, Algorithms, C++, Python, scikit-learn, Deep Learning, NVIDIA DLI, Research Engineer, Algorithm Specialist, AI Research, French Masters, Cairo Egypt, Schneider Electric Scholar" />
-  <meta name="author" content="Ahmed Mohsen" />
-  <meta name="robots" content="index, follow" />
-  <meta name="language" content="English" />
-  <meta name="revisit-after" content="30 days" />
+/* ── Container ─────────────────────────────────────────── */
+.container {
+  width: min(1120px, 100% - 2.5rem);
+  margin-inline: auto;
+}
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://ahmedmohsen-eng.github.io/" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+/* ── Navigation ────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: var(--nav-h);
+  background: rgba(4, 8, 15, 0.75);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  transition: background var(--dur-med);
+}
+html.light nav { background: rgba(220, 235, 255, 0.90); border-bottom-color: rgba(37,99,235,0.15); }
 
-  <!-- Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self';
-                 img-src 'self' https: data:;
-                 script-src 'self' 'unsafe-inline';
-                 style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
-                 font-src https://fonts.gstatic.com;
-                 connect-src https://codeforces.com;">
+.nav-inner {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
 
-  <!-- Open Graph -->
-  <meta property="og:type"        content="profile" />
-  <meta property="og:title"       content="Ahmed Mohsen — Computer Engineering Student | Algorithms &amp; AI" />
-  <meta property="og:description" content="Computer Engineering student at UFE, Schneider Electric Excellence Scholar. ICPC competitor. Building AI and algorithmic systems. Cairo, Egypt." />
-  <meta property="og:image"       content="https://ahmedmohsen-eng.github.io/public/assets/og-image.png" />
-  <meta property="og:image:width"  content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:url"         content="https://ahmedmohsen-eng.github.io/" />
-  <meta property="og:site_name"   content="Ahmed Mohsen — Portfolio" />
-  <meta property="og:locale"      content="en_US" />
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+.logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #021226;
+  flex-shrink: 0;
+  transition: transform var(--dur-med) var(--ease-spring),
+              box-shadow var(--dur-med);
+}
+.logo:hover {
+  transform: rotate(-8deg) scale(1.08);
+  box-shadow: 0 0 20px rgba(56,189,248,0.4);
+}
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+}
+.brand-dot { color: var(--accent); }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Ahmed Mohsen — Computer Engineering Student | Algorithms &amp; AI" />
-  <meta name="twitter:description" content="Computer Engineering student at UFE, Schneider Electric Excellence Scholar. ICPC competitor. Cairo, Egypt." />
-  <meta name="twitter:image"       content="https://ahmedmohsen-eng.github.io/public/assets/og-image.png" />
+/* Nav links */
+.nav-links {
+  display: none;
+  gap: 2rem;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  transition: color var(--dur-fast);
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--dur-med) var(--ease);
+}
+.nav-links a:hover,
+.nav-links a.active  { color: var(--accent); }
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ahmed Mohsen",
-    "alternateName": "ahmedmohsen-eng",
-    "jobTitle": "Computer Engineering Student — Aspiring Research Engineer & Algorithm Specialist",
-    "description": "Computer Engineering student at UFE on the AI & Data Science track. Schneider Electric Excellence Scholar. NVIDIA DLI certified. Competitive programmer on Codeforces (hackgg106). Building toward Research Engineer at ethical AI labs or European companies via French Masters.",
-    "url": "https://ahmedmohsen-eng.github.io/",
-    "image": "https://ahmedmohsen-eng.github.io/public/assets/profile_photo.jpg",
-    "email": "ahmed.mohsen.ce@gmail.com",
-    "address": { "@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG" },
-    "alumniOf": [
-      { "@type": "CollegeOrUniversity", "name": "Université Française d'Égypte", "alternateName": "UFE" },
-      { "@type": "HighSchool", "name": "Obour STEM School" }
-    ],
-    "knowsAbout": ["Algorithms and Data Structures","Competitive Programming","C++ Programming","Python","scikit-learn","Deep Learning","Supervised Machine Learning","NumPy","NVIDIA Deep Learning Institute"],
-    "sameAs": [
-      "https://linkedin.com/in/ahmedmohsen-eng",
-      "https://github.com/ahmedmohsen-eng",
-      "https://codeforces.com/profile/hackgg106"
-    ],
-    "award": "Schneider Electric and UFE Excellence Scholarship"
+/* Nav actions */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: background var(--dur-fast), transform var(--dur-fast);
+}
+.theme-btn:hover {
+  background: var(--surface-hi);
+  transform: scale(1.08);
+}
+.cv-btn {
+  display: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hi);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background var(--dur-fast), box-shadow var(--dur-fast);
+}
+.cv-btn:hover {
+  background: rgba(56,189,248,0.08);
+  box-shadow: 0 0 14px rgba(56,189,248,0.2);
+}
+
+@media (min-width: 768px) {
+  .nav-links { display: flex; }
+  .cv-btn    { display: inline-block; }
+}
+
+/* ── Hero ──────────────────────────────────────────────── */
+header {
+  padding-top: calc(var(--nav-h) + 4.5rem);
+  padding-bottom: 5rem;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Anchor offset for fixed nav */
+section[id], header[id] {
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 340px);
+  gap: 3.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Hero text */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(56,189,248,0.08);
+  border: 1px solid rgba(56,189,248,0.2);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+  animation: slideDown 0.7s var(--ease) both;
+}
+.badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  animation: heroIn 0.9s var(--ease) 0.1s both;
+  margin-bottom: 1.1rem;
+  line-height: 1.28;
+  overflow: visible;
+}
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* h1 lines — block so descenders (g,y,p) never clip */
+.h1-line {
+  display: block;
+  padding-bottom: 0.08em;
+}
+.gradient {
+  background: linear-gradient(125deg, var(--accent) 0%, var(--accent-2) 60%, var(--accent-warm) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  padding-bottom: 0.14em;
+}
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-2);
+  max-width: 56ch;
+  margin-bottom: 2rem;
+  animation: heroIn 0.9s var(--ease) 0.2s both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+  animation: heroIn 0.9s var(--ease) 0.3s both;
+}
+
+.looking-for {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  color: var(--text-2);
+  animation: heroIn 0.9s var(--ease) 0.4s both;
+}
+.looking-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-warm);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ── Hero aside (profile) ──────────────────────────────── */
+.hero-aside {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0.5rem;
+  animation: heroIn 0.9s var(--ease) 0.2s both;
+}
+
+.profile-figure {
+  position: relative;
+  display: inline-block;
+}
+
+/* ── Profile frame — formal, refined, engineer-appropriate ── */
+.profile-frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  /* Layered border: outer glow ring + sharp inner accent line */
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.55),       /* cyan accent border */
+    0 0 0 5px rgba(56,189,248,0.06),       /* soft halo ring     */
+    0 0 32px rgba(56,189,248,0.10),        /* ambient glow       */
+    0 24px 48px rgba(0,0,0,0.45);          /* depth shadow       */
+
+  transition:
+    box-shadow var(--dur-med) var(--ease),
+    transform  var(--dur-med) var(--ease);
+}
+
+/* Subtle top-edge light catch — gives the frame a premium feel */
+.profile-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    160deg,
+    rgba(56,189,248,0.08) 0%,
+    transparent 40%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.profile-frame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,0.75),
+    0 0 0 5px rgba(56,189,248,0.09),
+    0 0 44px rgba(56,189,248,0.18),
+    0 32px 60px rgba(0,0,0,0.55);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--dur-slow) var(--ease);
+}
+.profile-frame:hover .profile-img {
+  transform: scale(1.03);
+}
+
+/* CF card */
+.cf-card {
+  position: absolute;
+  right: -8px;
+  bottom: -16px;
+  background: var(--bg-2);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-hi);
+  min-width: 128px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  z-index: 10;
+}
+.cf-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: var(--text-2);
+  margin-bottom: 2px;
+}
+.cf-rank {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cf-rating {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+/* ── Sections ──────────────────────────────────────────── */
+.section {
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+.section h2 { margin-bottom: 2rem; }
+.sec-num {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.9em;
+  margin-right: 0.35em;
+  font-weight: 400;
+}
+
+/* ── Skills grid ───────────────────────────────────────── */
+.cards-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* ── Roadmap section ───────────────────────────────────── */
+.roadmap-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  max-width: 60ch;
+}
+.roadmap-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.roadmap-card {
+  position: relative;
+  padding-top: 2.2rem;
+}
+.roadmap-track-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  background: rgba(251,146,60,0.08);
+  border: 1px solid rgba(251,146,60,0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+/* Roadmap tags styled differently — purple/indigo tones */
+.tag-phase {
+  background: rgba(129,140,248,0.08) !important;
+  border-color: rgba(129,140,248,0.2) !important;
+  color: var(--accent-2) !important;
+}
+
+/* ── Filter bar ────────────────────────────────────────── */
+.filter-bar { margin-top: 2rem; }
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  margin-top: 7rem;
+  padding: 3.5rem 0 2.5rem;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.footer-left h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.footer-email {
+  display: inline-block;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  transition: color var(--dur-fast);
+}
+.footer-email:hover { color: var(--accent-2); }
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-2);
+}
+.footer-links a {
+  color: var(--text-2);
+  transition: color var(--dur-fast);
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-sep { opacity: 0.4; }
+.footer-right { text-align: right; }
+.footer-right p {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  margin-bottom: 0.25rem;
+}
+.footer-version {
+  font-family: var(--font-mono);
+  opacity: 0.55;
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
-  </script>
+  .hero-aside {
+    order: -1;
+    padding-top: 0;
+  }
+  .profile-frame      { width: 220px; height: 220px; }
+  .cf-card {
+    right: -4px;
+    bottom: -12px;
+    min-width: 110px;
+    padding: 8px 11px;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 320px;
+  }
+  .footer-right { text-align: left; }
+}
 
-  <link rel="icon" href="public/assets/favicon.ico" />
-  <link rel="preload" as="image" href="public/assets/profile_photo.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+@media (max-width: 560px) {
+  header {
+    padding-top: calc(var(--nav-h) + 2.5rem);
+    padding-bottom: 3rem;
+    min-height: auto;
+  }
+  .profile-frame      { width: 180px; height: 180px; border-radius: 16px; }
+}
 
-  <!-- Inline theme: runs before paint to avoid flash -->
-  <script>
-    (function() {
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'light') document.documentElement.classList.add('light');
-        else if (!t && window.matchMedia('(prefers-color-scheme: light)').matches)
-          document.documentElement.classList.add('light');
-      } catch(e) {}
-    })();
-  </script>
+/* ── Roadmap tracks wrapper ────────────────────────────── */
+.roadmap-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
+/* Wide card variant for roadmap */
+.roadmap-card--wide {
+  width: 100%;
+}
 
-  <div id="progress" role="progressbar" aria-hidden="true"></div>
-  <div id="cursor"   aria-hidden="true"></div>
+/* Phases row inside a track card */
+.roadmap-phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
 
-  <!-- NAV -->
-  <nav role="navigation" aria-label="Main navigation">
-    <div class="container nav-inner">
-      <a href="#top" class="brand" aria-label="Ahmed Mohsen — go to top">
-        <div class="logo" aria-hidden="true">AM</div>
-        <span class="brand-name">Ahmed<span class="brand-dot">.</span></span>
-      </a>
-      <div class="nav-links" role="menubar">
-        <a role="menuitem" href="#skills">Skills</a>
-        <a role="menuitem" href="#experience">Experience</a>
-        <a role="menuitem" href="#projects">Projects</a>
-        <a role="menuitem" href="#certifications">Certs</a>
-        <a role="menuitem" href="#contact">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle colour theme">&#127769;</button>
-        <a class="cv-btn"
-           href="public/assets/Ahmed-Mohsen-Computer-Engineering-CV.pdf"
-           download
-           rel="noopener">Download CV</a>
-      </div>
-    </div>
-  </nav>
+/* Single phase block */
+.roadmap-phase {
+  background: rgba(56,189,248,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-color var(--dur-fast);
+}
+.roadmap-phase:hover {
+  border-color: var(--border-hi);
+}
 
-  <!-- HERO -->
-  <header id="top" class="container">
-    <div class="hero-grid">
+.phase-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.phase-title {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+.phase-months {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-2);
+  margin-bottom: 0.5rem;
+}
+.roadmap-phase .stack {
+  margin-top: 0.4rem;
+}
 
-      <main class="hero-content" role="main" aria-labelledby="hero-title">
-        <span class="badge">Computer Engineering &mdash; AI &amp; Data Science Track · UFE</span>
+/* ── Project table (11 projects) ───────────────────────── */
+.project-table {
+  margin-top: 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
 
-        <h1 id="hero-title">
-          <span class="h1-line">Algorithms &amp; AI</span>
-          <span class="gradient">Engineer in Training</span>
-        </h1>
+.pt-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 1fr;
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--dur-fast);
+  align-items: center;
+}
+.pt-row:last-child { border-bottom: none; }
+.pt-row:not(.pt-header):hover {
+  background: rgba(56,189,248,0.04);
+}
 
-        <p class="lead">
-          Schneider Electric Excellence Scholar at UFE, selected for outstanding academic merit (GPA 3.83/4.00).
-          NVIDIA DLI certified in Deep Learning. Completed a full supervised learning pipeline with scikit-learn.
-          Competitive programmer on Codeforces (<strong>hackgg106</strong>) — 250+ problems solved, training toward
-          CF 1600+ and ICPC regional. Long-term goal: Research Engineer at ethical AI labs or European companies via French Masters.
-        </p>
+.pt-header {
+  background: rgba(56,189,248,0.06);
+  border-bottom: 1px solid var(--border-hi);
+}
+.pt-header span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
 
-        <div class="hero-ctas">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn ghost"
-             href="https://codeforces.com/profile/hackgg106"
-             target="_blank"
-             rel="noopener noreferrer">Codeforces &#x2197;</a>
-          <a class="btn ghost"
-             href="public/assets/Ahmed-Mohsen-Computer-Engineering-CV.pdf"
-             download
-             rel="noopener">Download CV &#8595;</a>
-        </div>
+.pt-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.pt-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.pt-stack {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+}
 
-        <div class="social-row">
-          <a href="https://github.com/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-        </div>
-      </main>
+/* Flagship project row */
+.pt-flagship {
+  background: rgba(129,140,248,0.06);
+  border-color: rgba(129,140,248,0.2);
+}
+.pt-flagship .pt-num {
+  color: var(--accent-2);
+}
+.pt-flagship .pt-name {
+  color: var(--accent-2);
+}
 
-      <aside class="hero-aside" aria-label="Profile and competitive programming stats">
-        <figure class="profile-figure">
-          <div class="profile-frame">
-            <img src="public/assets/profile_photo.jpg"
-                 alt="Portrait of Ahmed Mohsen"
-                 loading="eager"
-                 class="profile-img"
-                 onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Ahmed+Mohsen&background=020617&color=38bdf8&size=300'" />
-          </div>
+/* ── Roadmap responsive ────────────────────────────────── */
+@media (max-width: 640px) {
+  .roadmap-phases {
+    grid-template-columns: 1fr;
+  }
+  .pt-row {
+    grid-template-columns: 2rem 1fr;
+    gap: 0.5rem;
+  }
+  .pt-stack { display: none; }
+}
 
-          <!-- Live CF card -->
-          <div class="cf-card" id="cf-card" aria-label="Codeforces live stats">
-            <div class="cf-header">
-              <span class="cf-logo">CF</span>
-              <span class="cf-handle">hackgg106</span>
-              <span class="cf-status-dot" id="cf-status-dot" title="Checking..."></span>
-            </div>
-            <div class="cf-row">
-              <span class="cf-label">Rating</span>
-              <span class="cf-val" id="cf-rating">—</span>
-            </div>
-            <div class="cf-row">
-              <span class="cf-label">Rank</span>
-              <span class="cf-val cf-rank-val" id="cf-rank">—</span>
-            </div>
-            <div class="cf-row">
-              <span class="cf-label">Problems</span>
-              <span class="cf-val" id="cf-solved">—</span>
-            </div>
-            <div class="cf-state" id="cf-state"></div>
-          </div>
-        </figure>
-      </aside>
-    </div>
-  </header>
+/* ── Projects ──────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
 
-  <!-- SKILLS -->
-  <section id="skills" class="section container" aria-labelledby="skills-title">
-    <h2 id="skills-title"><span class="sec-num">01.</span> Skills &amp; Foundations</h2>
-    <div class="cards-grid">
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.4rem 1.5rem;
+}
 
-      <div class="card skill-card">
-        <div class="card-icon">&#9889;</div>
-        <div class="small-head">Languages</div>
-        <div class="stack">
-          <span class="tag">C++ (STL · OOP · Systems)</span>
-          <span class="tag">Python (ML workflows)</span>
-        </div>
-      </div>
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-      <div class="card skill-card">
-        <div class="card-icon">&#129504;</div>
-        <div class="small-head">ML &amp; AI</div>
-        <div class="stack">
-          <span class="tag">scikit-learn</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">NVIDIA DLI Deep Learning</span>
-        </div>
-      </div>
+.project-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-      <div class="card skill-card">
-        <div class="card-icon">&#128187;</div>
-        <div class="small-head">Environments &amp; Tools</div>
-        <div class="stack">
-          <span class="tag">Git &amp; GitHub</span>
-          <span class="tag">VS Code · Colab</span>
-          <span class="tag">Linux CLI</span>
-          <span class="tag">JupyterLab</span>
-          <span class="tag">GNU Make</span>
-        </div>
-      </div>
+.project-lang {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  background: rgba(56,189,248,0.08);
+  border: 1px solid rgba(56,189,248,0.2);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
 
-      <div class="card skill-card">
-        <div class="card-icon">&#128218;</div>
-        <div class="small-head">Foundations</div>
-        <div class="stack">
-          <span class="tag">Algorithms &amp; Data Structures</span>
-          <span class="tag">Supervised Machine Learning</span>
-          <span class="tag">Deep Learning</span>
-          <span class="tag">Linear Algebra</span>
-          <span class="tag">Discrete Mathematics</span>
-        </div>
-      </div>
+.project-status {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
 
-    </div>
+.status-wip {
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+}
 
-    <!-- Skill depth bars -->
-    <div class="skill-bars" aria-label="Skill proficiency levels">
-      <div class="skill-bar-group">
-        <div class="skill-bar-header">
-          <span class="skill-bar-name">C++ (STL · OOP)</span>
-          <span class="skill-bar-pct">90%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div>
-      </div>
-      <div class="skill-bar-group">
-        <div class="skill-bar-header">
-          <span class="skill-bar-name">Algorithms &amp; Data Structures</span>
-          <span class="skill-bar-pct">75%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" data-w="75"></div></div>
-      </div>
-      <div class="skill-bar-group">
-        <div class="skill-bar-header">
-          <span class="skill-bar-name">Graph Algorithms</span>
-          <span class="skill-bar-pct">40%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill skill-bar-fill--green" data-w="40"></div></div>
-      </div>
-      <div class="skill-bar-group">
-        <div class="skill-bar-header">
-          <span class="skill-bar-name">Dynamic Programming</span>
-          <span class="skill-bar-pct">20%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill skill-bar-fill--green" data-w="20"></div></div>
-      </div>
-      <div class="skill-bar-group">
-        <div class="skill-bar-header">
-          <span class="skill-bar-name">Python · scikit-learn · NumPy</span>
-          <span class="skill-bar-pct">72%</span>
-        </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill skill-bar-fill--warm" data-w="72"></div></div>
-      </div>
-    </div>
-  </section>
+.status-done {
+  color: #34d399;
+  background: rgba(52,211,153,0.1);
+  border: 1px solid rgba(52,211,153,0.25);
+}
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section container" aria-labelledby="exp-title">
-    <h2 id="exp-title"><span class="sec-num">02.</span> Experience</h2>
+.project-link {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.project-link:hover { color: var(--accent); }
 
-    <div class="exp-list">
+.project-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
 
-      <article class="card exp-card">
-        <div class="exp-header">
-          <div>
-            <h3 class="exp-role">Competitive Programming Member</h3>
-            <span class="exp-org">ICPC — Université Française d'Égypte (UFE)</span>
-          </div>
-          <span class="exp-date">Nov 2025 — Present</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Solved 250+ algorithmic problems on Codeforces, strengthening proficiency in data structures, recursion, and STL.</li>
-          <li>Applied prefix sums and sorting techniques to optimise time complexity across competitive problems.</li>
-        </ul>
-      </article>
+.project-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin: -0.4rem 0 0;
+  opacity: 0.85;
+}
 
-      <article class="card exp-card">
-        <div class="exp-header">
-          <div>
-            <h3 class="exp-role">Competitive Programmer Trainee</h3>
-            <span class="exp-org">ICPC — University of Sadat City (USC)</span>
-          </div>
-          <span class="exp-date">Mar 2025 — Present</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Implemented and optimised solutions using binary search, graph algorithms, and constructive approaches.</li>
-          <li>Reduced solution runtime through complexity optimisation: greedy, constructive, and ad-hoc techniques.</li>
-        </ul>
-      </article>
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin: 0;
+}
 
-    </div>
-  </section>
+.project-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-left: 2px solid rgba(56,189,248,0.2);
+  padding-left: 0.85rem;
+}
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section container" aria-labelledby="projects-title">
-    <h2 id="projects-title"><span class="sec-num">03.</span> Projects</h2>
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
 
-    <div class="projects-grid">
+.highlight-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
 
-      <article class="card project-card">
-        <div class="project-header">
-          <div class="project-meta">
-            <span class="project-lang">C++17</span>
-            <span class="project-status status-wip">In Progress</span>
-          </div>
-          <a href="https://github.com/ahmedmohsen-eng/cpp-library-system"
-             target="_blank" rel="noopener noreferrer"
-             class="project-link" aria-label="View on GitHub">&#8599;</a>
-        </div>
+.highlight-val {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  line-height: 1.45;
+}
 
-        <h3 class="project-title">C++ Library Management System</h3>
-        <p class="project-sub">C++17 · OOP · Custom Data Structures</p>
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
 
-        <p class="project-desc">
-          Fully object-oriented command-line library system built from scratch in C++17 across 11 source files — zero external dependencies.
-        </p>
+/* =========================================================
+   NEW ADDITIONS v2 — Experience, Certifications, Skill Bars,
+   CF live card (enhanced), Social row, Footer CV link
+   ========================================================= */
 
-        <div class="project-highlights">
-          <div class="highlight-item">
-            <span class="highlight-label">Data Structure</span>
-            <span class="highlight-val">Custom HashMap — djb2 hash, open addressing, tombstone deletion, O(1) average lookup — designed from scratch rather than relying on std::unordered_map</span>
-          </div>
-          <div class="highlight-item">
-            <span class="highlight-label">OOP Architecture</span>
-            <span class="highlight-val">Multi-class hierarchy (Book, Member, Librarian) with clean separation of concerns, encapsulation, and Makefile build system</span>
-          </div>
-          <div class="highlight-item">
-            <span class="highlight-label">Persistence</span>
-            <span class="highlight-val">Pipe-delimited file I/O enabling full data retention across sessions — auto-save on every write operation</span>
-          </div>
-          <div class="highlight-item">
-            <span class="highlight-label">Build</span>
-            <span class="highlight-val">GNU Make · g++ -std=c++17 -Wall -Wextra -O2</span>
-          </div>
-        </div>
+/* ── CF card v2 — enhanced with status dot + rows ───────── */
+.cf-card {
+  position: absolute;
+  right: -8px;
+  bottom: -16px;
+  background: var(--bg-2);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-hi);
+  min-width: 144px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
 
-        <div class="project-tags">
-          <span class="tag">C++17</span>
-          <span class="tag">OOP</span>
-          <span class="tag">Custom HashMap</span>
-          <span class="tag">File I/O</span>
-          <span class="tag">GNU Make</span>
-          <span class="tag">Systems Design</span>
-        </div>
-      </article>
+.cf-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--border);
+}
+.cf-logo {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(56,189,248,0.1);
+  border: 1px solid rgba(56,189,248,0.2);
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+.cf-handle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-2);
+  flex: 1;
+}
+.cf-status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--text-2);
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+.dot-online  { background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.6); animation: pulse 2s ease infinite; }
+.dot-offline { background: #ef4444; }
+.dot-slow    { background: #f59e0b; }
 
-    </div>
-  </section>
+.cf-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+}
+.cf-label {
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.cf-val {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.cf-rank-val { font-size: 0.65rem; }
+.cf-state {
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  color: var(--text-2);
+  text-align: right;
+  margin-top: 4px;
+  opacity: 0.65;
+  min-height: 0.8rem;
+}
 
-  <!-- CERTIFICATIONS & AWARDS -->
-  <section id="certifications" class="section container" aria-labelledby="certs-title">
-    <h2 id="certs-title"><span class="sec-num">04.</span> Awards &amp; Certifications</h2>
+/* ── Social row ─────────────────────────────────────────── */
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
+  transition: color var(--dur-fast);
+}
+.social-link:hover { color: var(--accent); }
+.social-link svg { flex-shrink: 0; }
 
-    <!-- Award -->
-    <div class="award-card card">
-      <div class="award-icon">&#127942;</div>
-      <div class="award-body">
-        <div class="award-title">Schneider Electric &amp; UFE Excellence Scholarship</div>
-        <div class="award-sub">Schneider Electric &amp; Université Française d'Égypte · Sep 2025</div>
-        <div class="award-desc">Awarded for outstanding academic merit — selected from the full incoming Computer Engineering cohort.</div>
-      </div>
-    </div>
+/* ── Skill bars ─────────────────────────────────────────── */
+.skill-bars {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 680px;
+}
+.skill-bar-group {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.skill-bar-group.active {
+  opacity: 1;
+  transform: none;
+}
+.skill-bar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.skill-bar-name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-2);
+}
+.skill-bar-pct {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.skill-bar-track {
+  height: 5px;
+  background: rgba(56,189,248,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 1.2s var(--ease);
+}
+.skill-bar-fill--green { background: linear-gradient(90deg, #22c55e, #16a34a); }
+.skill-bar-fill--warm  { background: linear-gradient(90deg, var(--accent-warm), #f97316); }
 
-    <div class="certs-grid">
-      <div class="card cert-card">
-        <div class="cert-icon cert-icon--nvidia">DLI</div>
-        <div class="cert-body">
-          <div class="cert-name">Getting Started with Deep Learning</div>
-          <div class="cert-issuer">NVIDIA Deep Learning Institute</div>
-          <div class="cert-date">April 2026</div>
-        </div>
-      </div>
-      <div class="card cert-card">
-        <div class="cert-icon cert-icon--dc">DC</div>
-        <div class="cert-body">
-          <div class="cert-name">Supervised Learning with scikit-learn</div>
-          <div class="cert-issuer">DataCamp</div>
-          <div class="cert-date">April 2026</div>
-        </div>
-      </div>
-      <div class="card cert-card">
-        <div class="cert-icon cert-icon--365">365</div>
-        <div class="cert-body">
-          <div class="cert-name">Deep Learning with PyTorch</div>
-          <div class="cert-issuer">365 Data Science</div>
-          <div class="cert-date">March 2026</div>
-        </div>
-      </div>
-      <div class="card cert-card">
-        <div class="cert-icon cert-icon--365">365</div>
-        <div class="cert-body">
-          <div class="cert-name">Git and GitHub</div>
-          <div class="cert-issuer">365 Data Science</div>
-          <div class="cert-date">March 2026</div>
-        </div>
-      </div>
-    </div>
-  </section>
+/* ── Experience section ─────────────────────────────────── */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.exp-card { padding: 1.5rem 1.75rem; }
+.exp-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+.exp-role {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 0.25rem;
+  line-height: 1.3;
+}
+.exp-org {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+.exp-date {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-2);
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.exp-bullets li {
+  display: flex;
+  gap: 0.7rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.exp-bullets li::before {
+  content: '▸';
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 0.75em;
+}
 
-  <!-- CONTACT / FOOTER -->
-  <footer id="contact" class="container">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <h3>Let&#39;s Connect</h3>
-        <a href="mailto:ahmed.mohsen.ce@gmail.com" class="footer-email">ahmed.mohsen.ce@gmail.com</a>
-        <div class="footer-links">
-          <a href="https://github.com/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <span class="footer-sep">&middot;</span>
-          <a href="https://linkedin.com/in/ahmedmohsen-eng" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span class="footer-sep">&middot;</span>
-          <a href="https://codeforces.com/profile/hackgg106" target="_blank" rel="noopener noreferrer">Codeforces</a>
-          <span class="footer-sep">&middot;</span>
-          <a href="public/assets/Ahmed-Mohsen-Computer-Engineering-CV.pdf" download rel="noopener">Download CV &#8595;</a>
-        </div>
-      </div>
-      <div class="footer-right">
-        <p class="muted">Schneider Electric Excellence Scholar</p>
-        <p class="muted">Computer Engineering &middot; UFE &middot; Cairo</p>
-        <p class="muted footer-version">v2.0.0 &middot; Ahmed Mohsen &middot; 2026</p>
-      </div>
-    </div>
-  </footer>
+/* ── Certifications ─────────────────────────────────────── */
+.award-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+  background: rgba(251,146,60,0.04);
+  border-color: rgba(251,146,60,0.2);
+}
+.award-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+.award-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.award-sub {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-warm);
+  margin-bottom: 0.35rem;
+}
+.award-desc { font-size: 0.87rem; color: var(--text-2); line-height: 1.55; }
 
-  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">&#8679;</button>
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 0;
+}
+.cert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+}
+.cert-icon {
+  width: 40px; height: 40px;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+.cert-icon--nvidia { background: rgba(118,185,0,0.12); color: #76b900; border: 1px solid rgba(118,185,0,0.25); }
+.cert-icon--dc     { background: rgba(56,189,248,0.1); color: var(--accent); border: 1px solid rgba(56,189,248,0.2); }
+.cert-icon--365    { background: rgba(129,140,248,0.1); color: var(--accent-2); border: 1px solid rgba(129,140,248,0.2); }
+.cert-body {}
+.cert-name  { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+.cert-issuer {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent);
+  margin-bottom: 0.15rem;
+}
+.cert-date { font-size: 0.72rem; color: var(--text-2); }
 
-  <script src="js/codeforces.js" type="module"></script>
-  <script src="js/main.js"></script>
-</body>
-</html>
+/* Light mode overrides for new sections */
+html.light .cf-card { background: rgba(240,246,255,0.95); }
+html.light .exp-card { background: rgba(255,255,255,0.92); }
+html.light .cert-card { background: rgba(255,255,255,0.92); }
+html.light .award-card { background: rgba(251,146,60,0.06); }
+html.light .skill-bar-track { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.12); }
+html.light .skill-bar-fill { background: linear-gradient(90deg, #2563eb, #7c3aed); }
+html.light .skill-bar-fill--green { background: linear-gradient(90deg, #16a34a, #15803d); }
+html.light .skill-bar-fill--warm  { background: linear-gradient(90deg, #ea580c, #dc2626); }
+html.light .social-link { color: #3a5270; }
+html.light .exp-org { color: #2563eb; }
+html.light .cert-issuer { color: #2563eb; }
+html.light .cf-label { color: #3a5270; }
+html.light .award-sub { color: #ea580c; }
