@@ -143,9 +143,9 @@ html.light nav { background: rgba(247, 245, 240, 0.90); border-bottom-color: rgb
 
 /* ── Hero ──────────────────────────────────────────────── */
 header {
-  padding-top: calc(var(--nav-h) + 4.5rem);
-  padding-bottom: 5rem;
-  min-height: 90vh;
+  padding-top: calc(var(--nav-h) + 3rem);
+  padding-bottom: 3.5rem;
+  min-height: auto;
   display: flex;
   align-items: center;
 }
@@ -952,9 +952,8 @@ html.light .cf-logo { color:#C07010; background:rgba(192,112,16,0.10); border-co
   border-radius: 3px;
   width: 0;
   background: var(--color, var(--accent));
-  animation: growBar 1s var(--ease) both;
 }
-@keyframes growBar { from{width:0} to{width:var(--pct)} }
+
 
 .cf-tag-count {
   font-family: var(--font-mono);
