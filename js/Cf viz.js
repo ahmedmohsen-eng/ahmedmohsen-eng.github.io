@@ -50,7 +50,7 @@ function renderRating(contests, wrap) {
     return;
   }
 
-  const W  = Math.max(wrap.getBoundingClientRect().width || 360, 260);
+  const W  = Math.max(wrap.getBoundingClientRect().width || wrap.offsetWidth || wrap.parentElement?.offsetWidth || 400, 260);
   const H  = 200;
   const P  = { top: 20, right: 24, bottom: 36, left: 48 };
   const cW = W - P.left - P.right;
