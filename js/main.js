@@ -1,94 +1,35 @@
-// js/main.js — Central controller v2
 document.addEventListener('DOMContentLoaded', () => {
-
-  /* ── 1. THEME TOGGLE ──────────────────────────────────── */
-  const root    = document.documentElement;
-  const themeBt = document.getElementById('themeToggle');
-  if (themeBt) {
-    const applyTheme = (isLight) => {
-      if (isLight) root.classList.add('light');
-      else root.classList.remove('light');
-      themeBt.textContent = isLight ? '☀️' : '🌙';
-      themeBt.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
-      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (_) {}
-    };
-    applyTheme(root.classList.contains('light'));
-    themeBt.addEventListener('click', () => applyTheme(!root.classList.contains('light')));
+  // Theme
+  const root=document.documentElement, tb=document.getElementById('themeToggle');
+  if(tb){
+    const apply=l=>{l?root.classList.add('light'):root.classList.remove('light');tb.textContent=l?'☀️':'🌙';tb.setAttribute('aria-label',l?'Switch to dark mode':'Switch to light mode');try{localStorage.setItem('theme',l?'light':'dark');}catch(_){}};
+    apply(root.classList.contains('light'));
+    tb.addEventListener('click',()=>apply(!root.classList.contains('light')));
   }
-
-  /* ── 2. CURSOR GLOW ───────────────────────────────────── */
-  const cursor = document.getElementById('cursor');
-  if (cursor && window.matchMedia('(hover: hover)').matches) {
-    let rx = -9999, ry = -9999, cx = -9999, cy = -9999;
-    const lerp = (a, b, t) => a + (b - a) * t;
-    window.addEventListener('mousemove', e => { rx = e.clientX; ry = e.clientY; }, { passive: true });
-    const track = () => {
-      cx = lerp(cx, rx, 0.12); cy = lerp(cy, ry, 0.12);
-      cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
-      requestAnimationFrame(track);
-    };
-    requestAnimationFrame(track);
-  } else if (cursor) { cursor.style.display = 'none'; }
-
-  /* ── 3. SCROLL PROGRESS BAR ───────────────────────────── */
-  const bar = document.getElementById('progress');
-  if (bar) {
-    const updateBar = () => {
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - doc.clientHeight;
-      bar.style.width = max > 0 ? (doc.scrollTop / max) * 100 + '%' : '0%';
-    };
-    window.addEventListener('scroll', updateBar, { passive: true });
-    updateBar();
-  }
-
-  /* ── 4. REVEAL ON SCROLL ─────────────────────────────── */
-  const revealObs = new IntersectionObserver((entries, observer) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { en.target.classList.add('active'); observer.unobserve(en.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll(
-    '.card, .skill-card, .project-card, .section h2, .profile-frame, .exp-card, .cert-card, .award-card'
-  ).forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
-
-  /* ── 5. SKILL BARS ────────────────────────────────────── */
-  const allBarGroups = document.querySelectorAll('.skill-bar-group');
-  const barObs = new IntersectionObserver((entries, observer) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        const fill = en.target.querySelector('.skill-bar-fill');
-        if (fill) {
-          const idx = Array.from(allBarGroups).indexOf(en.target);
-          setTimeout(() => { fill.style.width = (fill.dataset.w || 0) + '%'; }, idx * 120);
-        }
-        en.target.classList.add('active');
-        observer.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  allBarGroups.forEach(g => barObs.observe(g));
-
-  /* ── 6. NAV ACTIVE LINK ───────────────────────────────── */
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const secObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-      }
-    });
-  }, { threshold: 0.35, rootMargin: '0px 0px -60% 0px' });
-  document.querySelectorAll('section[id], header[id], footer[id]').forEach(s => secObs.observe(s));
-
-  /* ── 7. SCROLL TO TOP ─────────────────────────────────── */
-  const scrollTopBtn = document.getElementById('scrollTop');
-  if (scrollTopBtn) {
-    window.addEventListener('scroll', () => {
-      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
-    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
-
+  // Cursor
+  const cur=document.getElementById('cursor');
+  if(cur&&window.matchMedia('(hover:hover)').matches){
+    let rx=-9999,ry=-9999,cx=-9999,cy=-9999;
+    const lerp=(a,b,t)=>a+(b-a)*t;
+    window.addEventListener('mousemove',e=>{rx=e.clientX;ry=e.clientY;},{passive:true});
+    const tr=()=>{cx=lerp(cx,rx,0.12);cy=lerp(cy,ry,0.12);cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(tr);};
+    requestAnimationFrame(tr);
+  } else if(cur) cur.style.display='none';
+  // Progress bar
+  const bar=document.getElementById('progress');
+  if(bar){const u=()=>{const d=document.documentElement,m=d.scrollHeight-d.clientHeight;bar.style.width=m>0?(d.scrollTop/m)*100+'%':'0%';};window.addEventListener('scroll',u,{passive:true});u();}
+  // Reveal
+  const ro=new IntersectionObserver((es,obs)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');obs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.card,.skill-card,.project-card,.section h2,.profile-frame,.exp-card,.cert-card,.award-card,.cf-viz-card').forEach(el=>{el.classList.add('reveal');ro.observe(el);});
+  // Skill bars
+  const allBars=document.querySelectorAll('.skill-bar-group');
+  const bo=new IntersectionObserver((es,obs)=>{es.forEach(e=>{if(e.isIntersecting){const f=e.target.querySelector('.skill-bar-fill');if(f){const i=Array.from(allBars).indexOf(e.target);setTimeout(()=>{f.style.width=(f.dataset.w||0)+'%';},i*120);}e.target.classList.add('active');obs.unobserve(e.target);}});},{threshold:0.15});
+  allBars.forEach(g=>bo.observe(g));
+  // Nav active
+  const nl=document.querySelectorAll('.nav-links a');
+  const so=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;nl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));}});},{threshold:0.35,rootMargin:'0px 0px -60% 0px'});
+  document.querySelectorAll('section[id],header[id],footer[id]').forEach(s=>so.observe(s));
+  // Scroll top
+  const st=document.getElementById('scrollTop');
+  if(st){window.addEventListener('scroll',()=>st.classList.toggle('visible',window.scrollY>400),{passive:true});st.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));}
 });
