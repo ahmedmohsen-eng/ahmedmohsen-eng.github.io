@@ -854,7 +854,7 @@ html.light .cf-logo { color:#C07010; background:rgba(192,112,16,0.10); border-co
   border-radius: var(--radius);
   padding: 1.5rem 1.75rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .cf-viz-card::before {
   content: '';
@@ -979,3 +979,6 @@ html.light .cf-skeleton {
   background: linear-gradient(90deg, rgba(192,112,16,0.08) 25%, rgba(192,112,16,0.15) 50%, rgba(192,112,16,0.08) 75%);
   background-size: 200% 100%;
 }
+
+/* CF chart container min-heights */
+#cf-rating-chart, #cf-tag-chart { min-height: 180px; }
