@@ -123,6 +123,10 @@
               <span class="cf-label">Rating</span>
               <span class="cf-val" id="cf-rating">—</span>
             </div>
+            <div class="cf-row">
+              <span class="cf-label">Solved</span>
+              <span class="cf-val" id="cf-solved-count">—</span>
+            </div>
             <div class="cf-row" id="cf-rank-row" style="display:none">
               <span class="cf-label">Rank</span>
               <span class="cf-val cf-rank-val" id="cf-rank">—</span>
@@ -525,9 +529,9 @@ function renderTags(subs, wrap) {
   const mx = sorted[0][1];
 
   wrap.innerHTML = `
-    <div class="cf-tag-meta">
+    <div class="cf-tag-meta" style="display:none">
       <span class="cf-tag-total">
-        <span style="color:${tAccent()};font-weight:700">${total}</span>&nbsp;unique problems
+        <span style="color:${tAccent()};font-weight:700">${total}</span>&nbsp;problems
       </span>
       <span class="cf-tag-note">top ${sorted.length} tags</span>
     </div>
@@ -634,6 +638,24 @@ async function loadCF() {
     if(rankRow) {
       if(SHOW_RANK.includes(rank)) { setEl('cf-rank',rank.toUpperCase()); rankRow.style.display=''; }
       else rankRow.style.display='none';
+    }
+    // Fetch solved count
+    try {
+      const subRes = await fetchWithTimeout(`https://codeforces.com/api/user.status?handle=${HANDLE}&from=1&count=10000`, 10000);
+      if (subRes.ok) {
+        const subData = await subRes.json();
+        if (subData.status === 'OK') {
+          const solvedSet = new Set();
+          for (const s of subData.result) {
+            if (s.verdict === 'OK') solvedSet.add(s.problem.contestId + '_' + s.problem.index);
+          }
+          const solvedEl = document.getElementById('cf-solved-count');
+          if (solvedEl) solvedEl.textContent = solvedSet.size;
+        }
+      }
+    } catch(_) {
+      const solvedEl = document.getElementById('cf-solved-count');
+      if (solvedEl) solvedEl.textContent = '—';
     }
     setDot('online');
   } catch(err) {
