@@ -123,11 +123,7 @@
               <span class="cf-label">Rating</span>
               <span class="cf-val" id="cf-rating">—</span>
             </div>
-            <div class="cf-row">
-              <span class="cf-label">Solved</span>
-              <span class="cf-val" id="cf-solved-count">—</span>
-            </div>
-            <div class="cf-row" id="cf-rank-row" style="display:none">
+<div class="cf-row" id="cf-rank-row" style="display:none">
               <span class="cf-label">Rank</span>
               <span class="cf-val cf-rank-val" id="cf-rank">—</span>
             </div>
@@ -186,7 +182,7 @@
 
   <!-- CF STATS -->
   <section id="cf-stats" class="section container" aria-labelledby="cf-stats-title">
-    <h2 id="cf-stats-title"><span class="sec-num">02.</span> Competitive Programming Stats</h2>
+    <h2 id="cf-stats-title"><span class="sec-num">02.</span> Competitive Programming Stats <span style="font-family:var(--font-mono);font-size:0.75rem;font-weight:500;color:var(--accent);letter-spacing:0.04em;vertical-align:middle;opacity:0.85;">— 300 problems solved</span></h2>
     <div class="cf-viz-grid">
 
       <div class="card cf-viz-card">
@@ -544,7 +540,6 @@ function renderTags(subs, wrap) {
           <div class="cf-tag-bar-wrap">
             <div class="cf-tag-bar" data-pct="${pct}" style="background:${col};width:0"></div>
           </div>
-          <div class="cf-tag-count" style="color:${col}">${n}</div>
         </div>`;
       }).join('')}
     </div>`;
@@ -638,24 +633,6 @@ async function loadCF() {
     if(rankRow) {
       if(SHOW_RANK.includes(rank)) { setEl('cf-rank',rank.toUpperCase()); rankRow.style.display=''; }
       else rankRow.style.display='none';
-    }
-    // Fetch solved count
-    try {
-      const subRes = await fetchWithTimeout(`https://codeforces.com/api/user.status?handle=${HANDLE}&from=1&count=10000`, 10000);
-      if (subRes.ok) {
-        const subData = await subRes.json();
-        if (subData.status === 'OK') {
-          const solvedSet = new Set();
-          for (const s of subData.result) {
-            if (s.verdict === 'OK') solvedSet.add(s.problem.contestId + '_' + s.problem.index);
-          }
-          const solvedEl = document.getElementById('cf-solved-count');
-          if (solvedEl) solvedEl.textContent = solvedSet.size;
-        }
-      }
-    } catch(_) {
-      const solvedEl = document.getElementById('cf-solved-count');
-      if (solvedEl) solvedEl.textContent = '—';
     }
     setDot('online');
   } catch(err) {
