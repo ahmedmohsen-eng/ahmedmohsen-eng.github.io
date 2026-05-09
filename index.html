@@ -182,7 +182,7 @@
 
   <!-- CF STATS -->
   <section id="cf-stats" class="section container" aria-labelledby="cf-stats-title">
-    <h2 id="cf-stats-title"><span class="sec-num">02.</span> Competitive Programming Stats <span style="font-family:var(--font-mono);font-size:0.75rem;font-weight:500;color:var(--accent);letter-spacing:0.04em;vertical-align:middle;opacity:0.85;">— 300 problems solved</span></h2>
+    <h2 id="cf-stats-title"><span class="sec-num">02.</span> Competitive Programming Stats</h2>
     <div class="cf-viz-grid">
 
       <div class="card cf-viz-card">
@@ -191,7 +191,7 @@
       </div>
 
       <div class="card cf-viz-card">
-        <div class="cf-viz-title">Problems by Algorithm Tag</div>
+        <div class="cf-viz-title">Problems by Algorithm Tag <span style="font-family:var(--font-mono);font-size:0.75rem;font-weight:600;color:var(--accent);margin-left:0.4rem;opacity:0.9;">+300</span></div>
         <div id="cf-tag-chart"></div>
       </div>
 
@@ -540,6 +540,7 @@ function renderTags(subs, wrap) {
           <div class="cf-tag-bar-wrap">
             <div class="cf-tag-bar" data-pct="${pct}" style="background:${col};width:0"></div>
           </div>
+          <div style="font-family:var(--font-mono);font-size:0.68rem;font-weight:600;color:${col};min-width:36px;text-align:right;">${Math.round(parseFloat(pct))}%</div>
         </div>`;
       }).join('')}
     </div>`;
