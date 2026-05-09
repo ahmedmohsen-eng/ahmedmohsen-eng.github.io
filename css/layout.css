@@ -965,10 +965,10 @@ html.light .cf-logo { color:#C07010; background:rgba(192,112,16,0.10); border-co
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 860px) {
   .cf-viz-grid { grid-template-columns: 1fr; }
-  .cf-tag-row  { grid-template-columns: 120px 1fr 32px; }
+  .cf-tag-row  { grid-template-columns: 120px 1fr 36px; }
 }
 @media (max-width: 560px) {
-  .cf-tag-row  { grid-template-columns: 100px 1fr 28px; }
+  .cf-tag-row  { grid-template-columns: 100px 1fr 36px; }
   .cf-tag-label { font-size: 0.62rem; }
 }
 
