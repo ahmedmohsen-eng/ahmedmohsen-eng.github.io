@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head><title>CF API Test</title></head>
+<body>
+<h2>CF API Endpoint Test</h2>
+<pre id="out">Testing...</pre>
+<script>
+const out = document.getElementById('out');
+const log = msg => { out.textContent += msg + '\n'; console.log(msg); };
+
+async function test(label, url) {
+  try {
+    const res = await fetch(url);
+    const json = await res.json();
+    log(`✓ ${label}: status=${json.status} items=${Array.isArray(json.result) ? json.result.length : 'object'}`);
+    if (json.result && Array.isArray(json.result) && json.result[0]) {
+      log(`  first item keys: ${Object.keys(json.result[0]).slice(0,5).join(', ')}`);
+    }
+  } catch(e) {
+    log(`✗ ${label}: ${e.message}`);
+  }
+}
+
+async function run() {
+  log('Testing from: ' + location.origin);
+  log('');
+  await test('user.info', 'https://codeforces.com/api/user.info?handles=hackgg106');
+  await test('user.rating', 'https://codeforces.com/api/user.rating?handle=hackgg106');
+  await test('user.status (5)', 'https://codeforces.com/api/user.status?handle=hackgg106&from=1&count=5');
+}
+run();
+</script>
+</body>
+</html>
